@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026年FIFA世界杯赛程表</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
 
         body {
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
@@ -19,12 +15,9 @@
             padding: 20px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1200px; margin:0 auto; }
 
-        /* 顶部横幅 */
+        /* ========= 顶部横幅 ========= */
         .header {
             text-align: center;
             padding: 40px 20px;
@@ -33,9 +26,8 @@
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
-
         .header::before {
             content: '⚽';
             position: absolute;
@@ -45,44 +37,75 @@
             right: -30px;
             transform: rotate(15deg);
         }
-
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative; z-index: 1;
         }
-
         .header .subtitle {
             font-size: 1.1em;
             color: #8bb8e8;
             line-height: 1.8;
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
         }
+        .header .subtitle strong { color: #ffd700; }
 
-        .header .subtitle strong {
-            color: #ffd700;
+        /* ========= Tab 切换 ========= */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
+        .tab-btn {
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #0a1628;
+            font-weight: 600;
+            border-color: #FFD700;
+            box-shadow: 0 4px 20px rgba(255,215,0,0.3);
+        }
+        .tab-content { display: none; animation: fadeIn 0.5s ease; }
+        .tab-content.active { display: block; }
 
-        /* 阶段卡片 */
+        /* ========= 阶段卡片 ========= */
         .stage-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.6s ease forwards;
         }
-
+        .stage-card:nth-child(2) { animation-delay: 0.1s; }
+        .stage-card:nth-child(3) { animation-delay: 0.2s; }
+        .stage-card:nth-child(4) { animation-delay: 0.3s; }
+        .stage-card:nth-child(5) { animation-delay: 0.4s; }
+        .stage-card:nth-child(6) { animation-delay: 0.5s; }
+        .stage-card:nth-child(7) { animation-delay: 0.6s; }
         .stage-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
         }
-
         .stage-title {
             font-size: 1.8em;
             margin-bottom: 20px;
@@ -92,79 +115,38 @@
             align-items: center;
             gap: 15px;
         }
+        .stage-title .icon { font-size: 1.2em; }
 
-        .stage-title .icon {
-            font-size: 1.2em;
-        }
-
-        /* 不同阶段颜色 */
-        .stage-group {
-            border-color: #4CAF50;
-        }
-        .stage-group .stage-title {
-            color: #4CAF50;
-            border-color: #4CAF50;
-        }
-
-        .stage-32 {
-            border-color: #FF9800;
-        }
-        .stage-32 .stage-title {
-            color: #FF9800;
-            border-color: #FF9800;
-        }
-
-        .stage-16 {
-            border-color: #2196F3;
-        }
-        .stage-16 .stage-title {
-            color: #2196F3;
-            border-color: #2196F3;
-        }
-
-        .stage-quarter {
-            border-color: #9C27B0;
-        }
-        .stage-quarter .stage-title {
-            color: #9C27B0;
-            border-color: #9C27B0;
-        }
-
-        .stage-semi {
-            border-color: #FF5722;
-        }
-        .stage-semi .stage-title {
-            color: #FF5722;
-            border-color: #FF5722;
-        }
-
+        .stage-group  { border-color: #4CAF50; }
+        .stage-group .stage-title { color: #4CAF50; border-color: #4CAF50; }
+        .stage-32    { border-color: #FF9800; }
+        .stage-32 .stage-title { color: #FF9800; border-color: #FF9800; }
+        .stage-16    { border-color: #2196F3; }
+        .stage-16 .stage-title { color: #2196F3; border-color: #2196F3; }
+        .stage-quarter { border-color: #9C27B0; }
+        .stage-quarter .stage-title { color: #9C27B0; border-color: #9C27B0; }
+        .stage-semi   { border-color: #FF5722; }
+        .stage-semi .stage-title { color: #FF5722; border-color: #FF5722; }
         .stage-final {
             border-color: #FFD700;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(255,215,0,0.05) 100%);
         }
-        .stage-final .stage-title {
-            color: #FFD700;
-            border-color: #FFD700;
-        }
+        .stage-final .stage-title { color: #FFD700; border-color: #FFD700; }
 
-        /* 表格样式 */
+        /* ========= 表格通用 ========= */
         .table-wrapper {
-            overflow-x: auto;
+            overflow-x: hidden;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.3);
-            min-width: 700px;
+            background: rgba(0,0,0,0.3);
         }
-
         thead {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
         }
-
         th {
             padding: 15px 12px;
             text-align: left;
@@ -173,78 +155,130 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #8bb8e8;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid rgba(255,255,255,0.1);
         }
-
         td {
             padding: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             font-size: 0.95em;
         }
+        tbody tr { transition: all 0.3s ease; }
+        tbody tr:hover { background: rgba(255,255,255,0.08); transform: scale(1.01); }
+        tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+        tbody tr:nth-child(even):hover { background: rgba(255,255,255,0.08); }
 
-        /* 比分列样式 */
+        /* 比分列 - 纯展示 */
         .score-col {
             min-width: 80px;
             text-align: center;
             color: #FFD700;
             font-weight: 600;
             font-size: 1.05em;
-            cursor: text;
-            border-radius: 6px;
-            transition: background 0.2s;
         }
+        td:first-child, td:nth-child(2) { color: #FFD700; font-weight: 600; }
 
-        .score-col:focus {
-            background: rgba(255, 215, 0, 0.1);
-            outline: 2px solid rgba(255, 215, 0, 0.4);
+        /* ========= 小组积分 ========= */
+        .standings-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0,0,0,0.3);
         }
-
-        .score-col:empty::before {
-            content: '—';
-            color: rgba(255, 255, 255, 0.2);
+        .standings-table thead {
+            background: linear-gradient(135deg, rgba(76,175,80,0.3) 0%, rgba(76,175,80,0.1) 100%);
         }
-
-        tbody tr {
-            transition: all 0.3s ease;
-        }
-
-        tbody tr:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: scale(1.01);
-        }
-
-        tbody tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        tbody tr:nth-child(even):hover {
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* 时间和日期高亮 */
-        td:first-child,
-        td:nth-child(2) {
-            color: #FFD700;
+        .standings-table th {
+            padding: 12px 8px;
+            text-align: center;
             font-weight: 600;
+            font-size: 0.9em;
+            color: #4CAF50;
+            border-bottom: 2px solid rgba(76,175,80,0.3);
         }
+        .standings-table td {
+            padding: 10px 8px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95em;
+        }
+        .standings-table .team-name { text-align: left; font-weight: 500; }
+        .standings-table .rank { color: #FFD700; font-weight: 600; }
+        .standings-table tr:hover { background: rgba(255,255,255,0.08); }
+        .qualify { color: #4CAF50; font-weight: 600; }
 
-        /* 备注 */
+        /* 小组卡片网格 */
+        .groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .group-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(76,175,80,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        .group-card h3 {
+            font-size: 1.1em;
+            color: #4CAF50;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(76,175,80,0.3);
+        }
+        .group-card .table-wrapper { overflow-x: hidden; }
+
+        /* ========= 射手榜/助攻榜 ========= */
+        .stats-section { margin-bottom: 40px; }
+        .stats-section h2 {
+            font-size: 1.4em;
+            color: #FFD700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+        }
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0,0,0,0.3);
+        }
+        .stats-table thead {
+            background: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(255,215,0,0.05) 100%);
+        }
+        .stats-table th {
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+            color: #FFD700;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+        }
+        .stats-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95em;
+        }
+        .stats-table .rank {
+            color: #FFD700; font-weight: 600; text-align: center; width: 60px;
+        }
+        .stats-table .number {
+            text-align: center; color: #FFD700; font-weight: 600; font-size: 1.1em; width: 80px;
+        }
+        .stats-table tr:hover { background: rgba(255,255,255,0.08); }
+
+        /* ========= 备注 & 页脚 ========= */
         .note {
             margin-top: 30px;
             padding: 20px;
-            background: rgba(255, 215, 0, 0.05);
+            background: rgba(255,215,0,0.05);
             border-left: 4px solid #FFD700;
             border-radius: 5px;
             color: #ccc;
             font-size: 0.9em;
             line-height: 1.6;
         }
+        .note strong { color: #FFD700; }
 
-        .note strong {
-            color: #FFD700;
-        }
-
-        /* 页脚 */
         .footer {
             text-align: center;
             padding: 30px;
@@ -253,71 +287,118 @@
             margin-top: 30px;
         }
 
-        /* 保存提示 */
-        .save-toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(76, 175, 80, 0.95);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-size: 0.95em;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            z-index: 999;
-            pointer-events: none;
-        }
-
-        .save-toast.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* 响应式设计 */
+        /* ========= 响应式 ========= */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .stage-title {
-                font-size: 1.4em;
-            }
-
-            td, th {
-                padding: 10px 8px;
-                font-size: 0.85em;
-            }
+            .header h1 { font-size: 1.8em; }
+            .stage-title { font-size: 1.4em; }
+            td, th { padding: 10px 8px; font-size: 0.85em; }
+            .tab-nav { gap: 5px; }
+            .tab-btn { padding: 10px 20px; font-size: 0.9em; }
+            .groups-grid { grid-template-columns: 1fr; }
         }
 
-        /* 动画 */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .stage-card {
-            animation: fadeIn 0.6s ease forwards;
+        /* ========= 球队阵容弹窗 ========= */
+        .modal-overlay {
+            position: fixed; top:0; left:0; right:0; bottom:0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+            overflow-y: auto;
         }
+        .modal-overlay.active { display: flex; }
 
-        .stage-card:nth-child(2) { animation-delay: 0.1s; }
-        .stage-card:nth-child(3) { animation-delay: 0.2s; }
-        .stage-card:nth-child(4) { animation-delay: 0.3s; }
-        .stage-card:nth-child(5) { animation-delay: 0.4s; }
-        .stage-card:nth-child(6) { animation-delay: 0.5s; }
-        .stage-card:nth-child(7) { animation-delay: 0.6s; }
+        .modal-box {
+            background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            width: 100%; max-width: 700px;
+            padding: 30px;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+        @keyframes modalIn {
+            from { opacity:0; transform: translateY(-30px) scale(0.95); }
+            to   { opacity:1; transform: translateY(0) scale(1); }
+        }
+        .modal-close {
+            position: absolute; top:15px; right:20px;
+            background: none; border: none;
+            color: #aaa; font-size: 28px;
+            cursor: pointer; transition: color 0.2s; line-height: 1;
+        }
+        .modal-close:hover { color: #fff; }
+
+        .modal-header {
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 20px; padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+        }
+        .modal-header
+        .modal-header .team-info h2 { font-size: 1.6em; color: #FFD700; margin-bottom: 4px; }
+        .modal-header .team-info .coach { font-size: 0.9em; color: #8bb8e8; }
+
+        .roster-section { margin-bottom: 18px; }
+        .roster-section h3 {
+            font-size: 0.95em;
+            margin-bottom: 6px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            border-left: 3px solid;
+        }
+        .roster-section.GK h3 { color:#FF9800; background:rgba(255,152,0,0.1); border-left-color:#FF9800; }
+        .roster-section.DF h3 { color:#64B5F6; background:rgba(33,150,243,0.1); border-left-color:#2196F3; }
+        .roster-section.MF h3 { color:#CE93D8; background:rgba(156,39,176,0.1); border-left-color:#9C27B0; }
+        .roster-section.FW h3 { color:#EF9A9A; background:rgba(244,67,54,0.1); border-left-color:#F44336; }
+
+        .roster-table {
+            width: 100%; border-collapse: collapse; font-size: 0.9em;
+        }
+        .roster-table th {
+            padding: 7px 10px; text-align: left;
+            color: #8bb8e8; border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600; font-size: 0.82em;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .roster-table td {
+            padding: 7px 10px; border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .roster-table .num { width:38px; text-align:center; color:#FFD700; font-weight:600; }
+        .roster-table .name-cn { font-weight:500; }
+        .roster-table .name-en { color:#8bb8e8; font-size:0.85em; }
+        .roster-table .pos-tag {
+            display:inline-block; padding:1px 7px; border-radius:4px;
+            font-size:0.78em; font-weight:600;
+        }
+        .roster-table .pos-tag.GK { background:rgba(255,152,0,0.2); color:#FF9800; }
+        .roster-table .pos-tag.DF { background:rgba(33,150,243,0.2); color:#64B5F6; }
+        .roster-table .pos-tag.MF { background:rgba(156,39,176,0.2); color:#CE93D8; }
+        .roster-table .pos-tag.FW { background:rgba(244,67,54,0.2); color:#EF9A9A; }
+
+        .standings-table .team-clickable {
+            text-align: left; font-weight: 500;
+            color: #8bb8e8; cursor: pointer;
+            transition: color 0.2s;
+        }
+        .standings-table .team-clickable:hover { color: #FFD700; text-decoration: underline; }
+
+        @media (max-width:768px) {
+            .modal-box { padding: 20px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+
         <!-- 顶部横幅 -->
         <div class="header">
             <h1>🏆 2026年FIFA世界杯赛程表</h1>
@@ -328,256 +409,288 @@
             </div>
         </div>
 
-        <!-- 第一阶段小组赛 -->
-        <div class="stage-card stage-group">
-            <div class="stage-title">
-                <span class="icon">🏁</span>
-                <span>第一阶段小组赛</span>
-            </div>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>时间</th>
-                            <th>比赛</th>
-                            <th>比分</th>
-                            <th>赛事</th>
-                            <th>地点</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>6月12日</td><td>03:00</td><td>墨西哥 vs 南非</td><td class="score-col" contenteditable="true"></td><td>第一阶段·A组</td><td>墨西哥城体育场</td></tr>
-                        <tr><td>6月12日</td><td>10:00</td><td>韩国 vs 捷克</td><td class="score-col" contenteditable="true"></td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
-                        <tr><td>6月13日</td><td>03:00</td><td>加拿大 vs 波黑</td><td class="score-col" contenteditable="true"></td><td>第一阶段·B组</td><td>多伦多体育场</td></tr>
-                        <tr><td>6月13日</td><td>09:00</td><td>美国 vs 巴拉圭</td><td class="score-col" contenteditable="true"></td><td>第一阶段·D组</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>6月14日</td><td>03:00</td><td>卡塔尔 vs 瑞士</td><td class="score-col" contenteditable="true"></td><td>第一阶段·B组</td><td>旧金山湾区体育场</td></tr>
-                        <tr><td>6月14日</td><td>06:00</td><td>巴西 vs 摩洛哥</td><td class="score-col" contenteditable="true"></td><td>第一阶段·C组</td><td>纽约/新泽西体育场</td></tr>
-                        <tr><td>6月14日</td><td>09:00</td><td>海地 vs 苏格兰</td><td class="score-col" contenteditable="true"></td><td>第一阶段·C组</td><td>波士顿体育场</td></tr>
-                        <tr><td>6月14日</td><td>12:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col" contenteditable="true"></td><td>第一阶段·D组</td><td>BC Place温哥华</td></tr>
-                        <tr><td>6月15日</td><td>01:00</td><td>德国 vs 库拉索</td><td class="score-col" contenteditable="true"></td><td>第一阶段·E组</td><td>休斯顿体育场</td></tr>
-                        <tr><td>6月15日</td><td>04:00</td><td>荷兰 vs 日本</td><td class="score-col" contenteditable="true"></td><td>第一阶段·F组</td><td>达拉斯体育场</td></tr>
-                        <tr><td>6月15日</td><td>07:00</td><td>科特迪瓦 vs 厄瓜多尔</td><td class="score-col" contenteditable="true"></td><td>第一阶段·E组</td><td>费城体育场</td></tr>
-                        <tr><td>6月15日</td><td>10:00</td><td>瑞典 vs 突尼斯</td><td class="score-col" contenteditable="true"></td><td>第一阶段·F组</td><td>蒙特雷体育场</td></tr>
-                        <tr><td>6月16日</td><td>00:00</td><td>西班牙 vs 佛得角</td><td class="score-col" contenteditable="true"></td><td>第一阶段·H组</td><td>亚特兰大体育场</td></tr>
-                        <tr><td>6月16日</td><td>03:00</td><td>比利时 vs 埃及</td><td class="score-col" contenteditable="true"></td><td>第一阶段·G组</td><td>西雅图体育场</td></tr>
-                        <tr><td>6月16日</td><td>06:00</td><td>沙特 vs 乌拉圭</td><td class="score-col" contenteditable="true"></td><td>第一阶段·H组</td><td>迈阿密体育场</td></tr>
-                        <tr><td>6月16日</td><td>09:00</td><td>伊朗 vs 新西兰</td><td class="score-col" contenteditable="true"></td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>6月16日</td><td>12:00</td><td>法国 vs 塞内加尔</td><td class="score-col" contenteditable="true"></td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td></tr>
-                        <tr><td>6月16日</td><td>15:00</td><td>伊拉克 vs 挪威</td><td class="score-col" contenteditable="true"></td><td>第一阶段·I组</td><td>波士顿体育场</td></tr>
-                        <tr><td>6月17日</td><td>00:00</td><td>阿根廷 vs 阿尔及利亚</td><td class="score-col" contenteditable="true"></td><td>第一阶段·J组</td><td>堪萨斯城体育场</td></tr>
-                        <tr><td>6月17日</td><td>03:00</td><td>奥地利 vs 约旦</td><td class="score-col" contenteditable="true"></td><td>第一阶段·J组</td><td>旧金山湾区体育场</td></tr>
-                        <tr><td>6月18日</td><td>01:00</td><td>葡萄牙 vs 刚果民主共和国</td><td class="score-col" contenteditable="true"></td><td>第一阶段·K组</td><td>休斯顿体育场</td></tr>
-                        <tr><td>6月18日</td><td>04:00</td><td>英格兰 vs 克罗地亚</td><td class="score-col" contenteditable="true"></td><td>第一阶段·L组</td><td>达拉斯体育场</td></tr>
-                        <tr><td>6月18日</td><td>07:00</td><td>加纳 vs 巴拿马</td><td class="score-col" contenteditable="true"></td><td>第一阶段·L组</td><td>波士顿体育场</td></tr>
-                        <tr><td>6月18日</td><td>10:00</td><td>哥伦比亚 vs 乌兹别克斯坦</td><td class="score-col" contenteditable="true"></td><td>第一阶段·K组</td><td>瓜达拉哈拉体育场</td></tr>
-                        <tr><td>6月19日</td><td>03:00</td><td>捷克 vs 南非</td><td class="score-col" contenteditable="true"></td><td>第一阶段·A组</td><td>亚特兰大体育场</td></tr>
-                        <tr><td>6月19日</td><td>03:00</td><td>瑞士 vs 波黑</td><td class="score-col" contenteditable="true"></td><td>第一阶段·B组</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>6月19日</td><td>06:00</td><td>加拿大 vs 卡塔尔</td><td class="score-col" contenteditable="true"></td><td>第一阶段·B组</td><td>BC Place温哥华</td></tr>
-                        <tr><td>6月19日</td><td>09:00</td><td>墨西哥 vs 韩国</td><td class="score-col" contenteditable="true"></td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
-                        <tr><td>6月19日</td><td>12:00</td><td>美国 vs 澳大利亚</td><td class="score-col" contenteditable="true"></td><td>第一阶段·D组</td><td>西雅图体育场</td></tr>
-                        <tr><td>6月20日</td><td>03:00</td><td>苏格兰 vs 摩洛哥</td><td class="score-col" contenteditable="true"></td><td>第一阶段·C组</td><td>波士顿体育场</td></tr>
-                        <tr><td>6月20日</td><td>06:00</td><td>巴西 vs 海地</td><td class="score-col" contenteditable="true"></td><td>第一阶段·C组</td><td>迈阿密体育场</td></tr>
-                        <tr><td>6月20日</td><td>08:30</td><td>巴西 vs 海地</td><td class="score-col" contenteditable="true"></td><td>第一阶段·C组</td><td>费城体育场</td></tr>
-                        <tr><td>6月20日</td><td>11:00</td><td>土耳其 vs 巴拉圭</td><td class="score-col" contenteditable="true"></td><td>第一阶段·D组</td><td>旧金山湾区体育场</td></tr>
-                        <tr><td>6月21日</td><td>01:00</td><td>荷兰 vs 瑞典</td><td class="score-col" contenteditable="true"></td><td>第一阶段·F组</td><td>休斯顿体育场</td></tr>
-                        <tr><td>6月21日</td><td>04:00</td><td>德国 vs 科特迪瓦</td><td class="score-col" contenteditable="true"></td><td>第一阶段·E组</td><td>多伦多体育场</td></tr>
-                        <tr><td>6月21日</td><td>08:00</td><td>厄瓜多尔 vs 库拉索</td><td class="score-col" contenteditable="true"></td><td>第一阶段·E组</td><td>堪萨斯城体育场</td></tr>
-                        <tr><td>6月21日</td><td>12:00</td><td>突尼斯 vs 日本</td><td class="score-col" contenteditable="true"></td><td>第一阶段·F组</td><td>蒙特雷体育场</td></tr>
-                        <tr><td>6月22日</td><td>00:00</td><td>西班牙 vs 沙特</td><td class="score-col" contenteditable="true"></td><td>第一阶段·H组</td><td>亚特兰大体育场</td></tr>
-                        <tr><td>6月22日</td><td>03:00</td><td>比利时 vs 伊朗</td><td class="score-col" contenteditable="true"></td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>6月22日</td><td>06:00</td><td>乌拉圭 vs 佛得角</td><td class="score-col" contenteditable="true"></td><td>第一阶段·H组</td><td>迈阿密体育场</td></tr>
-                        <tr><td>6月22日</td><td>09:00</td><td>新西兰 vs 埃及</td><td class="score-col" contenteditable="true"></td><td>第一阶段·G组</td><td>BC Place温哥华</td></tr>
-                        <tr><td>6月23日</td><td>01:00</td><td>阿根廷 vs 奥地利</td><td class="score-col" contenteditable="true"></td><td>第一阶段·J组</td><td>达拉斯体育场</td></tr>
-                        <tr><td>6月23日</td><td>05:00</td><td>法国 vs 伊拉克</td><td class="score-col" contenteditable="true"></td><td>第一阶段·I组</td><td>费城体育场</td></tr>
-                        <tr><td>6月23日</td><td>08:00</td><td>挪威 vs 塞内加尔</td><td class="score-col" contenteditable="true"></td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td></tr>
-                        <tr><td>6月23日</td><td>11:00</td><td>约旦 vs 阿尔及利亚</td><td class="score-col" contenteditable="true"></td><td>第一阶段·J组</td><td>旧金山湾区体育场</td></tr>
-                        <tr><td>6月24日</td><td>01:00</td><td>葡萄牙 vs 乌兹别克斯坦</td><td class="score-col" contenteditable="true"></td><td>第一阶段·K组</td><td>休斯顿体育场</td></tr>
-                        <tr><td>6月24日</td><td>04:00</td><td>英格兰 vs 加纳</td><td class="score-col" contenteditable="true"></td><td>第一阶段·L组</td><td>波士顿体育场</td></tr>
-                        <tr><td>6月24日</td><td>05:00</td><td>巴拿马 vs 克罗地亚</td><td class="score-col" contenteditable="true"></td><td>第一阶段·L组</td><td>纽约/新泽西体育场</td></tr>
-                        <tr><td>6月24日</td><td>07:30</td><td>哥伦比亚 vs 葡萄牙</td><td class="score-col" contenteditable="true"></td><td>第一阶段·K组</td><td>迈阿密体育场</td></tr>
-                        <tr><td>6月24日</td><td>07:30</td><td>刚果民主共和国 vs 乌兹别克斯坦</td><td class="score-col" contenteditable="true"></td><td>第一阶段·K组</td><td>亚特兰大体育场</td></tr>
-                        <tr><td>6月25日</td><td>10:00</td><td>阿尔及利亚 vs 奥地利</td><td class="score-col" contenteditable="true"></td><td>第一阶段·J组</td><td>堪萨斯城体育场</td></tr>
-                        <tr><td>6月25日</td><td>10:00</td><td>约旦 vs 阿根廷</td><td class="score-col" contenteditable="true"></td><td>第一阶段·J组</td><td>达拉斯体育场</td></tr>
-                        <tr><td>6月26日</td><td>03:00</td><td>挪威 vs 法国</td><td class="score-col" contenteditable="true"></td><td>第一阶段·I组</td><td>波士顿体育场</td></tr>
-                        <tr><td>6月26日</td><td>03:00</td><td>塞内加尔 vs 伊拉克</td><td class="score-col" contenteditable="true"></td><td>第一阶段·I组</td><td>多伦多体育场</td></tr>
-                        <tr><td>6月26日</td><td>08:00</td><td>佛得角 vs 西班牙</td><td class="score-col" contenteditable="true"></td><td>第一阶段·H组</td><td>休斯顿体育场</td></tr>
-                        <tr><td>6月26日</td><td>08:00</td><td>乌拉圭 vs 比利时</td><td class="score-col" contenteditable="true"></td><td>第一阶段·H组</td><td>瓜达拉哈拉体育场</td></tr>
-                        <tr><td>6月26日</td><td>11:00</td><td>埃及 vs 新西兰</td><td class="score-col" contenteditable="true"></td><td>第一阶段·G组</td><td>西雅图体育场</td></tr>
-                        <tr><td>6月26日</td><td>11:00</td><td>伊朗 vs 沙特</td><td class="score-col" contenteditable="true"></td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>6月27日</td><td>03:00</td><td>库拉索 vs 德国</td><td class="score-col" contenteditable="true"></td><td>第一阶段·E组</td><td>费城体育场</td></tr>
-                        <tr><td>6月27日</td><td>04:00</td><td>厄瓜多尔 vs 荷兰</td><td class="score-col" contenteditable="true"></td><td>第一阶段·E组</td><td>纽约/新泽西体育场</td></tr>
-                        <tr><td>6月27日</td><td>07:00</td><td>日本 vs 瑞典</td><td class="score-col" contenteditable="true"></td><td>第一阶段·F组</td><td>达拉斯体育场</td></tr>
-                        <tr><td>6月27日</td><td>07:00</td><td>突尼斯 vs 荷兰</td><td class="score-col" contenteditable="true"></td><td>第一阶段·F组</td><td>堪萨斯城体育场</td></tr>
-                        <tr><td>6月27日</td><td>10:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col" contenteditable="true"></td><td>第一阶段·D组</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>6月27日</td><td>10:00</td><td>巴拉圭 vs 美国</td><td class="score-col" contenteditable="true"></td><td>第一阶段·D组</td><td>旧金山湾区体育场</td></tr>
-                        <tr><td>6月28日</td><td>03:00</td><td>摩洛哥 vs 苏格兰</td><td class="score-col" contenteditable="true"></td><td>第一阶段·C组</td><td>迈阿密体育场</td></tr>
-                        <tr><td>6月28日</td><td>06:00</td><td>海地 vs 巴西</td><td class="score-col" contenteditable="true"></td><td>第一阶段·C组</td><td>亚特兰大体育场</td></tr>
-                        <tr><td>6月28日</td><td>03:00</td><td>卡塔尔 vs 加拿大</td><td class="score-col" contenteditable="true"></td><td>第一阶段·B组</td><td>BC Place温哥华</td></tr>
-                        <tr><td>6月28日</td><td>03:00</td><td>波黑 vs 瑞士</td><td class="score-col" contenteditable="true"></td><td>第一阶段·B组</td><td>西雅图体育场</td></tr>
-                        <tr><td>6月28日</td><td>09:00</td><td>韩国 vs 墨西哥</td><td class="score-col" contenteditable="true"></td><td>第一阶段·A组</td><td>蒙特雷体育场</td></tr>
-                        <tr><td>6月28日</td><td>09:00</td><td>南非 vs 捷克</td><td class="score-col" contenteditable="true"></td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Tab 导航 -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('schedule')">赛程表</button>
+            <button class="tab-btn" onclick="switchTab('groups')">小组积分</button>
+            <button class="tab-btn" onclick="switchTab('stats')">射手榜 & 助攻榜</button>
         </div>
 
-        <!-- Round of 32 -->
-        <div class="stage-card stage-32">
-            <div class="stage-title">
-                <span class="icon">🎯</span>
-                <span>Round of 32（1/8决赛）</span>
-            </div>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>时间</th>
-                            <th>比赛</th>
-                            <th>比分</th>
-                            <th>赛事</th>
-                            <th>地点</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>7月1日</td><td>03:00</td><td>2A vs 2B</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>7月1日</td><td>01:00</td><td>1C vs 2F</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>休斯顿体育场</td></tr>
-                        <tr><td>7月1日</td><td>04:30</td><td>1E vs ABCD</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>波士顿体育场</td></tr>
-                        <tr><td>7月1日</td><td>09:00</td><td>1F vs 2C</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>蒙特雷体育场</td></tr>
-                        <tr><td>7月1日</td><td>01:00</td><td>2E vs 2I</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>达拉斯体育场</td></tr>
-                        <tr><td>7月1日</td><td>05:00</td><td>1I vs CDFGH</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>纽约/新泽西体育场</td></tr>
-                        <tr><td>7月2日</td><td>09:00</td><td>1A vs 3CEFHI</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>墨西哥城体育场</td></tr>
-                        <tr><td>7月2日</td><td>00:00</td><td>1L vs 3EHIJK</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>亚特兰大体育场</td></tr>
-                        <tr><td>7月2日</td><td>04:00</td><td>1G vs 3AEHIJ</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>西雅图体育场</td></tr>
-                        <tr><td>7月2日</td><td>08:00</td><td>1D vs 3BEFIJ</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>旧金山湾区体育场</td></tr>
-                        <tr><td>7月2日</td><td>03:00</td><td>1H vs 2J</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>7月2日</td><td>07:00</td><td>2K vs 2L</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>多伦多体育场</td></tr>
-                        <tr><td>7月2日</td><td>11:00</td><td>1B vs 3EFGIJ</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>BC Place温哥华</td></tr>
-                        <tr><td>7月3日</td><td>02:00</td><td>2D vs 2G</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>达拉斯体育场</td></tr>
-                        <tr><td>7月3日</td><td>06:00</td><td>1J vs 2H</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>迈阿密体育场</td></tr>
-                        <tr><td>7月3日</td><td>09:00</td><td>1K vs 3DEIJL</td><td class="score-col" contenteditable="true"></td><td>Round of 32</td><td>堪萨斯城体育场</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <!-- ==================== 赛程表 ==================== -->
+        <div class="tab-content active" id="tab-schedule">
 
-        <!-- Round of 16 -->
-        <div class="stage-card stage-16">
-            <div class="stage-title">
-                <span class="icon">⚡</span>
-                <span>Round of 16（1/4决赛）</span>
+            <!-- 第一阶段小组赛 -->
+            <div class="stage-card stage-group">
+                <div class="stage-title">
+                    <span class="icon">🏁</span>
+                    <span>第一阶段小组赛</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>时间</th>
+                                <th>比赛</th>
+                                <th>比分</th>
+                                <th>赛事</th>
+                                <th>地点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-group="A"><td>6月12日</td><td>03:00</td><td>墨西哥 vs 南非</td><td class="score-col">—</td><td>第一阶段·A组</td><td>墨西哥城体育场</td></tr>
+                            <tr data-group="A"><td>6月12日</td><td>10:00</td><td>韩国 vs 捷克</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
+                            <tr data-group="B"><td>6月13日</td><td>03:00</td><td>加拿大 vs 波黑</td><td class="score-col">—</td><td>第一阶段·B组</td><td>多伦多体育场</td></tr>
+                            <tr data-group="D"><td>6月13日</td><td>09:00</td><td>美国 vs 巴拉圭</td><td class="score-col">—</td><td>第一阶段·D组</td><td>洛杉矶体育场</td></tr>
+                            <tr data-group="B"><td>6月14日</td><td>03:00</td><td>卡塔尔 vs 瑞士</td><td class="score-col">—</td><td>第一阶段·B组</td><td>旧金山湾区体育场</td></tr>
+                            <tr data-group="C"><td>6月14日</td><td>06:00</td><td>巴西 vs 摩洛哥</td><td class="score-col">—</td><td>第一阶段·C组</td><td>纽约/新泽西体育场</td></tr>
+                            <tr data-group="C"><td>6月14日</td><td>09:00</td><td>海地 vs 苏格兰</td><td class="score-col">—</td><td>第一阶段·C组</td><td>波士顿体育场</td></tr>
+                            <tr data-group="D"><td>6月14日</td><td>12:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col">—</td><td>第一阶段·D组</td><td>BC Place温哥华</td></tr>
+                            <tr data-group="E"><td>6月15日</td><td>01:00</td><td>德国 vs 库拉索</td><td class="score-col">—</td><td>第一阶段·E组</td><td>休斯顿体育场</td></tr>
+                            <tr data-group="F"><td>6月15日</td><td>04:00</td><td>荷兰 vs 日本</td><td class="score-col">—</td><td>第一阶段·F组</td><td>达拉斯体育场</td></tr>
+                            <tr data-group="E"><td>6月15日</td><td>07:00</td><td>科特迪瓦 vs 厄瓜多尔</td><td class="score-col">—</td><td>第一阶段·E组</td><td>费城体育场</td></tr>
+                            <tr data-group="F"><td>6月15日</td><td>10:00</td><td>瑞典 vs 突尼斯</td><td class="score-col">—</td><td>第一阶段·F组</td><td>蒙特雷体育场</td></tr>
+                            <tr data-group="H"><td>6月16日</td><td>00:00</td><td>西班牙 vs 佛得角</td><td class="score-col">—</td><td>第一阶段·H组</td><td>亚特兰大体育场</td></tr>
+                            <tr data-group="G"><td>6月16日</td><td>03:00</td><td>比利时 vs 埃及</td><td class="score-col">—</td><td>第一阶段·G组</td><td>西雅图体育场</td></tr>
+                            <tr data-group="H"><td>6月16日</td><td>06:00</td><td>沙特 vs 乌拉圭</td><td class="score-col">—</td><td>第一阶段·H组</td><td>迈阿密体育场</td></tr>
+                            <tr data-group="G"><td>6月16日</td><td>09:00</td><td>伊朗 vs 新西兰</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
+                            <tr data-group="I"><td>6月16日</td><td>12:00</td><td>法国 vs 塞内加尔</td><td class="score-col">—</td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td></tr>
+                            <tr data-group="I"><td>6月16日</td><td>15:00</td><td>伊拉克 vs 挪威</td><td class="score-col">—</td><td>第一阶段·I组</td><td>波士顿体育场</td></tr>
+                            <tr data-group="J"><td>6月17日</td><td>00:00</td><td>阿根廷 vs 阿尔及利亚</td><td class="score-col">—</td><td>第一阶段·J组</td><td>堪萨斯城体育场</td></tr>
+                            <tr data-group="J"><td>6月17日</td><td>03:00</td><td>奥地利 vs 约旦</td><td class="score-col">—</td><td>第一阶段·J组</td><td>旧金山湾区体育场</td></tr>
+                            <tr data-group="K"><td>6月18日</td><td>01:00</td><td>葡萄牙 vs 刚果民主共和国</td><td class="score-col">—</td><td>第一阶段·K组</td><td>休斯顿体育场</td></tr>
+                            <tr data-group="L"><td>6月18日</td><td>04:00</td><td>英格兰 vs 克罗地亚</td><td class="score-col">—</td><td>第一阶段·L组</td><td>达拉斯体育场</td></tr>
+                            <tr data-group="L"><td>6月18日</td><td>07:00</td><td>加纳 vs 巴拿马</td><td class="score-col">—</td><td>第一阶段·L组</td><td>波士顿体育场</td></tr>
+                            <tr data-group="K"><td>6月18日</td><td>10:00</td><td>哥伦比亚 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>瓜达拉哈拉体育场</td></tr>
+                            <tr data-group="A"><td>6月19日</td><td>03:00</td><td>捷克 vs 南非</td><td class="score-col">—</td><td>第一阶段·A组</td><td>亚特兰大体育场</td></tr>
+                            <tr data-group="B"><td>6月19日</td><td>03:00</td><td>瑞士 vs 波黑</td><td class="score-col">—</td><td>第一阶段·B组</td><td>洛杉矶体育场</td></tr>
+                            <tr data-group="B"><td>6月19日</td><td>06:00</td><td>加拿大 vs 卡塔尔</td><td class="score-col">—</td><td>第一阶段·B组</td><td>BC Place温哥华</td></tr>
+                            <tr data-group="A"><td>6月19日</td><td>09:00</td><td>墨西哥 vs 韩国</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
+                            <tr data-group="D"><td>6月19日</td><td>12:00</td><td>美国 vs 澳大利亚</td><td class="score-col">—</td><td>第一阶段·D组</td><td>西雅图体育场</td></tr>
+                            <tr data-group="C"><td>6月20日</td><td>03:00</td><td>苏格兰 vs 摩洛哥</td><td class="score-col">—</td><td>第一阶段·C组</td><td>波士顿体育场</td></tr>
+                            <tr data-group="C"><td>6月20日</td><td>06:00</td><td>巴西 vs 海地</td><td class="score-col">—</td><td>第一阶段·C组</td><td>迈阿密体育场</td></tr>
+                            <tr data-group="D"><td>6月20日</td><td>11:00</td><td>土耳其 vs 巴拉圭</td><td class="score-col">—</td><td>第一阶段·D组</td><td>旧金山湾区体育场</td></tr>
+                            <tr data-group="F"><td>6月21日</td><td>01:00</td><td>荷兰 vs 瑞典</td><td class="score-col">—</td><td>第一阶段·F组</td><td>休斯顿体育场</td></tr>
+                            <tr data-group="E"><td>6月21日</td><td>04:00</td><td>德国 vs 科特迪瓦</td><td class="score-col">—</td><td>第一阶段·E组</td><td>多伦多体育场</td></tr>
+                            <tr data-group="E"><td>6月21日</td><td>08:00</td><td>厄瓜多尔 vs 库拉索</td><td class="score-col">—</td><td>第一阶段·E组</td><td>堪萨斯城体育场</td></tr>
+                            <tr data-group="F"><td>6月21日</td><td>12:00</td><td>突尼斯 vs 日本</td><td class="score-col">—</td><td>第一阶段·F组</td><td>蒙特雷体育场</td></tr>
+                            <tr data-group="H"><td>6月22日</td><td>00:00</td><td>西班牙 vs 沙特</td><td class="score-col">—</td><td>第一阶段·H组</td><td>亚特兰大体育场</td></tr>
+                            <tr data-group="G"><td>6月22日</td><td>03:00</td><td>比利时 vs 伊朗</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
+                            <tr data-group="H"><td>6月22日</td><td>06:00</td><td>乌拉圭 vs 佛得角</td><td class="score-col">—</td><td>第一阶段·H组</td><td>迈阿密体育场</td></tr>
+                            <tr data-group="G"><td>6月22日</td><td>09:00</td><td>新西兰 vs 埃及</td><td class="score-col">—</td><td>第一阶段·G组</td><td>BC Place温哥华</td></tr>
+                            <tr data-group="J"><td>6月23日</td><td>01:00</td><td>阿根廷 vs 奥地利</td><td class="score-col">—</td><td>第一阶段·J组</td><td>达拉斯体育场</td></tr>
+                            <tr data-group="I"><td>6月23日</td><td>05:00</td><td>法国 vs 伊拉克</td><td class="score-col">—</td><td>第一阶段·I组</td><td>费城体育场</td></tr>
+                            <tr data-group="I"><td>6月23日</td><td>08:00</td><td>挪威 vs 塞内加尔</td><td class="score-col">—</td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td></tr>
+                            <tr data-group="J"><td>6月23日</td><td>11:00</td><td>约旦 vs 阿尔及利亚</td><td class="score-col">—</td><td>第一阶段·J组</td><td>旧金山湾区体育场</td></tr>
+                            <tr data-group="K"><td>6月24日</td><td>01:00</td><td>葡萄牙 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>休斯顿体育场</td></tr>
+                            <tr data-group="L"><td>6月24日</td><td>04:00</td><td>英格兰 vs 加纳</td><td class="score-col">—</td><td>第一阶段·L组</td><td>波士顿体育场</td></tr>
+                            <tr data-group="L"><td>6月24日</td><td>05:00</td><td>巴拿马 vs 克罗地亚</td><td class="score-col">—</td><td>第一阶段·L组</td><td>纽约/新泽西体育场</td></tr>
+                            <tr data-group="K"><td>6月24日</td><td>07:30</td><td>哥伦比亚 vs 葡萄牙</td><td class="score-col">—</td><td>第一阶段·K组</td><td>迈阿密体育场</td></tr>
+                            <tr data-group="K"><td>6月24日</td><td>07:30</td><td>刚果民主共和国 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>亚特兰大体育场</td></tr>
+                            <tr data-group="J"><td>6月25日</td><td>10:00</td><td>阿尔及利亚 vs 奥地利</td><td class="score-col">—</td><td>第一阶段·J组</td><td>堪萨斯城体育场</td></tr>
+                            <tr data-group="J"><td>6月25日</td><td>10:00</td><td>约旦 vs 阿根廷</td><td class="score-col">—</td><td>第一阶段·J组</td><td>达拉斯体育场</td></tr>
+                            <tr data-group="I"><td>6月26日</td><td>03:00</td><td>挪威 vs 法国</td><td class="score-col">—</td><td>第一阶段·I组</td><td>波士顿体育场</td></tr>
+                            <tr data-group="I"><td>6月26日</td><td>03:00</td><td>塞内加尔 vs 伊拉克</td><td class="score-col">—</td><td>第一阶段·I组</td><td>多伦多体育场</td></tr>
+                            <tr data-group="H"><td>6月26日</td><td>08:00</td><td>佛得角 vs 西班牙</td><td class="score-col">—</td><td>第一阶段·H组</td><td>休斯顿体育场</td></tr>
+                            <tr data-group="H"><td>6月26日</td><td>08:00</td><td>乌拉圭 vs 比利时</td><td class="score-col">—</td><td>第一阶段·H组</td><td>瓜达拉哈拉体育场</td></tr>
+                            <tr data-group="G"><td>6月26日</td><td>11:00</td><td>埃及 vs 新西兰</td><td class="score-col">—</td><td>第一阶段·G组</td><td>西雅图体育场</td></tr>
+                            <tr data-group="G"><td>6月26日</td><td>11:00</td><td>伊朗 vs 沙特</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
+                            <tr data-group="E"><td>6月27日</td><td>03:00</td><td>库拉索 vs 德国</td><td class="score-col">—</td><td>第一阶段·E组</td><td>费城体育场</td></tr>
+                            <tr data-group="E"><td>6月27日</td><td>04:00</td><td>厄瓜多尔 vs 荷兰</td><td class="score-col">—</td><td>第一阶段·E组</td><td>纽约/新泽西体育场</td></tr>
+                            <tr data-group="F"><td>6月27日</td><td>07:00</td><td>日本 vs 瑞典</td><td class="score-col">—</td><td>第一阶段·F组</td><td>达拉斯体育场</td></tr>
+                            <tr data-group="F"><td>6月27日</td><td>07:00</td><td>突尼斯 vs 荷兰</td><td class="score-col">—</td><td>第一阶段·F组</td><td>堪萨斯城体育场</td></tr>
+                            <tr data-group="D"><td>6月27日</td><td>10:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col">—</td><td>第一阶段·D组</td><td>洛杉矶体育场</td></tr>
+                            <tr data-group="D"><td>6月27日</td><td>10:00</td><td>巴拉圭 vs 美国</td><td class="score-col">—</td><td>第一阶段·D组</td><td>旧金山湾区体育场</td></tr>
+                            <tr data-group="C"><td>6月28日</td><td>03:00</td><td>摩洛哥 vs 苏格兰</td><td class="score-col">—</td><td>第一阶段·C组</td><td>迈阿密体育场</td></tr>
+                            <tr data-group="C"><td>6月28日</td><td>06:00</td><td>海地 vs 巴西</td><td class="score-col">—</td><td>第一阶段·C组</td><td>亚特兰大体育场</td></tr>
+                            <tr data-group="B"><td>6月28日</td><td>03:00</td><td>卡塔尔 vs 加拿大</td><td class="score-col">—</td><td>第一阶段·B组</td><td>BC Place温哥华</td></tr>
+                            <tr data-group="B"><td>6月28日</td><td>03:00</td><td>波黑 vs 瑞士</td><td class="score-col">—</td><td>第一阶段·B组</td><td>西雅图体育场</td></tr>
+                            <tr data-group="A"><td>6月28日</td><td>09:00</td><td>韩国 vs 墨西哥</td><td class="score-col">—</td><td>第一阶段·A组</td><td>蒙特雷体育场</td></tr>
+                            <tr data-group="A"><td>6月28日</td><td>09:00</td><td>南非 vs 捷克</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>时间</th>
-                            <th>比赛</th>
-                            <th>比分</th>
-                            <th>赛事</th>
-                            <th>地点</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>7月5日</td><td>01:00</td><td>W73 vs W75</td><td class="score-col" contenteditable="true"></td><td>Round of 16</td><td>休斯顿体育场</td></tr>
-                        <tr><td>7月5日</td><td>05:00</td><td>W74 vs W77</td><td class="score-col" contenteditable="true"></td><td>Round of 16</td><td>费城体育场</td></tr>
-                        <tr><td>7月5日</td><td>04:00</td><td>W76 vs W78</td><td class="score-col" contenteditable="true"></td><td>Round of 16</td><td>纽约/新泽西体育场</td></tr>
-                        <tr><td>7月5日</td><td>08:00</td><td>W79 vs W80</td><td class="score-col" contenteditable="true"></td><td>Round of 16</td><td>墨西哥城体育场</td></tr>
-                        <tr><td>7月6日</td><td>03:00</td><td>W83 vs W84</td><td class="score-col" contenteditable="true"></td><td>Round of 16</td><td>达拉斯体育场</td></tr>
-                        <tr><td>7月6日</td><td>08:00</td><td>W81 vs W82</td><td class="score-col" contenteditable="true"></td><td>Round of 16</td><td>西雅图体育场</td></tr>
-                        <tr><td>7月6日</td><td>00:00</td><td>W86 vs W88</td><td class="score-col" contenteditable="true"></td><td>Round of 16</td><td>亚特兰大体育场</td></tr>
-                        <tr><td>7月6日</td><td>04:00</td><td>W85 vs W87</td><td class="score-col" contenteditable="true"></td><td>Round of 16</td><td>BC Place温哥华</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <!-- Quarter-finals -->
-        <div class="stage-card stage-quarter">
-            <div class="stage-title">
-                <span class="icon">🔥</span>
-                <span>Quarter-finals（半决赛）</span>
+            <!-- Round of 32 -->
+            <div class="stage-card stage-32">
+                <div class="stage-title">
+                    <span class="icon">🎯</span>
+                    <span>Round of 32（1/8决赛）</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <tbody>
+                            <tr><td>7月1日</td><td>03:00</td><td>2A vs 2B</td><td class="score-col">—</td><td>Round of 32</td><td>洛杉矶体育场</td></tr>
+                            <tr><td>7月1日</td><td>01:00</td><td>1C vs 2F</td><td class="score-col">—</td><td>Round of 32</td><td>休斯顿体育场</td></tr>
+                            <tr><td>7月1日</td><td>04:30</td><td>1E vs ABCD</td><td class="score-col">—</td><td>Round of 32</td><td>波士顿体育场</td></tr>
+                            <tr><td>7月1日</td><td>09:00</td><td>1F vs 2C</td><td class="score-col">—</td><td>Round of 32</td><td>蒙特雷体育场</td></tr>
+                            <tr><td>7月1日</td><td>01:00</td><td>2E vs 2I</td><td class="score-col">—</td><td>Round of 32</td><td>达拉斯体育场</td></tr>
+                            <tr><td>7月1日</td><td>05:00</td><td>1I vs CDFGH</td><td class="score-col">—</td><td>Round of 32</td><td>纽约/新泽西体育场</td></tr>
+                            <tr><td>7月2日</td><td>09:00</td><td>1A vs 3CEFHI</td><td class="score-col">—</td><td>Round of 32</td><td>墨西哥城体育场</td></tr>
+                            <tr><td>7月2日</td><td>00:00</td><td>1L vs 3EHIJK</td><td class="score-col">—</td><td>Round of 32</td><td>亚特兰大体育场</td></tr>
+                            <tr><td>7月2日</td><td>04:00</td><td>1G vs 3AEHIJ</td><td class="score-col">—</td><td>Round of 32</td><td>西雅图体育场</td></tr>
+                            <tr><td>7月2日</td><td>08:00</td><td>1D vs 3BEFIJ</td><td class="score-col">—</td><td>Round of 32</td><td>旧金山湾区体育场</td></tr>
+                            <tr><td>7月2日</td><td>03:00</td><td>1H vs 2J</td><td class="score-col">—</td><td>Round of 32</td><td>洛杉矶体育场</td></tr>
+                            <tr><td>7月2日</td><td>07:00</td><td>2K vs 2L</td><td class="score-col">—</td><td>Round of 32</td><td>多伦多体育场</td></tr>
+                            <tr><td>7月2日</td><td>11:00</td><td>1B vs 3EFGIJ</td><td class="score-col">—</td><td>Round of 32</td><td>BC Place温哥华</td></tr>
+                            <tr><td>7月3日</td><td>02:00</td><td>2D vs 2G</td><td class="score-col">—</td><td>Round of 32</td><td>达拉斯体育场</td></tr>
+                            <tr><td>7月3日</td><td>06:00</td><td>1J vs 2H</td><td class="score-col">—</td><td>Round of 32</td><td>迈阿密体育场</td></tr>
+                            <tr><td>7月3日</td><td>09:00</td><td>1K vs 3DEIJL</td><td class="score-col">—</td><td>Round of 32</td><td>堪萨斯城体育场</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>时间</th>
-                            <th>比赛</th>
-                            <th>比分</th>
-                            <th>赛事</th>
-                            <th>地点</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>7月15日</td><td>04:00</td><td>W89 vs W90</td><td class="score-col" contenteditable="true"></td><td>Quarter-final</td><td>波士顿体育场</td></tr>
-                        <tr><td>7月15日</td><td>03:00</td><td>W93 vs W94</td><td class="score-col" contenteditable="true"></td><td>Quarter-final</td><td>洛杉矶体育场</td></tr>
-                        <tr><td>7月15日</td><td>05:00</td><td>W91 vs W92</td><td class="score-col" contenteditable="true"></td><td>Quarter-final</td><td>迈阿密体育场</td></tr>
-                        <tr><td>7月15日</td><td>09:00</td><td>W95 vs W96</td><td class="score-col" contenteditable="true"></td><td>Quarter-final</td><td>堪萨斯城体育场</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <!-- Semi-finals -->
-        <div class="stage-card stage-semi">
-            <div class="stage-title">
-                <span class="icon">🌟</span>
-                <span>Semi-finals（决赛）</span>
+            <!-- Round of 16 -->
+            <div class="stage-card stage-16">
+                <div class="stage-title">
+                    <span class="icon">⚡</span>
+                    <span>Round of 16（1/4决赛）</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <tbody>
+                            <tr><td>7月5日</td><td>01:00</td><td>W73 vs W75</td><td class="score-col">—</td><td>Round of 16</td><td>休斯顿体育场</td></tr>
+                            <tr><td>7月5日</td><td>05:00</td><td>W74 vs W77</td><td class="score-col">—</td><td>Round of 16</td><td>费城体育场</td></tr>
+                            <tr><td>7月5日</td><td>04:00</td><td>W76 vs W78</td><td class="score-col">—</td><td>Round of 16</td><td>纽约/新泽西体育场</td></tr>
+                            <tr><td>7月5日</td><td>08:00</td><td>W79 vs W80</td><td class="score-col">—</td><td>Round of 16</td><td>墨西哥城体育场</td></tr>
+                            <tr><td>7月6日</td><td>03:00</td><td>W83 vs W84</td><td class="score-col">—</td><td>Round of 16</td><td>达拉斯体育场</td></tr>
+                            <tr><td>7月6日</td><td>08:00</td><td>W81 vs W82</td><td class="score-col">—</td><td>Round of 16</td><td>西雅图体育场</td></tr>
+                            <tr><td>7月6日</td><td>00:00</td><td>W86 vs W88</td><td class="score-col">—</td><td>Round of 16</td><td>亚特兰大体育场</td></tr>
+                            <tr><td>7月6日</td><td>04:00</td><td>W85 vs W87</td><td class="score-col">—</td><td>Round of 16</td><td>BC Place温哥华</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>时间</th>
-                            <th>比赛</th>
-                            <th>比分</th>
-                            <th>赛事</th>
-                            <th>地点</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>7月17日</td><td>03:00</td><td>W97 vs W98</td><td class="score-col" contenteditable="true"></td><td>Semi-final</td><td>达拉斯体育场</td></tr>
-                        <tr><td>7月17日</td><td>03:00</td><td>W99 vs W100</td><td class="score-col" contenteditable="true"></td><td>Semi-final</td><td>亚特兰大体育场</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <!-- Final -->
-        <div class="stage-card stage-final">
-            <div class="stage-title">
-                <span class="icon">🏆</span>
-                <span>Final（总决赛）</span>
+            <!-- Quarter-finals -->
+            <div class="stage-card stage-quarter">
+                <div class="stage-title">
+                    <span class="icon">🔥</span>
+                    <span>Quarter-finals（1/4决赛）</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <tbody>
+                            <tr><td>7月15日</td><td>04:00</td><td>W89 vs W90</td><td class="score-col">—</td><td>Quarter-final</td><td>波士顿体育场</td></tr>
+                            <tr><td>7月15日</td><td>03:00</td><td>W93 vs W94</td><td class="score-col">—</td><td>Quarter-final</td><td>洛杉矶体育场</td></tr>
+                            <tr><td>7月15日</td><td>05:00</td><td>W91 vs W92</td><td class="score-col">—</td><td>Quarter-final</td><td>迈阿密体育场</td></tr>
+                            <tr><td>7月15日</td><td>09:00</td><td>W95 vs W96</td><td class="score-col">—</td><td>Quarter-final</td><td>堪萨斯城体育场</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>时间</th>
-                            <th>比赛</th>
-                            <th>比分</th>
-                            <th>赛事</th>
-                            <th>地点</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>7月19日</td><td>03:00</td><td>W101 vs W102</td><td class="score-col" contenteditable="true"></td><td>Final</td><td>纽约/新泽西体育场</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <!-- 备注 -->
-        <div class="note">
-            <strong>💡 使用说明：</strong>点击"比分"列中的空白单元格，直接输入比分即可（如 2-1）。数据会自动保存到浏览器本地存储，刷新页面不会丢失。<br><br>
-            <strong>备注：</strong>淘汰赛中的编号（如1A、2B等）表示各小组的晋级排名，具体对阵将在小组赛结束后确定。
-        </div>
+            <!-- Semi-finals -->
+            <div class="stage-card stage-semi">
+                <div class="stage-title">
+                    <span class="icon">🌟</span>
+                    <span>Semi-finals（半决赛）</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <tbody>
+                            <tr><td>7月17日</td><td>03:00</td><td>W97 vs W98</td><td class="score-col">—</td><td>Semi-final</td><td>达拉斯体育场</td></tr>
+                            <tr><td>7月17日</td><td>03:00</td><td>W99 vs W100</td><td class="score-col">—</td><td>Semi-final</td><td>亚特兰大体育场</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Final -->
+            <div class="stage-card stage-final">
+                <div class="stage-title">
+                    <span class="icon">🏆</span>
+                    <span>Final（总决赛）</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <tbody>
+                            <tr><td>7月19日</td><td>03:00</td><td>W101 vs W102</td><td class="score-col">—</td><td>Final</td><td>纽约/新泽西体育场</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 备注 -->
+            <div class="note">
+                <strong>💡 说明：</strong>比分将在比赛结束后手动更新。淘汰赛中的编号（如1A、2B等）表示各小组的晋级排名，具体对阵将在小组赛结束后确定。
+            </div>
+        </div><!-- /tab-schedule -->
+
+
+        <!-- ==================== 小组积分（所有组一次展示）==================== -->
+        <div class="tab-content" id="tab-groups">
+            <div class="groups-grid" id="groupsGrid"></div>
+        </div><!-- /tab-groups -->
+
+
+        <!-- ==================== 射手榜 & 助攻榜（合并）==================== -->
+        <div class="tab-content" id="tab-stats">
+
+            <div class="stats-section">
+                <h2>🎯 射手榜</h2>
+                <div class="table-wrapper">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th class="rank">排名</th>
+                                <th>球员</th>
+                                <th>球队</th>
+                                <th class="number">进球数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="rank">1</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">2</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">3</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">4</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">5</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">6</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">7</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">8</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">9</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">10</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h2>🤝 助攻榜</h2>
+                <div class="table-wrapper">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th class="rank">排名</th>
+                                <th>球员</th>
+                                <th>球队</th>
+                                <th class="number">助攻数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="rank">1</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">2</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">3</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">4</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">5</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">6</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">7</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">8</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">9</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                            <tr><td class="rank">10</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- /tab-stats -->
+
 
         <!-- 页脚 -->
         <div class="footer">
@@ -586,55 +699,170 @@
         </div>
     </div>
 
-    <!-- 保存提示 -->
-    <div class="save-toast" id="saveToast">✅ 比分已保存</div>
-
+    <!-- ==================== 所有脚本 ==================== -->
     <script>
-        // 比分自动保存到 localStorage
-        const STORAGE_KEY = 'worldcup2026_scores';
+    // ========= Tab 切换 =========
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
 
-        // 读取已保存的比分
-        function loadScores() {
-            const saved = localStorage.getItem(STORAGE_KEY);
-            if (!saved) return;
-            const scores = JSON.parse(saved);
-            document.querySelectorAll('.score-col').forEach((cell, idx) => {
-                if (scores[idx]) {
-                    cell.textContent = scores[idx];
-                }
-            });
-        }
+        var map = { schedule: 0, groups: 1, stats: 2 };
+        var btns = document.querySelectorAll('.tab-btn');
+        if (map[tabName] !== undefined) btns[map[tabName]].classList.add('active');
 
-        // 保存比分
-        function saveScores() {
-            const scores = {};
-            document.querySelectorAll('.score-col').forEach((cell, idx) => {
-                if (cell.textContent.trim()) {
-                    scores[idx] = cell.textContent.trim();
-                }
-            });
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(scores));
+        var content = document.getElementById('tab-' + tabName);
+        if (content) content.classList.add('active');
 
-            // 显示保存提示
-            const toast = document.getElementById('saveToast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 1500);
-        }
+        if (tabName === 'groups') buildAllGroups();
+    }
 
-        // 监听比分单元格的输入
-        document.querySelectorAll('.score-col').forEach(cell => {
-            cell.addEventListener('input', saveScores);
-            // 回车确认，退出编辑
-            cell.addEventListener('keydown', e => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    cell.blur();
-                }
-            });
+
+    // ======== 球队阵容数据 ========
+
+        // 球队数据已移至 teams/ 目录的各HTML文件中
+        ;
+
+
+    var GROUP_TEAMS = {
+        'A': ['墨西哥','南非','韩国','捷克'],
+        'B': ['加拿大','波黑','卡塔尔','瑞士'],
+        'C': ['巴西','摩洛哥','海地','苏格兰'],
+        'D': ['美国','巴拉圭','澳大利亚','土耳其'],
+        'E': ['德国','库拉索','科特迪瓦','厄瓜多尔'],
+        'F': ['荷兰','日本','瑞典','突尼斯'],
+        'G': ['比利时','埃及','伊朗','新西兰'],
+        'H': ['西班牙','佛得角','沙特','乌拉圭'],
+        'I': ['法国','塞内加尔','伊拉克','挪威'],
+        'J': ['阿根廷','阿尔及利亚','奥地利','约旦'],
+        'K': ['葡萄牙','刚果民主共和国','哥伦比亚','乌兹别克斯坦'],
+        'L': ['英格兰','克罗地亚','加纳','巴拿马']
+    };
+
+    var TEAM_EN = {
+        '墨西哥':'Mexico','南非':'South Africa','韩国':'South Korea','捷克':'Czech Republic',
+        '加拿大':'Canada','波黑':'Bosnia and Herzegovina','卡塔尔':'Qatar','瑞士':'Switzerland',
+        '巴西':'Brazil','摩洛哥':'Morocco','海地':'Haiti','苏格兰':'Scotland',
+        '美国':'USA','巴拉圭':'Paraguay','澳大利亚':'Australia','土耳其':'Turkey',
+        '德国':'Germany','库拉索':'Curacao','科特迪瓦':'Ivory Coast','厄瓜多尔':'Ecuador',
+        '荷兰':'Netherlands','日本':'Japan','瑞典':'Sweden','突尼斯':'Tunisia',
+        '比利时':'Belgium','埃及':'Egypt','伊朗':'Iran','新西兰':'New Zealand',
+        '西班牙':'Spain','佛得角':'Cape Verde','沙特':'Saudi Arabia','乌拉圭':'Uruguay',
+        '法国':'France','塞内加尔':'Senegal','伊拉克':'Iraq','挪威':'Norway',
+        '阿根廷':'Argentina','阿尔及利亚':'Algeria','奥地利':'Austria','约旦':'Jordan',
+        '葡萄牙':'Portugal','刚果民主共和国':'DR Congo','哥伦比亚':'Colombia','乌兹别克斯坦':'Uzbekistan',
+        '英格兰':'England','克罗地亚':'Croatia','加纳':'Ghana','巴拿马':'Panama'
+    };
+
+    function parseScore(text) {
+        if (!text || text === '\u2014') return null;
+        var parts = text.trim().split(/[-:\uFF1A]/);
+        if (parts.length !== 2) return null;
+        var a = parseInt(parts[0]), b = parseInt(parts[1]);
+        if (isNaN(a) || isNaN(b)) return null;
+        return [a, b];
+    }
+
+    function calculateGroup(groupId) {
+        var teams = GROUP_TEAMS[groupId];
+        if (!teams) return [];
+        var stats = {};
+        teams.forEach(function(t) {
+            stats[t] = { name:t, played:0, won:0, drawn:0, lost:0, gf:0, ga:0, pts:0 };
         });
 
-        // 页面加载时恢复数据
-        loadScores();
+        var rows = document.querySelectorAll('#tab-schedule tr[data-group="' + groupId + '"]');
+        rows.forEach(function(row) {
+            var cells = row.querySelectorAll('td');
+            if (cells.length < 4) return;
+            var matchText = cells[2].textContent.trim();
+            var score = parseScore(cells[3].textContent);
+            if (!score) return;
+
+            var parts = matchText.split(/\s+vs\s+/i);
+            if (parts.length !== 2) return;
+            var a = parts[0].trim(), b = parts[1].trim();
+            var ga = score[0], gb = score[1];
+
+            if (!stats[a] && stats[b]) {
+                var tmp = a; a = b; b = tmp;
+                tmp = ga; ga = gb; gb = tmp;
+            }
+            if (!stats[a] || !stats[b]) return;
+
+            stats[a].played++; stats[b].played++;
+            stats[a].gf += ga; stats[a].ga += gb;
+            stats[b].gf += gb; stats[b].ga += ga;
+
+            if (ga > gb)      { stats[a].won++; stats[a].pts += 3; stats[b].lost++; }
+            else if (ga < gb) { stats[b].won++; stats[b].pts += 3; stats[a].lost++; }
+            else              { stats[a].drawn++; stats[b].drawn++; stats[a].pts += 1; stats[b].pts += 1; }
+        });
+
+        var arr = Object.values(stats);
+        arr.forEach(function(t) { t.gd = t.gf - t.ga; });
+        arr.sort(function(a, b) {
+            if (b.pts !== a.pts) return b.pts - a.pts;
+            if (b.gd  !== a.gd)  return b.gd  - a.gd;
+            if (b.gf  !== a.gf)  return b.gf  - a.gf;
+            return a.name.localeCompare(b.name);
+        });
+        return arr;
+    }
+
+    function buildAllGroups() {
+        var grid = document.getElementById('groupsGrid');
+        var html = '';
+        Object.keys(GROUP_TEAMS).forEach(function(g) {
+            var standings = calculateGroup(g);
+            html += '<div class="group-card">';
+            html += '<h3>' + g + '\u7EC4</h3>';
+            html += '<div class="table-wrapper"><table class="standings-table">';
+            html += '<thead><tr><th>\u6392\u540D</th><th>\u7403\u961F</th><th>\u573A\u6B21</th><th>\u80DC</th><th>\u5E73</th><th>\u8D1F</th><th>\u8FDB</th><th>\u5931</th><th>\u51C0\u80DC</th><th>\u79EF\u5206</th></tr></thead>';
+            html += '<tbody>';
+            standings.forEach(function(t, i) {
+                var q = i < 2 ? ' <span class="qualify">\u2713\u664B\u7EA7</span>' : '';
+                html += '<tr>';
+                html += '<td class="rank">' + (i+1) + '</td>';
+                html += '<td><a href="teams/' + TEAM_EN[t.name] + '.html" class="team-clickable">' + t.name + '</a>' + q + '</td>';
+                html += '<td>' + t.played + '</td>';
+                html += '<td>' + t.won     + '</td>';
+                html += '<td>' + t.drawn   + '</td>';
+                html += '<td>' + t.lost    + '</td>';
+                html += '<td>' + t.gf      + '</td>';
+                html += '<td>' + t.ga      + '</td>';
+                html += '<td>' + t.gd      + '</td>';
+                html += '<td style="font-weight:700;color:#FFD700;">' + t.pts + '</td>';
+                html += '</tr>';
+            });
+            html += '</tbody></table></div></div>';
+        });
+        grid.innerHTML = html;
+    }
+
+    // ========= 球队阵容弹窗 =========
+
+
+
+
+    // ========= 初始化 =========
+    function handleHash() {
+        var hash = window.location.hash.replace('#', '') || 'schedule';
+        if (['schedule', 'groups', 'stats'].indexOf(hash) !== -1) {
+            switchTab(hash);
+        } else {
+            switchTab('schedule');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        buildAllGroups();
+        handleHash();
+    });
+
+    window.addEventListener('hashchange', function() {
+        handleHash();
+    });
     </script>
+
 </body>
 </html>
