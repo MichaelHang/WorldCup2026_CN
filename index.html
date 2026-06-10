@@ -9,7 +9,7 @@
 
         body {
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%);
+            background: #0d1117;
             color: #fff;
             min-height: 100vh;
             padding: 20px;
@@ -21,11 +21,12 @@
         .header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            background: #161b22;
             border-radius: 20px;
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
+            border: 1px solid #30363d;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
         .header::before {
@@ -174,6 +175,21 @@
             color: #FFD700;
             font-weight: 600;
             font-size: 1.05em;
+        }
+        /* 预测列 */
+        .pred-col {
+            text-align: center;
+            min-width: 50px;
+        }
+        .pred-link {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: transform 0.2s, filter 0.2s;
+        }
+        .pred-link:hover {
+            transform: scale(1.3);
+            filter: brightness(1.3);
         }
         td:first-child, td:nth-child(2) { color: #FFD700; font-weight: 600; }
 
@@ -414,6 +430,7 @@
             <button class="tab-btn active" onclick="switchTab('schedule')">赛程表</button>
             <button class="tab-btn" onclick="switchTab('groups')">小组积分</button>
             <button class="tab-btn" onclick="switchTab('stats')">射手榜 & 助攻榜</button>
+            <a href="worldcup_young_stars.html" class="tab-btn" style="text-decoration:none;">超新星档案</a>
         </div>
 
         <!-- ==================== 赛程表 ==================== -->
@@ -434,79 +451,79 @@
                                 <th>比赛</th>
                                 <th>比分</th>
                                 <th>赛事</th>
-                                <th>地点</th>
+                                <th>地点</th><th>预测</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-group="A"><td>6月12日</td><td>03:00</td><td>墨西哥 vs 南非</td><td class="score-col">—</td><td>第一阶段·A组</td><td>墨西哥城体育场</td></tr>
-                            <tr data-group="A"><td>6月12日</td><td>10:00</td><td>韩国 vs 捷克</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
-                            <tr data-group="B"><td>6月13日</td><td>03:00</td><td>加拿大 vs 波黑</td><td class="score-col">—</td><td>第一阶段·B组</td><td>多伦多体育场</td></tr>
-                            <tr data-group="D"><td>6月13日</td><td>09:00</td><td>美国 vs 巴拉圭</td><td class="score-col">—</td><td>第一阶段·D组</td><td>洛杉矶体育场</td></tr>
-                            <tr data-group="B"><td>6月14日</td><td>03:00</td><td>卡塔尔 vs 瑞士</td><td class="score-col">—</td><td>第一阶段·B组</td><td>旧金山湾区体育场</td></tr>
-                            <tr data-group="C"><td>6月14日</td><td>06:00</td><td>巴西 vs 摩洛哥</td><td class="score-col">—</td><td>第一阶段·C组</td><td>纽约/新泽西体育场</td></tr>
-                            <tr data-group="C"><td>6月14日</td><td>09:00</td><td>海地 vs 苏格兰</td><td class="score-col">—</td><td>第一阶段·C组</td><td>波士顿体育场</td></tr>
-                            <tr data-group="D"><td>6月14日</td><td>12:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col">—</td><td>第一阶段·D组</td><td>BC Place温哥华</td></tr>
-                            <tr data-group="E"><td>6月15日</td><td>01:00</td><td>德国 vs 库拉索</td><td class="score-col">—</td><td>第一阶段·E组</td><td>休斯顿体育场</td></tr>
-                            <tr data-group="F"><td>6月15日</td><td>04:00</td><td>荷兰 vs 日本</td><td class="score-col">—</td><td>第一阶段·F组</td><td>达拉斯体育场</td></tr>
-                            <tr data-group="E"><td>6月15日</td><td>07:00</td><td>科特迪瓦 vs 厄瓜多尔</td><td class="score-col">—</td><td>第一阶段·E组</td><td>费城体育场</td></tr>
-                            <tr data-group="F"><td>6月15日</td><td>10:00</td><td>瑞典 vs 突尼斯</td><td class="score-col">—</td><td>第一阶段·F组</td><td>蒙特雷体育场</td></tr>
-                            <tr data-group="H"><td>6月16日</td><td>00:00</td><td>西班牙 vs 佛得角</td><td class="score-col">—</td><td>第一阶段·H组</td><td>亚特兰大体育场</td></tr>
-                            <tr data-group="G"><td>6月16日</td><td>03:00</td><td>比利时 vs 埃及</td><td class="score-col">—</td><td>第一阶段·G组</td><td>西雅图体育场</td></tr>
-                            <tr data-group="H"><td>6月16日</td><td>06:00</td><td>沙特 vs 乌拉圭</td><td class="score-col">—</td><td>第一阶段·H组</td><td>迈阿密体育场</td></tr>
-                            <tr data-group="G"><td>6月16日</td><td>09:00</td><td>伊朗 vs 新西兰</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
-                            <tr data-group="I"><td>6月16日</td><td>12:00</td><td>法国 vs 塞内加尔</td><td class="score-col">—</td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td></tr>
-                            <tr data-group="I"><td>6月16日</td><td>15:00</td><td>伊拉克 vs 挪威</td><td class="score-col">—</td><td>第一阶段·I组</td><td>波士顿体育场</td></tr>
-                            <tr data-group="J"><td>6月17日</td><td>00:00</td><td>阿根廷 vs 阿尔及利亚</td><td class="score-col">—</td><td>第一阶段·J组</td><td>堪萨斯城体育场</td></tr>
-                            <tr data-group="J"><td>6月17日</td><td>03:00</td><td>奥地利 vs 约旦</td><td class="score-col">—</td><td>第一阶段·J组</td><td>旧金山湾区体育场</td></tr>
-                            <tr data-group="K"><td>6月18日</td><td>01:00</td><td>葡萄牙 vs 刚果民主共和国</td><td class="score-col">—</td><td>第一阶段·K组</td><td>休斯顿体育场</td></tr>
-                            <tr data-group="L"><td>6月18日</td><td>04:00</td><td>英格兰 vs 克罗地亚</td><td class="score-col">—</td><td>第一阶段·L组</td><td>达拉斯体育场</td></tr>
-                            <tr data-group="L"><td>6月18日</td><td>07:00</td><td>加纳 vs 巴拿马</td><td class="score-col">—</td><td>第一阶段·L组</td><td>波士顿体育场</td></tr>
-                            <tr data-group="K"><td>6月18日</td><td>10:00</td><td>哥伦比亚 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>瓜达拉哈拉体育场</td></tr>
-                            <tr data-group="A"><td>6月19日</td><td>03:00</td><td>捷克 vs 南非</td><td class="score-col">—</td><td>第一阶段·A组</td><td>亚特兰大体育场</td></tr>
-                            <tr data-group="B"><td>6月19日</td><td>03:00</td><td>瑞士 vs 波黑</td><td class="score-col">—</td><td>第一阶段·B组</td><td>洛杉矶体育场</td></tr>
-                            <tr data-group="B"><td>6月19日</td><td>06:00</td><td>加拿大 vs 卡塔尔</td><td class="score-col">—</td><td>第一阶段·B组</td><td>BC Place温哥华</td></tr>
-                            <tr data-group="A"><td>6月19日</td><td>09:00</td><td>墨西哥 vs 韩国</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
-                            <tr data-group="D"><td>6月19日</td><td>12:00</td><td>美国 vs 澳大利亚</td><td class="score-col">—</td><td>第一阶段·D组</td><td>西雅图体育场</td></tr>
-                            <tr data-group="C"><td>6月20日</td><td>03:00</td><td>苏格兰 vs 摩洛哥</td><td class="score-col">—</td><td>第一阶段·C组</td><td>波士顿体育场</td></tr>
-                            <tr data-group="C"><td>6月20日</td><td>06:00</td><td>巴西 vs 海地</td><td class="score-col">—</td><td>第一阶段·C组</td><td>迈阿密体育场</td></tr>
-                            <tr data-group="D"><td>6月20日</td><td>11:00</td><td>土耳其 vs 巴拉圭</td><td class="score-col">—</td><td>第一阶段·D组</td><td>旧金山湾区体育场</td></tr>
-                            <tr data-group="F"><td>6月21日</td><td>01:00</td><td>荷兰 vs 瑞典</td><td class="score-col">—</td><td>第一阶段·F组</td><td>休斯顿体育场</td></tr>
-                            <tr data-group="E"><td>6月21日</td><td>04:00</td><td>德国 vs 科特迪瓦</td><td class="score-col">—</td><td>第一阶段·E组</td><td>多伦多体育场</td></tr>
-                            <tr data-group="E"><td>6月21日</td><td>08:00</td><td>厄瓜多尔 vs 库拉索</td><td class="score-col">—</td><td>第一阶段·E组</td><td>堪萨斯城体育场</td></tr>
-                            <tr data-group="F"><td>6月21日</td><td>12:00</td><td>突尼斯 vs 日本</td><td class="score-col">—</td><td>第一阶段·F组</td><td>蒙特雷体育场</td></tr>
-                            <tr data-group="H"><td>6月22日</td><td>00:00</td><td>西班牙 vs 沙特</td><td class="score-col">—</td><td>第一阶段·H组</td><td>亚特兰大体育场</td></tr>
-                            <tr data-group="G"><td>6月22日</td><td>03:00</td><td>比利时 vs 伊朗</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
-                            <tr data-group="H"><td>6月22日</td><td>06:00</td><td>乌拉圭 vs 佛得角</td><td class="score-col">—</td><td>第一阶段·H组</td><td>迈阿密体育场</td></tr>
-                            <tr data-group="G"><td>6月22日</td><td>09:00</td><td>新西兰 vs 埃及</td><td class="score-col">—</td><td>第一阶段·G组</td><td>BC Place温哥华</td></tr>
-                            <tr data-group="J"><td>6月23日</td><td>01:00</td><td>阿根廷 vs 奥地利</td><td class="score-col">—</td><td>第一阶段·J组</td><td>达拉斯体育场</td></tr>
-                            <tr data-group="I"><td>6月23日</td><td>05:00</td><td>法国 vs 伊拉克</td><td class="score-col">—</td><td>第一阶段·I组</td><td>费城体育场</td></tr>
-                            <tr data-group="I"><td>6月23日</td><td>08:00</td><td>挪威 vs 塞内加尔</td><td class="score-col">—</td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td></tr>
-                            <tr data-group="J"><td>6月23日</td><td>11:00</td><td>约旦 vs 阿尔及利亚</td><td class="score-col">—</td><td>第一阶段·J组</td><td>旧金山湾区体育场</td></tr>
-                            <tr data-group="K"><td>6月24日</td><td>01:00</td><td>葡萄牙 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>休斯顿体育场</td></tr>
-                            <tr data-group="L"><td>6月24日</td><td>04:00</td><td>英格兰 vs 加纳</td><td class="score-col">—</td><td>第一阶段·L组</td><td>波士顿体育场</td></tr>
-                            <tr data-group="L"><td>6月24日</td><td>05:00</td><td>巴拿马 vs 克罗地亚</td><td class="score-col">—</td><td>第一阶段·L组</td><td>纽约/新泽西体育场</td></tr>
-                            <tr data-group="K"><td>6月24日</td><td>07:30</td><td>哥伦比亚 vs 葡萄牙</td><td class="score-col">—</td><td>第一阶段·K组</td><td>迈阿密体育场</td></tr>
-                            <tr data-group="K"><td>6月24日</td><td>07:30</td><td>刚果民主共和国 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>亚特兰大体育场</td></tr>
-                            <tr data-group="J"><td>6月25日</td><td>10:00</td><td>阿尔及利亚 vs 奥地利</td><td class="score-col">—</td><td>第一阶段·J组</td><td>堪萨斯城体育场</td></tr>
-                            <tr data-group="J"><td>6月25日</td><td>10:00</td><td>约旦 vs 阿根廷</td><td class="score-col">—</td><td>第一阶段·J组</td><td>达拉斯体育场</td></tr>
-                            <tr data-group="I"><td>6月26日</td><td>03:00</td><td>挪威 vs 法国</td><td class="score-col">—</td><td>第一阶段·I组</td><td>波士顿体育场</td></tr>
-                            <tr data-group="I"><td>6月26日</td><td>03:00</td><td>塞内加尔 vs 伊拉克</td><td class="score-col">—</td><td>第一阶段·I组</td><td>多伦多体育场</td></tr>
-                            <tr data-group="H"><td>6月26日</td><td>08:00</td><td>佛得角 vs 西班牙</td><td class="score-col">—</td><td>第一阶段·H组</td><td>休斯顿体育场</td></tr>
-                            <tr data-group="H"><td>6月26日</td><td>08:00</td><td>乌拉圭 vs 比利时</td><td class="score-col">—</td><td>第一阶段·H组</td><td>瓜达拉哈拉体育场</td></tr>
-                            <tr data-group="G"><td>6月26日</td><td>11:00</td><td>埃及 vs 新西兰</td><td class="score-col">—</td><td>第一阶段·G组</td><td>西雅图体育场</td></tr>
-                            <tr data-group="G"><td>6月26日</td><td>11:00</td><td>伊朗 vs 沙特</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td></tr>
-                            <tr data-group="E"><td>6月27日</td><td>03:00</td><td>库拉索 vs 德国</td><td class="score-col">—</td><td>第一阶段·E组</td><td>费城体育场</td></tr>
-                            <tr data-group="E"><td>6月27日</td><td>04:00</td><td>厄瓜多尔 vs 荷兰</td><td class="score-col">—</td><td>第一阶段·E组</td><td>纽约/新泽西体育场</td></tr>
-                            <tr data-group="F"><td>6月27日</td><td>07:00</td><td>日本 vs 瑞典</td><td class="score-col">—</td><td>第一阶段·F组</td><td>达拉斯体育场</td></tr>
-                            <tr data-group="F"><td>6月27日</td><td>07:00</td><td>突尼斯 vs 荷兰</td><td class="score-col">—</td><td>第一阶段·F组</td><td>堪萨斯城体育场</td></tr>
-                            <tr data-group="D"><td>6月27日</td><td>10:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col">—</td><td>第一阶段·D组</td><td>洛杉矶体育场</td></tr>
-                            <tr data-group="D"><td>6月27日</td><td>10:00</td><td>巴拉圭 vs 美国</td><td class="score-col">—</td><td>第一阶段·D组</td><td>旧金山湾区体育场</td></tr>
-                            <tr data-group="C"><td>6月28日</td><td>03:00</td><td>摩洛哥 vs 苏格兰</td><td class="score-col">—</td><td>第一阶段·C组</td><td>迈阿密体育场</td></tr>
-                            <tr data-group="C"><td>6月28日</td><td>06:00</td><td>海地 vs 巴西</td><td class="score-col">—</td><td>第一阶段·C组</td><td>亚特兰大体育场</td></tr>
-                            <tr data-group="B"><td>6月28日</td><td>03:00</td><td>卡塔尔 vs 加拿大</td><td class="score-col">—</td><td>第一阶段·B组</td><td>BC Place温哥华</td></tr>
-                            <tr data-group="B"><td>6月28日</td><td>03:00</td><td>波黑 vs 瑞士</td><td class="score-col">—</td><td>第一阶段·B组</td><td>西雅图体育场</td></tr>
-                            <tr data-group="A"><td>6月28日</td><td>09:00</td><td>韩国 vs 墨西哥</td><td class="score-col">—</td><td>第一阶段·A组</td><td>蒙特雷体育场</td></tr>
-                            <tr data-group="A"><td>6月28日</td><td>09:00</td><td>南非 vs 捷克</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td></tr>
+                            <tr data-group="A"><td>6月12日</td><td>03:00</td><td>墨西哥 vs 南非</td><td class="score-col">—</td><td>第一阶段·A组</td><td>墨西哥城体育场</td><td class="pred-col"><a href="predictions/0612.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="A"><td>6月12日</td><td>10:00</td><td>韩国 vs 捷克</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0612.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="B"><td>6月13日</td><td>03:00</td><td>加拿大 vs 波黑</td><td class="score-col">—</td><td>第一阶段·B组</td><td>多伦多体育场</td><td class="pred-col"><a href="predictions/0613.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="D"><td>6月13日</td><td>09:00</td><td>美国 vs 巴拉圭</td><td class="score-col">—</td><td>第一阶段·D组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0613.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="B"><td>6月14日</td><td>03:00</td><td>卡塔尔 vs 瑞士</td><td class="score-col">—</td><td>第一阶段·B组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0614.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="C"><td>6月14日</td><td>06:00</td><td>巴西 vs 摩洛哥</td><td class="score-col">—</td><td>第一阶段·C组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0614.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="C"><td>6月14日</td><td>09:00</td><td>海地 vs 苏格兰</td><td class="score-col">—</td><td>第一阶段·C组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0614.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="D"><td>6月14日</td><td>12:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col">—</td><td>第一阶段·D组</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0614.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="E"><td>6月15日</td><td>01:00</td><td>德国 vs 库拉索</td><td class="score-col">—</td><td>第一阶段·E组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0615.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="F"><td>6月15日</td><td>04:00</td><td>荷兰 vs 日本</td><td class="score-col">—</td><td>第一阶段·F组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0615.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="E"><td>6月15日</td><td>07:00</td><td>科特迪瓦 vs 厄瓜多尔</td><td class="score-col">—</td><td>第一阶段·E组</td><td>费城体育场</td><td class="pred-col"><a href="predictions/0615.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="F"><td>6月15日</td><td>10:00</td><td>瑞典 vs 突尼斯</td><td class="score-col">—</td><td>第一阶段·F组</td><td>蒙特雷体育场</td><td class="pred-col"><a href="predictions/0615.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="H"><td>6月16日</td><td>00:00</td><td>西班牙 vs 佛得角</td><td class="score-col">—</td><td>第一阶段·H组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="G"><td>6月16日</td><td>03:00</td><td>比利时 vs 埃及</td><td class="score-col">—</td><td>第一阶段·G组</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="H"><td>6月16日</td><td>06:00</td><td>沙特 vs 乌拉圭</td><td class="score-col">—</td><td>第一阶段·H组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="G"><td>6月16日</td><td>09:00</td><td>伊朗 vs 新西兰</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="I"><td>6月16日</td><td>12:00</td><td>法国 vs 塞内加尔</td><td class="score-col">—</td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="I"><td>6月16日</td><td>15:00</td><td>伊拉克 vs 挪威</td><td class="score-col">—</td><td>第一阶段·I组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="J"><td>6月17日</td><td>00:00</td><td>阿根廷 vs 阿尔及利亚</td><td class="score-col">—</td><td>第一阶段·J组</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0617.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="J"><td>6月17日</td><td>03:00</td><td>奥地利 vs 约旦</td><td class="score-col">—</td><td>第一阶段·J组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0617.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="K"><td>6月18日</td><td>01:00</td><td>葡萄牙 vs 刚果民主共和国</td><td class="score-col">—</td><td>第一阶段·K组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0618.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="L"><td>6月18日</td><td>04:00</td><td>英格兰 vs 克罗地亚</td><td class="score-col">—</td><td>第一阶段·L组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0618.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="L"><td>6月18日</td><td>07:00</td><td>加纳 vs 巴拿马</td><td class="score-col">—</td><td>第一阶段·L组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0618.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="K"><td>6月18日</td><td>10:00</td><td>哥伦比亚 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0618.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="A"><td>6月19日</td><td>03:00</td><td>捷克 vs 南非</td><td class="score-col">—</td><td>第一阶段·A组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="B"><td>6月19日</td><td>03:00</td><td>瑞士 vs 波黑</td><td class="score-col">—</td><td>第一阶段·B组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="B"><td>6月19日</td><td>06:00</td><td>加拿大 vs 卡塔尔</td><td class="score-col">—</td><td>第一阶段·B组</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="A"><td>6月19日</td><td>09:00</td><td>墨西哥 vs 韩国</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="D"><td>6月19日</td><td>12:00</td><td>美国 vs 澳大利亚</td><td class="score-col">—</td><td>第一阶段·D组</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="C"><td>6月20日</td><td>03:00</td><td>苏格兰 vs 摩洛哥</td><td class="score-col">—</td><td>第一阶段·C组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0620.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="C"><td>6月20日</td><td>06:00</td><td>巴西 vs 海地</td><td class="score-col">—</td><td>第一阶段·C组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0620.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="D"><td>6月20日</td><td>11:00</td><td>土耳其 vs 巴拉圭</td><td class="score-col">—</td><td>第一阶段·D组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0620.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="F"><td>6月21日</td><td>01:00</td><td>荷兰 vs 瑞典</td><td class="score-col">—</td><td>第一阶段·F组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0621.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="E"><td>6月21日</td><td>04:00</td><td>德国 vs 科特迪瓦</td><td class="score-col">—</td><td>第一阶段·E组</td><td>多伦多体育场</td><td class="pred-col"><a href="predictions/0621.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="E"><td>6月21日</td><td>08:00</td><td>厄瓜多尔 vs 库拉索</td><td class="score-col">—</td><td>第一阶段·E组</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0621.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="F"><td>6月21日</td><td>12:00</td><td>突尼斯 vs 日本</td><td class="score-col">—</td><td>第一阶段·F组</td><td>蒙特雷体育场</td><td class="pred-col"><a href="predictions/0621.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="H"><td>6月22日</td><td>00:00</td><td>西班牙 vs 沙特</td><td class="score-col">—</td><td>第一阶段·H组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0622.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="G"><td>6月22日</td><td>03:00</td><td>比利时 vs 伊朗</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0622.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="H"><td>6月22日</td><td>06:00</td><td>乌拉圭 vs 佛得角</td><td class="score-col">—</td><td>第一阶段·H组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0622.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="G"><td>6月22日</td><td>09:00</td><td>新西兰 vs 埃及</td><td class="score-col">—</td><td>第一阶段·G组</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0622.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="J"><td>6月23日</td><td>01:00</td><td>阿根廷 vs 奥地利</td><td class="score-col">—</td><td>第一阶段·J组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0623.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="I"><td>6月23日</td><td>05:00</td><td>法国 vs 伊拉克</td><td class="score-col">—</td><td>第一阶段·I组</td><td>费城体育场</td><td class="pred-col"><a href="predictions/0623.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="I"><td>6月23日</td><td>08:00</td><td>挪威 vs 塞内加尔</td><td class="score-col">—</td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0623.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="J"><td>6月23日</td><td>11:00</td><td>约旦 vs 阿尔及利亚</td><td class="score-col">—</td><td>第一阶段·J组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0623.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="K"><td>6月24日</td><td>01:00</td><td>葡萄牙 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="L"><td>6月24日</td><td>04:00</td><td>英格兰 vs 加纳</td><td class="score-col">—</td><td>第一阶段·L组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="L"><td>6月24日</td><td>05:00</td><td>巴拿马 vs 克罗地亚</td><td class="score-col">—</td><td>第一阶段·L组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="K"><td>6月24日</td><td>07:30</td><td>哥伦比亚 vs 葡萄牙</td><td class="score-col">—</td><td>第一阶段·K组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="K"><td>6月24日</td><td>07:30</td><td>刚果民主共和国 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="J"><td>6月25日</td><td>10:00</td><td>阿尔及利亚 vs 奥地利</td><td class="score-col">—</td><td>第一阶段·J组</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0625.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="J"><td>6月25日</td><td>10:00</td><td>约旦 vs 阿根廷</td><td class="score-col">—</td><td>第一阶段·J组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0625.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="I"><td>6月26日</td><td>03:00</td><td>挪威 vs 法国</td><td class="score-col">—</td><td>第一阶段·I组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="I"><td>6月26日</td><td>03:00</td><td>塞内加尔 vs 伊拉克</td><td class="score-col">—</td><td>第一阶段·I组</td><td>多伦多体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="H"><td>6月26日</td><td>08:00</td><td>佛得角 vs 西班牙</td><td class="score-col">—</td><td>第一阶段·H组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="H"><td>6月26日</td><td>08:00</td><td>乌拉圭 vs 比利时</td><td class="score-col">—</td><td>第一阶段·H组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="G"><td>6月26日</td><td>11:00</td><td>埃及 vs 新西兰</td><td class="score-col">—</td><td>第一阶段·G组</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="G"><td>6月26日</td><td>11:00</td><td>伊朗 vs 沙特</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="E"><td>6月27日</td><td>03:00</td><td>库拉索 vs 德国</td><td class="score-col">—</td><td>第一阶段·E组</td><td>费城体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="E"><td>6月27日</td><td>04:00</td><td>厄瓜多尔 vs 荷兰</td><td class="score-col">—</td><td>第一阶段·E组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="F"><td>6月27日</td><td>07:00</td><td>日本 vs 瑞典</td><td class="score-col">—</td><td>第一阶段·F组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="F"><td>6月27日</td><td>07:00</td><td>突尼斯 vs 荷兰</td><td class="score-col">—</td><td>第一阶段·F组</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="D"><td>6月27日</td><td>10:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col">—</td><td>第一阶段·D组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="D"><td>6月27日</td><td>10:00</td><td>巴拉圭 vs 美国</td><td class="score-col">—</td><td>第一阶段·D组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="C"><td>6月28日</td><td>03:00</td><td>摩洛哥 vs 苏格兰</td><td class="score-col">—</td><td>第一阶段·C组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="C"><td>6月28日</td><td>06:00</td><td>海地 vs 巴西</td><td class="score-col">—</td><td>第一阶段·C组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="B"><td>6月28日</td><td>03:00</td><td>卡塔尔 vs 加拿大</td><td class="score-col">—</td><td>第一阶段·B组</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="B"><td>6月28日</td><td>03:00</td><td>波黑 vs 瑞士</td><td class="score-col">—</td><td>第一阶段·B组</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="A"><td>6月28日</td><td>09:00</td><td>韩国 vs 墨西哥</td><td class="score-col">—</td><td>第一阶段·A组</td><td>蒙特雷体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
+                            <tr data-group="A"><td>6月28日</td><td>09:00</td><td>南非 vs 捷克</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -520,24 +537,24 @@
                 </div>
                 <div class="table-wrapper">
                     <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
                         <tbody>
-                            <tr><td>7月1日</td><td>03:00</td><td>2A vs 2B</td><td class="score-col">—</td><td>Round of 32</td><td>洛杉矶体育场</td></tr>
-                            <tr><td>7月1日</td><td>01:00</td><td>1C vs 2F</td><td class="score-col">—</td><td>Round of 32</td><td>休斯顿体育场</td></tr>
-                            <tr><td>7月1日</td><td>04:30</td><td>1E vs ABCD</td><td class="score-col">—</td><td>Round of 32</td><td>波士顿体育场</td></tr>
-                            <tr><td>7月1日</td><td>09:00</td><td>1F vs 2C</td><td class="score-col">—</td><td>Round of 32</td><td>蒙特雷体育场</td></tr>
-                            <tr><td>7月1日</td><td>01:00</td><td>2E vs 2I</td><td class="score-col">—</td><td>Round of 32</td><td>达拉斯体育场</td></tr>
-                            <tr><td>7月1日</td><td>05:00</td><td>1I vs CDFGH</td><td class="score-col">—</td><td>Round of 32</td><td>纽约/新泽西体育场</td></tr>
-                            <tr><td>7月2日</td><td>09:00</td><td>1A vs 3CEFHI</td><td class="score-col">—</td><td>Round of 32</td><td>墨西哥城体育场</td></tr>
-                            <tr><td>7月2日</td><td>00:00</td><td>1L vs 3EHIJK</td><td class="score-col">—</td><td>Round of 32</td><td>亚特兰大体育场</td></tr>
-                            <tr><td>7月2日</td><td>04:00</td><td>1G vs 3AEHIJ</td><td class="score-col">—</td><td>Round of 32</td><td>西雅图体育场</td></tr>
-                            <tr><td>7月2日</td><td>08:00</td><td>1D vs 3BEFIJ</td><td class="score-col">—</td><td>Round of 32</td><td>旧金山湾区体育场</td></tr>
-                            <tr><td>7月2日</td><td>03:00</td><td>1H vs 2J</td><td class="score-col">—</td><td>Round of 32</td><td>洛杉矶体育场</td></tr>
-                            <tr><td>7月2日</td><td>07:00</td><td>2K vs 2L</td><td class="score-col">—</td><td>Round of 32</td><td>多伦多体育场</td></tr>
-                            <tr><td>7月2日</td><td>11:00</td><td>1B vs 3EFGIJ</td><td class="score-col">—</td><td>Round of 32</td><td>BC Place温哥华</td></tr>
-                            <tr><td>7月3日</td><td>02:00</td><td>2D vs 2G</td><td class="score-col">—</td><td>Round of 32</td><td>达拉斯体育场</td></tr>
-                            <tr><td>7月3日</td><td>06:00</td><td>1J vs 2H</td><td class="score-col">—</td><td>Round of 32</td><td>迈阿密体育场</td></tr>
-                            <tr><td>7月3日</td><td>09:00</td><td>1K vs 3DEIJL</td><td class="score-col">—</td><td>Round of 32</td><td>堪萨斯城体育场</td></tr>
+                            <tr><td>7月1日</td><td>03:00</td><td>2A vs 2B</td><td class="score-col">—</td><td>Round of 32</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月1日</td><td>01:00</td><td>1C vs 2F</td><td class="score-col">—</td><td>Round of 32</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月1日</td><td>04:30</td><td>1E vs ABCD</td><td class="score-col">—</td><td>Round of 32</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月1日</td><td>09:00</td><td>1F vs 2C</td><td class="score-col">—</td><td>Round of 32</td><td>蒙特雷体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月1日</td><td>01:00</td><td>2E vs 2I</td><td class="score-col">—</td><td>Round of 32</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月1日</td><td>05:00</td><td>1I vs CDFGH</td><td class="score-col">—</td><td>Round of 32</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月2日</td><td>09:00</td><td>1A vs 3CEFHI</td><td class="score-col">—</td><td>Round of 32</td><td>墨西哥城体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月2日</td><td>00:00</td><td>1L vs 3EHIJK</td><td class="score-col">—</td><td>Round of 32</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月2日</td><td>04:00</td><td>1G vs 3AEHIJ</td><td class="score-col">—</td><td>Round of 32</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月2日</td><td>08:00</td><td>1D vs 3BEFIJ</td><td class="score-col">—</td><td>Round of 32</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月2日</td><td>03:00</td><td>1H vs 2J</td><td class="score-col">—</td><td>Round of 32</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月2日</td><td>07:00</td><td>2K vs 2L</td><td class="score-col">—</td><td>Round of 32</td><td>多伦多体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月2日</td><td>11:00</td><td>1B vs 3EFGIJ</td><td class="score-col">—</td><td>Round of 32</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月3日</td><td>02:00</td><td>2D vs 2G</td><td class="score-col">—</td><td>Round of 32</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0703.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月3日</td><td>06:00</td><td>1J vs 2H</td><td class="score-col">—</td><td>Round of 32</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0703.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月3日</td><td>09:00</td><td>1K vs 3DEIJL</td><td class="score-col">—</td><td>Round of 32</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0703.html" class="pred-link">📊</a></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -551,16 +568,16 @@
                 </div>
                 <div class="table-wrapper">
                     <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
                         <tbody>
-                            <tr><td>7月5日</td><td>01:00</td><td>W73 vs W75</td><td class="score-col">—</td><td>Round of 16</td><td>休斯顿体育场</td></tr>
-                            <tr><td>7月5日</td><td>05:00</td><td>W74 vs W77</td><td class="score-col">—</td><td>Round of 16</td><td>费城体育场</td></tr>
-                            <tr><td>7月5日</td><td>04:00</td><td>W76 vs W78</td><td class="score-col">—</td><td>Round of 16</td><td>纽约/新泽西体育场</td></tr>
-                            <tr><td>7月5日</td><td>08:00</td><td>W79 vs W80</td><td class="score-col">—</td><td>Round of 16</td><td>墨西哥城体育场</td></tr>
-                            <tr><td>7月6日</td><td>03:00</td><td>W83 vs W84</td><td class="score-col">—</td><td>Round of 16</td><td>达拉斯体育场</td></tr>
-                            <tr><td>7月6日</td><td>08:00</td><td>W81 vs W82</td><td class="score-col">—</td><td>Round of 16</td><td>西雅图体育场</td></tr>
-                            <tr><td>7月6日</td><td>00:00</td><td>W86 vs W88</td><td class="score-col">—</td><td>Round of 16</td><td>亚特兰大体育场</td></tr>
-                            <tr><td>7月6日</td><td>04:00</td><td>W85 vs W87</td><td class="score-col">—</td><td>Round of 16</td><td>BC Place温哥华</td></tr>
+                            <tr><td>7月5日</td><td>01:00</td><td>W73 vs W75</td><td class="score-col">—</td><td>Round of 16</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0705.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月5日</td><td>05:00</td><td>W74 vs W77</td><td class="score-col">—</td><td>Round of 16</td><td>费城体育场</td><td class="pred-col"><a href="predictions/0705.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月5日</td><td>04:00</td><td>W76 vs W78</td><td class="score-col">—</td><td>Round of 16</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0705.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月5日</td><td>08:00</td><td>W79 vs W80</td><td class="score-col">—</td><td>Round of 16</td><td>墨西哥城体育场</td><td class="pred-col"><a href="predictions/0705.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月6日</td><td>03:00</td><td>W83 vs W84</td><td class="score-col">—</td><td>Round of 16</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0706.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月6日</td><td>08:00</td><td>W81 vs W82</td><td class="score-col">—</td><td>Round of 16</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0706.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月6日</td><td>00:00</td><td>W86 vs W88</td><td class="score-col">—</td><td>Round of 16</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0706.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月6日</td><td>04:00</td><td>W85 vs W87</td><td class="score-col">—</td><td>Round of 16</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0706.html" class="pred-link">📊</a></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -574,12 +591,12 @@
                 </div>
                 <div class="table-wrapper">
                     <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
                         <tbody>
-                            <tr><td>7月15日</td><td>04:00</td><td>W89 vs W90</td><td class="score-col">—</td><td>Quarter-final</td><td>波士顿体育场</td></tr>
-                            <tr><td>7月15日</td><td>03:00</td><td>W93 vs W94</td><td class="score-col">—</td><td>Quarter-final</td><td>洛杉矶体育场</td></tr>
-                            <tr><td>7月15日</td><td>05:00</td><td>W91 vs W92</td><td class="score-col">—</td><td>Quarter-final</td><td>迈阿密体育场</td></tr>
-                            <tr><td>7月15日</td><td>09:00</td><td>W95 vs W96</td><td class="score-col">—</td><td>Quarter-final</td><td>堪萨斯城体育场</td></tr>
+                            <tr><td>7月15日</td><td>04:00</td><td>W89 vs W90</td><td class="score-col">—</td><td>Quarter-final</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0715.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月15日</td><td>03:00</td><td>W93 vs W94</td><td class="score-col">—</td><td>Quarter-final</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0715.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月15日</td><td>05:00</td><td>W91 vs W92</td><td class="score-col">—</td><td>Quarter-final</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0715.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月15日</td><td>09:00</td><td>W95 vs W96</td><td class="score-col">—</td><td>Quarter-final</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0715.html" class="pred-link">📊</a></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -593,10 +610,10 @@
                 </div>
                 <div class="table-wrapper">
                     <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
                         <tbody>
-                            <tr><td>7月17日</td><td>03:00</td><td>W97 vs W98</td><td class="score-col">—</td><td>Semi-final</td><td>达拉斯体育场</td></tr>
-                            <tr><td>7月17日</td><td>03:00</td><td>W99 vs W100</td><td class="score-col">—</td><td>Semi-final</td><td>亚特兰大体育场</td></tr>
+                            <tr><td>7月17日</td><td>03:00</td><td>W97 vs W98</td><td class="score-col">—</td><td>Semi-final</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0717.html" class="pred-link">📊</a></td></tr>
+                            <tr><td>7月17日</td><td>03:00</td><td>W99 vs W100</td><td class="score-col">—</td><td>Semi-final</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0717.html" class="pred-link">📊</a></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -610,9 +627,9 @@
                 </div>
                 <div class="table-wrapper">
                     <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th></tr></thead>
+                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
                         <tbody>
-                            <tr><td>7月19日</td><td>03:00</td><td>W101 vs W102</td><td class="score-col">—</td><td>Final</td><td>纽约/新泽西体育场</td></tr>
+                            <tr><td>7月19日</td><td>03:00</td><td>W101 vs W102</td><td class="score-col">—</td><td>Final</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0719.html" class="pred-link">📊</a></td></tr>
                         </tbody>
                     </table>
                 </div>

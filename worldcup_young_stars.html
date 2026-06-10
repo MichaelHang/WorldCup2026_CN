@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026世界杯 · 最值得关注的15位年轻球员</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --gold: #d2991d;
+    --tier1-border: #58a6ff;
+    --tier1-glow: rgba(88,166,255,0.15);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding: 32px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  header .sub {
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(88,166,255,0.12);
+    color: var(--accent);
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-left: 6px;
+  }
+
+  /* Tier section */
+  .tier-section { margin-bottom: 48px; }
+  .tier-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .tier-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 14px;
+    border-radius: 4px;
+  }
+  .tier-label.t1 { background: rgba(88,166,255,0.18); color: #58a6ff; }
+  .tier-label.t2 { background: rgba(210,153,29,0.18); color: #d2991d; }
+  .tier-label.t3 { background: rgba(139,148,158,0.15); color: #8b949e; }
+  .tier-desc { font-size: 13px; color: var(--text-dim); }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .card.t1 {
+    border-color: var(--tier1-border);
+    box-shadow: 0 0 20px var(--tier1-glow);
+  }
+  .card.t1:hover { box-shadow: 0 0 28px var(--tier1-glow); }
+
+  .card-rank {
+    position: absolute;
+    top: 0; right: 16px;
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .card-flag { font-size: 26px; margin-bottom: 6px; }
+  .card-name {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .card-name-en {
+    font-size: 13px;
+    color: var(--text-dim);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .meta-tag {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-dim);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .meta-tag.age  { color: #7ee787; }
+  .meta-tag.pos  { color: #d2a8ff; }
+  .meta-tag.club { color: #ffa657; }
+  .card-why {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  .card-stat {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 12px;
+    color: #7ee787;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 12px;
+    padding: 40px 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95em;
+    margin-bottom: 16px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .card-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 22px; }
+    .card-rank { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="index.html" class="back-link">&larr; 返回首页</a>
+
+<header>
+  <h1>Stage Is Set</h1>
+  <p class="sub">2026 世界杯 · 超新星档案</p>
+</header>
+
+<!-- ============ TIER 1 ============ -->
+<section class="tier-section">
+  <div class="tier-header">
+    <span class="tier-label t1">Tier 1</span>
+    <span class="tier-desc">已经站在巨星门槛上 · 不爆发才是意外</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card t1">
+      <div class="card-rank">01</div>
+      <div class="card-flag">🇪🇸</div>
+      <div class="card-name">拉明·亚马尔</div>
+      <div class="card-name-en">Lamine Yamal</div>
+      <div class="card-meta">
+        <span class="meta-tag age">18岁</span>
+        <span class="meta-tag pos">右边锋</span>
+        <span class="meta-tag club">巴塞罗那</span>
+      </div>
+      <div class="card-why">2024欧洲杯夺冠的进攻核心，16岁即成为西班牙右路体系轴心。佩德里对角长传 + 边后卫套上 = 为他创造一对一空间而设计。</div>
+    </div>
+
+    <div class="card t1">
+      <div class="card-rank">02</div>
+      <div class="card-flag">🇹🇷</div>
+      <div class="card-name">阿尔达·居莱尔</div>
+      <div class="card-name-en">Arda Güler</div>
+      <div class="card-meta">
+        <span class="meta-tag age">20岁</span>
+        <span class="meta-tag pos">前腰 / 右边锋</span>
+        <span class="meta-tag club">皇家马德里</span>
+      </div>
+      <div class="card-why">2024欧洲杯首秀打破C罗最年轻进球者纪录。D组美国防守纪律松散，Güler用创造力而非蛮力撕开防线，首战对位值得期待。</div>
+    </div>
+
+    <div class="card t1">
+      <div class="card-rank">03</div>
+      <div class="card-flag">🇧🇷</div>
+      <div class="card-name">恩德里克</div>
+      <div class="card-name-en">Endrick</div>
+      <div class="card-meta">
+        <span class="meta-tag age">18岁</span>
+        <span class="meta-tag pos">中锋</span>
+        <span class="meta-tag club">皇家马德里 / 租借里昂</span>
+      </div>
+      <div class="card-why">纯粹的禁区终结者——教练教不出来的嗅觉。替补登场最强形态：一次跑位、一脚射门，叙事走向就变了。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TIER 2 ============ -->
+<section class="tier-section">
+  <div class="tier-header">
+    <span class="tier-label t2">Tier 2</span>
+    <span class="tier-desc">高概率制造名场面 · 舞台就位只欠东风</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="card-rank">04</div>
+      <div class="card-flag">🇫🇷</div>
+      <div class="card-name">德西雷·杜埃</div>
+      <div class="card-name-en">Désiré Doué</div>
+      <div class="card-meta">
+        <span class="meta-tag age">20岁</span>
+        <span class="meta-tag pos">攻击型中场 / 边锋</span>
+        <span class="meta-tag club">巴黎圣日耳曼</span>
+      </div>
+      <div class="card-why">本赛季13球，带队法甲夺冠+欧冠决赛。"65分钟替补"专属角色，专在对手体能下滑时收割比赛。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">05</div>
+      <div class="card-flag">🇦🇷</div>
+      <div class="card-name">尼科·帕斯</div>
+      <div class="card-name-en">Nico Paz</div>
+      <div class="card-meta">
+        <span class="meta-tag age">21岁</span>
+        <span class="meta-tag pos">前腰</span>
+        <span class="meta-tag club">科莫（皇马青训）</span>
+      </div>
+      <div class="card-why">梅西吸引包夹，他在空档活动——可能是全赛事位置最有利的年轻人。意甲赛季8球，证明了自己的终结能力。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">06</div>
+      <div class="card-flag">🇪🇸</div>
+      <div class="card-name">保·库巴西</div>
+      <div class="card-name-en">Pau Cubarsí</div>
+      <div class="card-meta">
+        <span class="meta-tag age">18岁</span>
+        <span class="meta-tag pos">中后卫</span>
+        <span class="meta-tag club">巴塞罗那</span>
+      </div>
+      <div class="card-why">罕见防守天才进入年轻球员关注名单。巴萨后场出球核心，用传球而非铲断控制比赛节奏。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">07</div>
+      <div class="card-flag">🇵🇹</div>
+      <div class="card-name">若昂·内维斯</div>
+      <div class="card-name-en">João Neves</div>
+      <div class="card-meta">
+        <span class="meta-tag age">21岁</span>
+        <span class="meta-tag pos">中场</span>
+        <span class="meta-tag club">巴黎圣日耳曼</span>
+      </div>
+      <div class="card-why">接班B费的组织核心。覆盖范围极大，一脚出球能力出色，葡萄牙中场的节拍器。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">08</div>
+      <div class="card-flag">🇫🇷</div>
+      <div class="card-name">瓦朗·扎伊尔-埃梅里</div>
+      <div class="card-name-en">Warren Zaïre-Emery</div>
+      <div class="card-meta">
+        <span class="meta-tag age">20岁</span>
+        <span class="meta-tag pos">中场</span>
+        <span class="meta-tag club">巴黎圣日耳曼</span>
+      </div>
+      <div class="card-why">17岁踢欧冠淘汰赛首发，身体对抗远超同龄。全能型中场，攻防两端都能输出。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">09</div>
+      <div class="card-flag">🇧🇷</div>
+      <div class="card-name">埃斯特旺</div>
+      <div class="card-name-en">Estêvão Willian</div>
+      <div class="card-meta">
+        <span class="meta-tag age">18岁</span>
+        <span class="meta-tag pos">边锋</span>
+        <span class="meta-tag club">帕尔梅拉斯（已签约切尔西）</span>
+      </div>
+      <div class="card-why">巴西国内称"新内马尔"。盘带技术和创造力兼备，在巴甲联赛数据亮眼，切尔西提前锁定。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TIER 3 ============ -->
+<section class="tier-section">
+  <div class="tier-header">
+    <span class="tier-label t3">Tier 3</span>
+    <span class="tier-desc">最具惊喜潜力 · 一战成名的剧本正等主角</span>
+  </div>
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="card-rank">10</div>
+      <div class="card-flag">🇧🇷</div>
+      <div class="card-name">拉扬</div>
+      <div class="card-name-en">Rayan (Rayan Vitor Simplício Rocha)</div>
+      <div class="card-meta">
+        <span class="meta-tag age">20岁</span>
+        <span class="meta-tag pos">前锋</span>
+        <span class="meta-tag club">伯恩茅斯</span>
+      </div>
+      <div class="card-why">今年1月从瓦斯科登陆英超，半年13场5球2助直接打进巴西世界杯名单。身体冲击力强、速度快，杯赛型前锋模板。</div>
+      <div class="card-stat">⚡ 英超 13场 5球 2助</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">11</div>
+      <div class="card-flag">🇲🇽</div>
+      <div class="card-name">吉尔伯托·莫拉</div>
+      <div class="card-name-en">Gilberto Mora</div>
+      <div class="card-meta">
+        <span class="meta-tag age">17岁</span>
+        <span class="meta-tag pos">中场</span>
+        <span class="meta-tag club">蒂华纳</span>
+      </div>
+      <div class="card-why">本土作战的东道主球员。只要获得出场时间就能成为整个北美的宠儿——参考2018年俄罗斯的本土英雄切里舍夫效应。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">12</div>
+      <div class="card-flag">🇫🇷</div>
+      <div class="card-name">马蒂斯·特尔</div>
+      <div class="card-name-en">Mathys Tel</div>
+      <div class="card-meta">
+        <span class="meta-tag age">21岁</span>
+        <span class="meta-tag pos">前锋 / 边锋</span>
+        <span class="meta-tag club">拜仁慕尼黑</span>
+      </div>
+      <div class="card-why">天赋爆表但俱乐部出场受限。世界杯可能是他证明自己的最佳跳板，速度+射门技术兼备。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">13</div>
+      <div class="card-flag">🇩🇪</div>
+      <div class="card-name">伦纳特·卡尔</div>
+      <div class="card-name-en">Lennart Karl</div>
+      <div class="card-meta">
+        <span class="meta-tag age">17岁</span>
+        <span class="meta-tag pos">前锋</span>
+        <span class="meta-tag club">拜仁慕尼黑</span>
+      </div>
+      <div class="card-why">拜仁青训体系的禁区幽灵，跑位风格类似托马斯·穆勒。德国队的秘密武器，可能在关键时刻被换上。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">14</div>
+      <div class="card-flag">🇦🇷</div>
+      <div class="card-name">克劳迪奥·埃切维里</div>
+      <div class="card-name-en">Claudio Echeverri</div>
+      <div class="card-meta">
+        <span class="meta-tag age">20岁</span>
+        <span class="meta-tag pos">前腰</span>
+        <span class="meta-tag club">曼城（租借河床）</span>
+      </div>
+      <div class="card-why">U17世界杯帽子戏法一战成名，"小魔鬼"绰号名副其实。曼城已签下他，世界杯是亮相的最佳窗口。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-rank">15</div>
+      <div class="card-flag">🇺🇸</div>
+      <div class="card-name">卡文·苏利文</div>
+      <div class="card-name-en">Cavan Sullivan</div>
+      <div class="card-meta">
+        <span class="meta-tag age">16岁</span>
+        <span class="meta-tag pos">攻击型中场</span>
+        <span class="meta-tag club">费城联合（已签约曼城）</span>
+      </div>
+      <div class="card-why">赛事最年轻球员。14岁就在MLS首秀，曼城提前锁定。东道主身份 + 年龄纪录 = 天然流量入口。</div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+</body>
+</html>

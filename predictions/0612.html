@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026世界杯 6月12日 预测</title>
+<style>
+  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --accent: #58a6ff; --gold: #FFD700; --green: #3fb950; --red: #f85149; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
+  .container { max-width:780px; margin:0 auto; }
+  
+  .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
+  .back-link:hover { color:var(--gold); }
+  
+  header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
+  header h1 { font-size:1.5em; color:#fff; }
+  header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
+  
+  .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
+  .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
+  .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
+  .nav-current { color:#fff; font-weight:700; font-size:1em; }
+  
+  /* Match cards */
+  .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
+  .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+  .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
+  .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
+  .match-venue { color:#8b949e; font-size:0.8em; }
+  
+  .match-body { padding:20px; }
+  
+  /* Placeholder */
+  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
+  .ph-icon { font-size:2em; margin-bottom:8px; }
+  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
+  
+  /* Predicted card sections */
+  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
+  
+  .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
+  
+  .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
+  .prob-label.win { color:var(--green); }
+  .prob-label.draw { color:#8b949e; }
+  .prob-label.lose { color:var(--red); }
+  .prob-bar-bg { flex:1; height:20px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden; }
+  .prob-bar { height:100%; border-radius:10px; }
+  .prob-bar.win { background:linear-gradient(90deg,#238636,#3fb950); }
+  .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
+  .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
+  .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
+  
+  .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
+  .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
+  .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
+  .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
+  
+  .factor-section ul { list-style:none; padding:0; }
+  .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
+  .factor-section li::before { content:"▸ "; color:var(--accent); }
+  .factor-section li:last-child { border-bottom:none; }
+  
+  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
+  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
+  .script-desc { font-size:0.9em; line-height:1.5; }
+  
+  .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
+  
+  @media (max-width:700px) {
+    .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
+    .prob-label { min-width:70px; font-size:0.82em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back-link">&larr; 返回赛程</a>
+  <header>
+    <h1>6月12日 · 预测</h1>
+    <p class="sub">2场比赛 · 2场已预测</p>
+  </header>
+  <div class="day-nav"><span class="nav-current">6月12日</span><a href="0613.html" class="nav-btn">后一天 →</a></div>
+    <div class="match-card predicted-card">
+      <div class="match-header">
+        <span class="match-time">03:00</span>
+        <span class="match-teams">🇲🇽 墨西哥 vs 南非 🇿🇦</span>
+        <span class="match-venue">墨西哥城体育场</span>
+      </div>
+      <div class="match-body">
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇲🇽 墨西哥胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:141.02%"></div></div>
+          <span class="prob-pct">64.1%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:51.260000000000005%"></div></div>
+          <span class="prob-pct">23.3%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇿🇦 南非胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:27.94%"></div></div>
+          <span class="prob-pct">12.7%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:94.05000000000001%"></div></div>
+          <span class="score-pct">17.1%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:79.2%"></div></div>
+          <span class="score-pct">14.4%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:54.45%"></div></div>
+          <span class="score-pct">9.9%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:45.099999999999994%"></div></div>
+          <span class="score-pct">8.2%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:41.25%"></div></div>
+          <span class="score-pct">7.5%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>海拔2,240m高原主场：南非70分钟后体能断崖</li>
+          <li>Aguirre对弱队倾向保守4-3-3，不会大举压上</li>
+          <li>Williams是非洲顶级门将，限制墨西哥进球上限</li>
+
+          </ul>
+        </div>
+        <div class="script-section">
+          <h3>剧本推演</h3>
+          <div class="script-item">
+            <span class="script-label">剧本A</span>
+            <span class="script-desc">上半场0-0闷平，南非60分钟后体能断崖，墨西哥70-80分钟收割</span>
+          </div>
+          <div class="script-item">
+            <span class="script-label">剧本B</span>
+            <span class="script-desc">南非低位铁桶+Williams神扑，墨西哥久攻不下被反击偷一个</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="match-card predicted-card">
+      <div class="match-header">
+        <span class="match-time">10:00</span>
+        <span class="match-teams">🇰🇷 韩国 vs 捷克 🇨🇿</span>
+        <span class="match-venue">瓜达拉哈拉体育场</span>
+      </div>
+      <div class="match-body">
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇰🇷 韩国胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:101.2%"></div></div>
+          <span class="prob-pct">46.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:61.160000000000004%"></div></div>
+          <span class="prob-pct">27.8%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇨🇿 捷克胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:57.86000000000001%"></div></div>
+          <span class="prob-pct">26.3%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:74.8%"></div></div>
+          <span class="score-pct">13.6%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:72.05%"></div></div>
+          <span class="score-pct">13.1%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:52.25%"></div></div>
+          <span class="score-pct">9.5%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:48.95%"></div></div>
+          <span class="score-pct">8.9%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:39.6%"></div></div>
+          <span class="score-pct">7.2%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>洪明甫4-2-3-1高压逼抢 vs 库贝克3-4-1-2铁桶阵</li>
+          <li>孙兴慜内切 vs 斯拉维亚系10人防线默契</li>
+          <li>金玟哉 vs 希克：禁区支点对决，定位球是捷克最大威胁</li>
+          <li>海拔1,566m：旅欧球员恢复能力占优，韩国后半程更强</li>
+
+          </ul>
+        </div>
+        <div class="script-section">
+          <h3>剧本推演</h3>
+          <div class="script-item">
+            <span class="script-label">剧本A</span>
+            <span class="script-desc">韩国高压逼抢消耗捷克耐心，旅欧球员体能优势70分钟后体现</span>
+          </div>
+          <div class="script-item">
+            <span class="script-label">剧本B</span>
+            <span class="script-desc">捷克低位防守压缩空间，希克支点反击+定位球偷袭</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="footer-note">模型数据截至 2026年6月10日 · 蒙特卡洛模拟 100,000次</div>
+</div>
+</body>
+</html>

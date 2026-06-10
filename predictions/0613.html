@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026世界杯 6月13日 预测</title>
+<style>
+  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --accent: #58a6ff; --gold: #FFD700; --green: #3fb950; --red: #f85149; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
+  .container { max-width:780px; margin:0 auto; }
+  
+  .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
+  .back-link:hover { color:var(--gold); }
+  
+  header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
+  header h1 { font-size:1.5em; color:#fff; }
+  header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
+  
+  .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
+  .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
+  .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
+  .nav-current { color:#fff; font-weight:700; font-size:1em; }
+  
+  /* Match cards */
+  .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
+  .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+  .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
+  .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
+  .match-venue { color:#8b949e; font-size:0.8em; }
+  
+  .match-body { padding:20px; }
+  
+  /* Placeholder */
+  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
+  .ph-icon { font-size:2em; margin-bottom:8px; }
+  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
+  
+  /* Predicted card sections */
+  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
+  
+  .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
+  
+  .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
+  .prob-label.win { color:var(--green); }
+  .prob-label.draw { color:#8b949e; }
+  .prob-label.lose { color:var(--red); }
+  .prob-bar-bg { flex:1; height:20px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden; }
+  .prob-bar { height:100%; border-radius:10px; }
+  .prob-bar.win { background:linear-gradient(90deg,#238636,#3fb950); }
+  .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
+  .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
+  .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
+  
+  .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
+  .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
+  .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
+  .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
+  
+  .factor-section ul { list-style:none; padding:0; }
+  .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
+  .factor-section li::before { content:"▸ "; color:var(--accent); }
+  .factor-section li:last-child { border-bottom:none; }
+  
+  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
+  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
+  .script-desc { font-size:0.9em; line-height:1.5; }
+  
+  .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
+  
+  @media (max-width:700px) {
+    .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
+    .prob-label { min-width:70px; font-size:0.82em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back-link">&larr; 返回赛程</a>
+  <header>
+    <h1>6月13日 · 预测</h1>
+    <p class="sub">2场比赛 · 0场已预测</p>
+  </header>
+  <div class="day-nav"><a href="0612.html" class="nav-btn">← 前一天</a><span class="nav-current">6月13日</span><a href="0614.html" class="nav-btn">后一天 →</a></div>
+    <div class="match-card placeholder-card">
+      <div class="match-header">
+        <span class="match-time">03:00</span>
+        <span class="match-teams">加拿大 vs 波黑</span>
+        <span class="match-venue">多伦多体育场</span>
+      </div>
+      <div class="match-body">
+        <div class="ph-icon">🔮</div>
+        <p>预测尚未发布</p>
+      </div>
+    </div>
+    <div class="match-card placeholder-card">
+      <div class="match-header">
+        <span class="match-time">09:00</span>
+        <span class="match-teams">美国 vs 巴拉圭</span>
+        <span class="match-venue">洛杉矶体育场</span>
+      </div>
+      <div class="match-body">
+        <div class="ph-icon">🔮</div>
+        <p>预测尚未发布</p>
+      </div>
+    </div>
+  
+</div>
+</body>
+</html>
