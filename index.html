@@ -219,7 +219,8 @@
         .standings-table .team-name { text-align: left; font-weight: 500; }
         .standings-table .rank { color: #FFD700; font-weight: 600; }
         .standings-table tr:hover { background: rgba(255,255,255,0.08); }
-        .qualify { color: #4CAF50; font-weight: 600; }
+        .standings-table .qualify-row { background: rgba(76,175,80,0.12); }
+        .standings-table .qualify-row:hover { background: rgba(76,175,80,0.2); }
 
         /* 小组卡片网格 */
         .groups-grid {
@@ -410,6 +411,166 @@
         @media (max-width:768px) {
             .modal-box { padding: 20px; }
         }
+
+        /* ===== 日期分组（新增）===== */
+        .date-group {
+            margin-bottom: 16px;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .date-header {
+            background: rgba(255, 215, 0, 0.08);
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 1em;
+            padding: 10px 16px;
+            border-bottom: 1px solid #30363d;
+        }
+        .date-matches {
+            background: rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-columns: auto auto 2em auto;
+        }
+        .match-row {
+            display: grid;
+            grid-column: 1 / -1;
+            grid-template-columns: subgrid;
+            grid-template-rows: auto auto;
+            align-items: center;
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            gap: 0;
+            transition: background 0.2s;
+        }
+        .match-row:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .match-row:last-child {
+            border-bottom: none;
+        }
+        .match-time {
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 0.9em;
+            padding-right: 24px;
+        }
+        .match-group {
+            color: #4CAF50;
+            font-size: 0.82em;
+            font-weight: 600;
+            padding-right: 24px;
+        }
+        /* 按子元素位置定位 grid 单元格 */
+        /* child 1: time */ .match-row > :nth-child(1) { grid-column: 1; grid-row: 1; }
+        /* child 2: group */ .match-row > :nth-child(2) { grid-column: 1; grid-row: 2; }
+        /* child 3: team-home */ .match-row > :nth-child(3) { grid-column: 2; grid-row: 1; }
+        /* child 4: team-away */ .match-row > :nth-child(4) { grid-column: 2; grid-row: 2; }
+        /* child 5: score-home */ .match-row > :nth-child(5) { grid-column: 3; grid-row: 1; padding-left: 16px; text-align: right; }
+        /* child 6: score-away */ .match-row > :nth-child(6) { grid-column: 3; grid-row: 2; padding-left: 16px; text-align: right; }
+        /* child 7: pred-link */ .match-row > :nth-child(7) { grid-column: 4; grid-row: 1 / 3; align-self: center; margin-left: auto; padding-left: 24px; padding-right: 8px; }
+        .pred-link {
+            font-size: 1.1em;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            transition: opacity 0.2s;
+        }
+        .pred-link:hover {
+            opacity: 0.7;
+        }
+        .match-team {
+            font-weight: 500;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        .match-score {
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 1.05em;
+            text-align: center;
+            min-width: 28px;
+            line-height: 1.6;
+        }
+        .pred-link:hover {
+            transform: scale(1.3);
+        }
+
+        /* 全局统计区域 */
+        .global-stats {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #30363d;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .global-stats .stats-section { margin-bottom: 0; }
+        .global-stats h2 {
+            font-size: 1.1em;
+            color: #FFD700;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        .global-stats .table-wrapper { overflow-x: hidden; }
+        .global-stats .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 0.9em;
+        }
+        .global-stats .stats-table th {
+            padding: 8px 6px;
+            text-align: left;
+            color: #8bb8e8;
+            font-weight: 600;
+            font-size: 0.82em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .global-stats .stats-table td {
+            padding: 6px 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .global-stats .stats-table .rank {
+            color: #FFD700;
+            font-weight: 600;
+            text-align: center;
+            width: 40px;
+        }
+        .global-stats .stats-table .number {
+            text-align: center;
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 1.05em;
+            width: 60px;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .match-row {
+                padding: 8px 12px;
+                gap: 0 8px;
+            }
+            .match-time {
+                font-size: 0.85em;
+            }
+            .match-group {
+                font-size: 0.78em;
+            }
+            .match-team {
+                font-size: 0.9em;
+            }
+            .match-score {
+                font-size: 0.95em;
+            }
+            .global-stats {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -428,8 +589,7 @@
         <!-- Tab 导航 -->
         <div class="tab-nav">
             <button class="tab-btn active" onclick="switchTab('schedule')">赛程表</button>
-            <button class="tab-btn" onclick="switchTab('groups')">小组积分</button>
-            <button class="tab-btn" onclick="switchTab('stats')">射手榜 & 助攻榜</button>
+            <button class="tab-btn" onclick="switchTab('groups')">积分榜</button>
             <a href="worldcup_young_stars.html" class="tab-btn" style="text-decoration:none;">超新星档案</a>
         </div>
 
@@ -438,214 +598,1110 @@
 
             <!-- 第一阶段小组赛 -->
             <div class="stage-card stage-group">
-                <div class="stage-title">
-                    <span class="icon">🏁</span>
-                    <span>第一阶段小组赛</span>
+    <div class="stage-title">第一阶段小组赛</div>
+    <div class="table-wrapper">
+        <div class="date-group">
+            <div class="date-header">6月12日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">A组</span>
+                    <span class="match-team">墨西哥</span>
+                    <span class="match-team">南非</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0612.html" class="pred-link">📊</a>
                 </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>日期</th>
-                                <th>时间</th>
-                                <th>比赛</th>
-                                <th>比分</th>
-                                <th>赛事</th>
-                                <th>地点</th><th>预测</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-group="A"><td>6月12日</td><td>03:00</td><td>墨西哥 vs 南非</td><td class="score-col">—</td><td>第一阶段·A组</td><td>墨西哥城体育场</td><td class="pred-col"><a href="predictions/0612.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="A"><td>6月12日</td><td>10:00</td><td>韩国 vs 捷克</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0612.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="B"><td>6月13日</td><td>03:00</td><td>加拿大 vs 波黑</td><td class="score-col">—</td><td>第一阶段·B组</td><td>多伦多体育场</td><td class="pred-col"><a href="predictions/0613.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="D"><td>6月13日</td><td>09:00</td><td>美国 vs 巴拉圭</td><td class="score-col">—</td><td>第一阶段·D组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0613.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="B"><td>6月14日</td><td>03:00</td><td>卡塔尔 vs 瑞士</td><td class="score-col">—</td><td>第一阶段·B组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0614.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="C"><td>6月14日</td><td>06:00</td><td>巴西 vs 摩洛哥</td><td class="score-col">—</td><td>第一阶段·C组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0614.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="C"><td>6月14日</td><td>09:00</td><td>海地 vs 苏格兰</td><td class="score-col">—</td><td>第一阶段·C组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0614.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="D"><td>6月14日</td><td>12:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col">—</td><td>第一阶段·D组</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0614.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="E"><td>6月15日</td><td>01:00</td><td>德国 vs 库拉索</td><td class="score-col">—</td><td>第一阶段·E组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0615.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="F"><td>6月15日</td><td>04:00</td><td>荷兰 vs 日本</td><td class="score-col">—</td><td>第一阶段·F组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0615.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="E"><td>6月15日</td><td>07:00</td><td>科特迪瓦 vs 厄瓜多尔</td><td class="score-col">—</td><td>第一阶段·E组</td><td>费城体育场</td><td class="pred-col"><a href="predictions/0615.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="F"><td>6月15日</td><td>10:00</td><td>瑞典 vs 突尼斯</td><td class="score-col">—</td><td>第一阶段·F组</td><td>蒙特雷体育场</td><td class="pred-col"><a href="predictions/0615.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="H"><td>6月16日</td><td>00:00</td><td>西班牙 vs 佛得角</td><td class="score-col">—</td><td>第一阶段·H组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="G"><td>6月16日</td><td>03:00</td><td>比利时 vs 埃及</td><td class="score-col">—</td><td>第一阶段·G组</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="H"><td>6月16日</td><td>06:00</td><td>沙特 vs 乌拉圭</td><td class="score-col">—</td><td>第一阶段·H组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="G"><td>6月16日</td><td>09:00</td><td>伊朗 vs 新西兰</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="I"><td>6月16日</td><td>12:00</td><td>法国 vs 塞内加尔</td><td class="score-col">—</td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="I"><td>6月16日</td><td>15:00</td><td>伊拉克 vs 挪威</td><td class="score-col">—</td><td>第一阶段·I组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0616.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="J"><td>6月17日</td><td>00:00</td><td>阿根廷 vs 阿尔及利亚</td><td class="score-col">—</td><td>第一阶段·J组</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0617.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="J"><td>6月17日</td><td>03:00</td><td>奥地利 vs 约旦</td><td class="score-col">—</td><td>第一阶段·J组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0617.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="K"><td>6月18日</td><td>01:00</td><td>葡萄牙 vs 刚果民主共和国</td><td class="score-col">—</td><td>第一阶段·K组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0618.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="L"><td>6月18日</td><td>04:00</td><td>英格兰 vs 克罗地亚</td><td class="score-col">—</td><td>第一阶段·L组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0618.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="L"><td>6月18日</td><td>07:00</td><td>加纳 vs 巴拿马</td><td class="score-col">—</td><td>第一阶段·L组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0618.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="K"><td>6月18日</td><td>10:00</td><td>哥伦比亚 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0618.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="A"><td>6月19日</td><td>03:00</td><td>捷克 vs 南非</td><td class="score-col">—</td><td>第一阶段·A组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="B"><td>6月19日</td><td>03:00</td><td>瑞士 vs 波黑</td><td class="score-col">—</td><td>第一阶段·B组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="B"><td>6月19日</td><td>06:00</td><td>加拿大 vs 卡塔尔</td><td class="score-col">—</td><td>第一阶段·B组</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="A"><td>6月19日</td><td>09:00</td><td>墨西哥 vs 韩国</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="D"><td>6月19日</td><td>12:00</td><td>美国 vs 澳大利亚</td><td class="score-col">—</td><td>第一阶段·D组</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0619.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="C"><td>6月20日</td><td>03:00</td><td>苏格兰 vs 摩洛哥</td><td class="score-col">—</td><td>第一阶段·C组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0620.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="C"><td>6月20日</td><td>06:00</td><td>巴西 vs 海地</td><td class="score-col">—</td><td>第一阶段·C组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0620.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="D"><td>6月20日</td><td>11:00</td><td>土耳其 vs 巴拉圭</td><td class="score-col">—</td><td>第一阶段·D组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0620.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="F"><td>6月21日</td><td>01:00</td><td>荷兰 vs 瑞典</td><td class="score-col">—</td><td>第一阶段·F组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0621.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="E"><td>6月21日</td><td>04:00</td><td>德国 vs 科特迪瓦</td><td class="score-col">—</td><td>第一阶段·E组</td><td>多伦多体育场</td><td class="pred-col"><a href="predictions/0621.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="E"><td>6月21日</td><td>08:00</td><td>厄瓜多尔 vs 库拉索</td><td class="score-col">—</td><td>第一阶段·E组</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0621.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="F"><td>6月21日</td><td>12:00</td><td>突尼斯 vs 日本</td><td class="score-col">—</td><td>第一阶段·F组</td><td>蒙特雷体育场</td><td class="pred-col"><a href="predictions/0621.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="H"><td>6月22日</td><td>00:00</td><td>西班牙 vs 沙特</td><td class="score-col">—</td><td>第一阶段·H组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0622.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="G"><td>6月22日</td><td>03:00</td><td>比利时 vs 伊朗</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0622.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="H"><td>6月22日</td><td>06:00</td><td>乌拉圭 vs 佛得角</td><td class="score-col">—</td><td>第一阶段·H组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0622.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="G"><td>6月22日</td><td>09:00</td><td>新西兰 vs 埃及</td><td class="score-col">—</td><td>第一阶段·G组</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0622.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="J"><td>6月23日</td><td>01:00</td><td>阿根廷 vs 奥地利</td><td class="score-col">—</td><td>第一阶段·J组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0623.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="I"><td>6月23日</td><td>05:00</td><td>法国 vs 伊拉克</td><td class="score-col">—</td><td>第一阶段·I组</td><td>费城体育场</td><td class="pred-col"><a href="predictions/0623.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="I"><td>6月23日</td><td>08:00</td><td>挪威 vs 塞内加尔</td><td class="score-col">—</td><td>第一阶段·I组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0623.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="J"><td>6月23日</td><td>11:00</td><td>约旦 vs 阿尔及利亚</td><td class="score-col">—</td><td>第一阶段·J组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0623.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="K"><td>6月24日</td><td>01:00</td><td>葡萄牙 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="L"><td>6月24日</td><td>04:00</td><td>英格兰 vs 加纳</td><td class="score-col">—</td><td>第一阶段·L组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="L"><td>6月24日</td><td>05:00</td><td>巴拿马 vs 克罗地亚</td><td class="score-col">—</td><td>第一阶段·L组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="K"><td>6月24日</td><td>07:30</td><td>哥伦比亚 vs 葡萄牙</td><td class="score-col">—</td><td>第一阶段·K组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="K"><td>6月24日</td><td>07:30</td><td>刚果民主共和国 vs 乌兹别克斯坦</td><td class="score-col">—</td><td>第一阶段·K组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0624.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="J"><td>6月25日</td><td>10:00</td><td>阿尔及利亚 vs 奥地利</td><td class="score-col">—</td><td>第一阶段·J组</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0625.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="J"><td>6月25日</td><td>10:00</td><td>约旦 vs 阿根廷</td><td class="score-col">—</td><td>第一阶段·J组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0625.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="I"><td>6月26日</td><td>03:00</td><td>挪威 vs 法国</td><td class="score-col">—</td><td>第一阶段·I组</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="I"><td>6月26日</td><td>03:00</td><td>塞内加尔 vs 伊拉克</td><td class="score-col">—</td><td>第一阶段·I组</td><td>多伦多体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="H"><td>6月26日</td><td>08:00</td><td>佛得角 vs 西班牙</td><td class="score-col">—</td><td>第一阶段·H组</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="H"><td>6月26日</td><td>08:00</td><td>乌拉圭 vs 比利时</td><td class="score-col">—</td><td>第一阶段·H组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="G"><td>6月26日</td><td>11:00</td><td>埃及 vs 新西兰</td><td class="score-col">—</td><td>第一阶段·G组</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="G"><td>6月26日</td><td>11:00</td><td>伊朗 vs 沙特</td><td class="score-col">—</td><td>第一阶段·G组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0626.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="E"><td>6月27日</td><td>03:00</td><td>库拉索 vs 德国</td><td class="score-col">—</td><td>第一阶段·E组</td><td>费城体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="E"><td>6月27日</td><td>04:00</td><td>厄瓜多尔 vs 荷兰</td><td class="score-col">—</td><td>第一阶段·E组</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="F"><td>6月27日</td><td>07:00</td><td>日本 vs 瑞典</td><td class="score-col">—</td><td>第一阶段·F组</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="F"><td>6月27日</td><td>07:00</td><td>突尼斯 vs 荷兰</td><td class="score-col">—</td><td>第一阶段·F组</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="D"><td>6月27日</td><td>10:00</td><td>澳大利亚 vs 土耳其</td><td class="score-col">—</td><td>第一阶段·D组</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="D"><td>6月27日</td><td>10:00</td><td>巴拉圭 vs 美国</td><td class="score-col">—</td><td>第一阶段·D组</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0627.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="C"><td>6月28日</td><td>03:00</td><td>摩洛哥 vs 苏格兰</td><td class="score-col">—</td><td>第一阶段·C组</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="C"><td>6月28日</td><td>06:00</td><td>海地 vs 巴西</td><td class="score-col">—</td><td>第一阶段·C组</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="B"><td>6月28日</td><td>03:00</td><td>卡塔尔 vs 加拿大</td><td class="score-col">—</td><td>第一阶段·B组</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="B"><td>6月28日</td><td>03:00</td><td>波黑 vs 瑞士</td><td class="score-col">—</td><td>第一阶段·B组</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="A"><td>6月28日</td><td>09:00</td><td>韩国 vs 墨西哥</td><td class="score-col">—</td><td>第一阶段·A组</td><td>蒙特雷体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
-                            <tr data-group="A"><td>6月28日</td><td>09:00</td><td>南非 vs 捷克</td><td class="score-col">—</td><td>第一阶段·A组</td><td>瓜达拉哈拉体育场</td><td class="pred-col"><a href="predictions/0628.html" class="pred-link">📊</a></td></tr>
-                        </tbody>
-                    </table>
+                <div class="match-row">
+                    <span class="match-time">10:00</span>
+                    <span class="match-group">A组</span>
+                    <span class="match-team">韩国</span>
+                    <span class="match-team">捷克</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0612.html" class="pred-link">📊</a>
                 </div>
             </div>
-
-            <!-- Round of 32 -->
-            <div class="stage-card stage-32">
-                <div class="stage-title">
-                    <span class="icon">🎯</span>
-                    <span>Round of 32（1/8决赛）</span>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月13日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">B组</span>
+                    <span class="match-team">加拿大</span>
+                    <span class="match-team">波黑</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0613.html" class="pred-link">📊</a>
                 </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
-                        <tbody>
-                            <tr><td>7月1日</td><td>03:00</td><td>2A vs 2B</td><td class="score-col">—</td><td>Round of 32</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月1日</td><td>01:00</td><td>1C vs 2F</td><td class="score-col">—</td><td>Round of 32</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月1日</td><td>04:30</td><td>1E vs ABCD</td><td class="score-col">—</td><td>Round of 32</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月1日</td><td>09:00</td><td>1F vs 2C</td><td class="score-col">—</td><td>Round of 32</td><td>蒙特雷体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月1日</td><td>01:00</td><td>2E vs 2I</td><td class="score-col">—</td><td>Round of 32</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月1日</td><td>05:00</td><td>1I vs CDFGH</td><td class="score-col">—</td><td>Round of 32</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0701.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月2日</td><td>09:00</td><td>1A vs 3CEFHI</td><td class="score-col">—</td><td>Round of 32</td><td>墨西哥城体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月2日</td><td>00:00</td><td>1L vs 3EHIJK</td><td class="score-col">—</td><td>Round of 32</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月2日</td><td>04:00</td><td>1G vs 3AEHIJ</td><td class="score-col">—</td><td>Round of 32</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月2日</td><td>08:00</td><td>1D vs 3BEFIJ</td><td class="score-col">—</td><td>Round of 32</td><td>旧金山湾区体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月2日</td><td>03:00</td><td>1H vs 2J</td><td class="score-col">—</td><td>Round of 32</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月2日</td><td>07:00</td><td>2K vs 2L</td><td class="score-col">—</td><td>Round of 32</td><td>多伦多体育场</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月2日</td><td>11:00</td><td>1B vs 3EFGIJ</td><td class="score-col">—</td><td>Round of 32</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0702.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月3日</td><td>02:00</td><td>2D vs 2G</td><td class="score-col">—</td><td>Round of 32</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0703.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月3日</td><td>06:00</td><td>1J vs 2H</td><td class="score-col">—</td><td>Round of 32</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0703.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月3日</td><td>09:00</td><td>1K vs 3DEIJL</td><td class="score-col">—</td><td>Round of 32</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0703.html" class="pred-link">📊</a></td></tr>
-                        </tbody>
-                    </table>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">D组</span>
+                    <span class="match-team">美国</span>
+                    <span class="match-team">巴拉圭</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0613.html" class="pred-link">📊</a>
                 </div>
             </div>
-
-            <!-- Round of 16 -->
-            <div class="stage-card stage-16">
-                <div class="stage-title">
-                    <span class="icon">⚡</span>
-                    <span>Round of 16（1/4决赛）</span>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月14日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">B组</span>
+                    <span class="match-team">卡塔尔</span>
+                    <span class="match-team">瑞士</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0614.html" class="pred-link">📊</a>
                 </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
-                        <tbody>
-                            <tr><td>7月5日</td><td>01:00</td><td>W73 vs W75</td><td class="score-col">—</td><td>Round of 16</td><td>休斯顿体育场</td><td class="pred-col"><a href="predictions/0705.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月5日</td><td>05:00</td><td>W74 vs W77</td><td class="score-col">—</td><td>Round of 16</td><td>费城体育场</td><td class="pred-col"><a href="predictions/0705.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月5日</td><td>04:00</td><td>W76 vs W78</td><td class="score-col">—</td><td>Round of 16</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0705.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月5日</td><td>08:00</td><td>W79 vs W80</td><td class="score-col">—</td><td>Round of 16</td><td>墨西哥城体育场</td><td class="pred-col"><a href="predictions/0705.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月6日</td><td>03:00</td><td>W83 vs W84</td><td class="score-col">—</td><td>Round of 16</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0706.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月6日</td><td>08:00</td><td>W81 vs W82</td><td class="score-col">—</td><td>Round of 16</td><td>西雅图体育场</td><td class="pred-col"><a href="predictions/0706.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月6日</td><td>00:00</td><td>W86 vs W88</td><td class="score-col">—</td><td>Round of 16</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0706.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月6日</td><td>04:00</td><td>W85 vs W87</td><td class="score-col">—</td><td>Round of 16</td><td>BC Place温哥华</td><td class="pred-col"><a href="predictions/0706.html" class="pred-link">📊</a></td></tr>
-                        </tbody>
-                    </table>
+                <div class="match-row">
+                    <span class="match-time">06:00</span>
+                    <span class="match-group">C组</span>
+                    <span class="match-team">巴西</span>
+                    <span class="match-team">摩洛哥</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0614.html" class="pred-link">📊</a>
                 </div>
-            </div>
-
-            <!-- Quarter-finals -->
-            <div class="stage-card stage-quarter">
-                <div class="stage-title">
-                    <span class="icon">🔥</span>
-                    <span>Quarter-finals（1/4决赛）</span>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">C组</span>
+                    <span class="match-team">海地</span>
+                    <span class="match-team">苏格兰</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0614.html" class="pred-link">📊</a>
                 </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
-                        <tbody>
-                            <tr><td>7月15日</td><td>04:00</td><td>W89 vs W90</td><td class="score-col">—</td><td>Quarter-final</td><td>波士顿体育场</td><td class="pred-col"><a href="predictions/0715.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月15日</td><td>03:00</td><td>W93 vs W94</td><td class="score-col">—</td><td>Quarter-final</td><td>洛杉矶体育场</td><td class="pred-col"><a href="predictions/0715.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月15日</td><td>05:00</td><td>W91 vs W92</td><td class="score-col">—</td><td>Quarter-final</td><td>迈阿密体育场</td><td class="pred-col"><a href="predictions/0715.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月15日</td><td>09:00</td><td>W95 vs W96</td><td class="score-col">—</td><td>Quarter-final</td><td>堪萨斯城体育场</td><td class="pred-col"><a href="predictions/0715.html" class="pred-link">📊</a></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Semi-finals -->
-            <div class="stage-card stage-semi">
-                <div class="stage-title">
-                    <span class="icon">🌟</span>
-                    <span>Semi-finals（半决赛）</span>
-                </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
-                        <tbody>
-                            <tr><td>7月17日</td><td>03:00</td><td>W97 vs W98</td><td class="score-col">—</td><td>Semi-final</td><td>达拉斯体育场</td><td class="pred-col"><a href="predictions/0717.html" class="pred-link">📊</a></td></tr>
-                            <tr><td>7月17日</td><td>03:00</td><td>W99 vs W100</td><td class="score-col">—</td><td>Semi-final</td><td>亚特兰大体育场</td><td class="pred-col"><a href="predictions/0717.html" class="pred-link">📊</a></td></tr>
-                        </tbody>
-                    </table>
+                <div class="match-row">
+                    <span class="match-time">12:00</span>
+                    <span class="match-group">D组</span>
+                    <span class="match-team">澳大利亚</span>
+                    <span class="match-team">土耳其</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0614.html" class="pred-link">📊</a>
                 </div>
             </div>
-
-            <!-- Final -->
-            <div class="stage-card stage-final">
-                <div class="stage-title">
-                    <span class="icon">🏆</span>
-                    <span>Final（总决赛）</span>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月15日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">01:00</span>
+                    <span class="match-group">E组</span>
+                    <span class="match-team">德国</span>
+                    <span class="match-team">库拉索</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0615.html" class="pred-link">📊</a>
                 </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead><tr><th>日期</th><th>时间</th><th>比赛</th><th>比分</th><th>赛事</th><th>地点</th><th>预测</th></tr></thead>
-                        <tbody>
-                            <tr><td>7月19日</td><td>03:00</td><td>W101 vs W102</td><td class="score-col">—</td><td>Final</td><td>纽约/新泽西体育场</td><td class="pred-col"><a href="predictions/0719.html" class="pred-link">📊</a></td></tr>
-                        </tbody>
-                    </table>
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">F组</span>
+                    <span class="match-team">荷兰</span>
+                    <span class="match-team">日本</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0615.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">07:00</span>
+                    <span class="match-group">E组</span>
+                    <span class="match-team">科特迪瓦</span>
+                    <span class="match-team">厄瓜多尔</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0615.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">10:00</span>
+                    <span class="match-group">F组</span>
+                    <span class="match-team">瑞典</span>
+                    <span class="match-team">突尼斯</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0615.html" class="pred-link">📊</a>
                 </div>
             </div>
-
-            <!-- 备注 -->
-            <div class="note">
-                <strong>💡 说明：</strong>比分将在比赛结束后手动更新。淘汰赛中的编号（如1A、2B等）表示各小组的晋级排名，具体对阵将在小组赛结束后确定。
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月16日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">00:00</span>
+                    <span class="match-group">H组</span>
+                    <span class="match-team">西班牙</span>
+                    <span class="match-team">佛得角</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0616.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">G组</span>
+                    <span class="match-team">比利时</span>
+                    <span class="match-team">埃及</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0616.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">06:00</span>
+                    <span class="match-group">H组</span>
+                    <span class="match-team">沙特</span>
+                    <span class="match-team">乌拉圭</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0616.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">G组</span>
+                    <span class="match-team">伊朗</span>
+                    <span class="match-team">新西兰</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0616.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">12:00</span>
+                    <span class="match-group">I组</span>
+                    <span class="match-team">法国</span>
+                    <span class="match-team">塞内加尔</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0616.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">15:00</span>
+                    <span class="match-group">I组</span>
+                    <span class="match-team">伊拉克</span>
+                    <span class="match-team">挪威</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0616.html" class="pred-link">📊</a>
+                </div>
             </div>
-        </div><!-- /tab-schedule -->
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月17日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">00:00</span>
+                    <span class="match-group">J组</span>
+                    <span class="match-team">阿根廷</span>
+                    <span class="match-team">阿尔及利亚</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0617.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">J组</span>
+                    <span class="match-team">奥地利</span>
+                    <span class="match-team">约旦</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0617.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月18日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">01:00</span>
+                    <span class="match-group">K组</span>
+                    <span class="match-team">葡萄牙</span>
+                    <span class="match-team">刚果民主共和国</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0618.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">L组</span>
+                    <span class="match-team">英格兰</span>
+                    <span class="match-team">克罗地亚</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0618.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">07:00</span>
+                    <span class="match-group">L组</span>
+                    <span class="match-team">加纳</span>
+                    <span class="match-team">巴拿马</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0618.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">10:00</span>
+                    <span class="match-group">K组</span>
+                    <span class="match-team">哥伦比亚</span>
+                    <span class="match-team">乌兹别克斯坦</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0618.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月19日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">A组</span>
+                    <span class="match-team">捷克</span>
+                    <span class="match-team">南非</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0619.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">B组</span>
+                    <span class="match-team">瑞士</span>
+                    <span class="match-team">波黑</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0619.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">06:00</span>
+                    <span class="match-group">B组</span>
+                    <span class="match-team">加拿大</span>
+                    <span class="match-team">卡塔尔</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0619.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">A组</span>
+                    <span class="match-team">墨西哥</span>
+                    <span class="match-team">韩国</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0619.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">12:00</span>
+                    <span class="match-group">D组</span>
+                    <span class="match-team">美国</span>
+                    <span class="match-team">澳大利亚</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0619.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月20日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">C组</span>
+                    <span class="match-team">苏格兰</span>
+                    <span class="match-team">摩洛哥</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0620.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">06:00</span>
+                    <span class="match-group">C组</span>
+                    <span class="match-team">巴西</span>
+                    <span class="match-team">海地</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0620.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">11:00</span>
+                    <span class="match-group">D组</span>
+                    <span class="match-team">土耳其</span>
+                    <span class="match-team">巴拉圭</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0620.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月21日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">01:00</span>
+                    <span class="match-group">F组</span>
+                    <span class="match-team">荷兰</span>
+                    <span class="match-team">瑞典</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0621.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">E组</span>
+                    <span class="match-team">德国</span>
+                    <span class="match-team">科特迪瓦</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0621.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">08:00</span>
+                    <span class="match-group">E组</span>
+                    <span class="match-team">厄瓜多尔</span>
+                    <span class="match-team">库拉索</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0621.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">12:00</span>
+                    <span class="match-group">F组</span>
+                    <span class="match-team">突尼斯</span>
+                    <span class="match-team">日本</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0621.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月22日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">00:00</span>
+                    <span class="match-group">H组</span>
+                    <span class="match-team">西班牙</span>
+                    <span class="match-team">沙特</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0622.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">G组</span>
+                    <span class="match-team">比利时</span>
+                    <span class="match-team">伊朗</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0622.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">06:00</span>
+                    <span class="match-group">H组</span>
+                    <span class="match-team">乌拉圭</span>
+                    <span class="match-team">佛得角</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0622.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">G组</span>
+                    <span class="match-team">新西兰</span>
+                    <span class="match-team">埃及</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0622.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月23日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">01:00</span>
+                    <span class="match-group">J组</span>
+                    <span class="match-team">阿根廷</span>
+                    <span class="match-team">奥地利</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0623.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">05:00</span>
+                    <span class="match-group">I组</span>
+                    <span class="match-team">法国</span>
+                    <span class="match-team">伊拉克</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0623.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">08:00</span>
+                    <span class="match-group">I组</span>
+                    <span class="match-team">挪威</span>
+                    <span class="match-team">塞内加尔</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0623.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">11:00</span>
+                    <span class="match-group">J组</span>
+                    <span class="match-team">约旦</span>
+                    <span class="match-team">阿尔及利亚</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0623.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月24日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">01:00</span>
+                    <span class="match-group">K组</span>
+                    <span class="match-team">葡萄牙</span>
+                    <span class="match-team">乌兹别克斯坦</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0624.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">L组</span>
+                    <span class="match-team">英格兰</span>
+                    <span class="match-team">加纳</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0624.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">05:00</span>
+                    <span class="match-group">L组</span>
+                    <span class="match-team">巴拿马</span>
+                    <span class="match-team">克罗地亚</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0624.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">07:30</span>
+                    <span class="match-group">K组</span>
+                    <span class="match-team">哥伦比亚</span>
+                    <span class="match-team">葡萄牙</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0624.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">07:30</span>
+                    <span class="match-group">K组</span>
+                    <span class="match-team">刚果民主共和国</span>
+                    <span class="match-team">乌兹别克斯坦</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0624.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月25日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">10:00</span>
+                    <span class="match-group">J组</span>
+                    <span class="match-team">阿尔及利亚</span>
+                    <span class="match-team">奥地利</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0625.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">10:00</span>
+                    <span class="match-group">J组</span>
+                    <span class="match-team">约旦</span>
+                    <span class="match-team">阿根廷</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0625.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月26日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">I组</span>
+                    <span class="match-team">挪威</span>
+                    <span class="match-team">法国</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0626.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">I组</span>
+                    <span class="match-team">塞内加尔</span>
+                    <span class="match-team">伊拉克</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0626.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">08:00</span>
+                    <span class="match-group">H组</span>
+                    <span class="match-team">佛得角</span>
+                    <span class="match-team">西班牙</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0626.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">08:00</span>
+                    <span class="match-group">H组</span>
+                    <span class="match-team">乌拉圭</span>
+                    <span class="match-team">比利时</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0626.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">11:00</span>
+                    <span class="match-group">G组</span>
+                    <span class="match-team">埃及</span>
+                    <span class="match-team">新西兰</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0626.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">11:00</span>
+                    <span class="match-group">G组</span>
+                    <span class="match-team">伊朗</span>
+                    <span class="match-team">沙特</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0626.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月27日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">E组</span>
+                    <span class="match-team">库拉索</span>
+                    <span class="match-team">德国</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0627.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">E组</span>
+                    <span class="match-team">厄瓜多尔</span>
+                    <span class="match-team">荷兰</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0627.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">07:00</span>
+                    <span class="match-group">F组</span>
+                    <span class="match-team">日本</span>
+                    <span class="match-team">瑞典</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0627.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">07:00</span>
+                    <span class="match-group">F组</span>
+                    <span class="match-team">突尼斯</span>
+                    <span class="match-team">荷兰</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0627.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">10:00</span>
+                    <span class="match-group">D组</span>
+                    <span class="match-team">澳大利亚</span>
+                    <span class="match-team">土耳其</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0627.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">10:00</span>
+                    <span class="match-group">D组</span>
+                    <span class="match-team">巴拉圭</span>
+                    <span class="match-team">美国</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0627.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">6月28日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">C组</span>
+                    <span class="match-team">摩洛哥</span>
+                    <span class="match-team">苏格兰</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0628.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">06:00</span>
+                    <span class="match-group">C组</span>
+                    <span class="match-team">海地</span>
+                    <span class="match-team">巴西</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0628.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">B组</span>
+                    <span class="match-team">卡塔尔</span>
+                    <span class="match-team">加拿大</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0628.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">B组</span>
+                    <span class="match-team">波黑</span>
+                    <span class="match-team">瑞士</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0628.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">A组</span>
+                    <span class="match-team">韩国</span>
+                    <span class="match-team">墨西哥</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0628.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">A组</span>
+                    <span class="match-team">南非</span>
+                    <span class="match-team">捷克</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0628.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="stage-card stage-32">
+    <div class="stage-title">Round of 32（1/8决赛）</div>
+    <div class="table-wrapper">
+        <div class="date-group">
+            <div class="date-header">7月1日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">2A</span>
+                    <span class="match-team">2B</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0701.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">01:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1C</span>
+                    <span class="match-team">2F</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0701.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">04:30</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1E</span>
+                    <span class="match-team">ABCD</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0701.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1F</span>
+                    <span class="match-team">2C</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0701.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">01:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">2E</span>
+                    <span class="match-team">2I</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0701.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">05:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1I</span>
+                    <span class="match-team">CDFGH</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0701.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">7月2日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1A</span>
+                    <span class="match-team">3CEFHI</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0702.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">00:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1L</span>
+                    <span class="match-team">3EHIJK</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0702.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1G</span>
+                    <span class="match-team">3AEHIJ</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0702.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">08:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1D</span>
+                    <span class="match-team">3BEFIJ</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0702.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1H</span>
+                    <span class="match-team">2J</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0702.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">07:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">2K</span>
+                    <span class="match-team">2L</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0702.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">11:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1B</span>
+                    <span class="match-team">3EFGIJ</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0702.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">7月3日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">02:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">2D</span>
+                    <span class="match-team">2G</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0703.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">06:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1J</span>
+                    <span class="match-team">2H</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0703.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">Round of 32</span>
+                    <span class="match-team">1K</span>
+                    <span class="match-team">3DEIJL</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0703.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="stage-card stage-16">
+    <div class="stage-title">Round of 16（1/4决赛）</div>
+    <div class="table-wrapper">
+        <div class="date-group">
+            <div class="date-header">7月5日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">01:00</span>
+                    <span class="match-group">Round of 16</span>
+                    <span class="match-team">W73</span>
+                    <span class="match-team">W75</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0705.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">05:00</span>
+                    <span class="match-group">Round of 16</span>
+                    <span class="match-team">W74</span>
+                    <span class="match-team">W77</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0705.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">Round of 16</span>
+                    <span class="match-team">W76</span>
+                    <span class="match-team">W78</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0705.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">08:00</span>
+                    <span class="match-group">Round of 16</span>
+                    <span class="match-team">W79</span>
+                    <span class="match-team">W80</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0705.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <div class="date-header">7月6日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">Round of 16</span>
+                    <span class="match-team">W83</span>
+                    <span class="match-team">W84</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0706.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">08:00</span>
+                    <span class="match-group">Round of 16</span>
+                    <span class="match-team">W81</span>
+                    <span class="match-team">W82</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0706.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">00:00</span>
+                    <span class="match-group">Round of 16</span>
+                    <span class="match-team">W86</span>
+                    <span class="match-team">W88</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0706.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">Round of 16</span>
+                    <span class="match-team">W85</span>
+                    <span class="match-team">W87</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0706.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="stage-card stage-quarter">
+    <div class="stage-title">Quarter-finals（1/4决赛）</div>
+    <div class="table-wrapper">
+        <div class="date-group">
+            <div class="date-header">7月15日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">04:00</span>
+                    <span class="match-group">Quarter-final</span>
+                    <span class="match-team">W89</span>
+                    <span class="match-team">W90</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0715.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">Quarter-final</span>
+                    <span class="match-team">W93</span>
+                    <span class="match-team">W94</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0715.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">05:00</span>
+                    <span class="match-group">Quarter-final</span>
+                    <span class="match-team">W91</span>
+                    <span class="match-team">W92</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0715.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">09:00</span>
+                    <span class="match-group">Quarter-final</span>
+                    <span class="match-team">W95</span>
+                    <span class="match-team">W96</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0715.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="stage-card stage-semi">
+    <div class="stage-title">Semi-finals（半决赛）</div>
+    <div class="table-wrapper">
+        <div class="date-group">
+            <div class="date-header">7月17日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">Semi-final</span>
+                    <span class="match-team">W97</span>
+                    <span class="match-team">W98</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0717.html" class="pred-link">📊</a>
+                </div>
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">Semi-final</span>
+                    <span class="match-team">W99</span>
+                    <span class="match-team">W100</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0717.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="stage-card stage-final">
+    <div class="stage-title">Final（总决赛）</div>
+    <div class="table-wrapper">
+        <div class="date-group">
+            <div class="date-header">7月19日</div>
+            <div class="date-matches">
+                <div class="match-row">
+                    <span class="match-time">03:00</span>
+                    <span class="match-group">Final</span>
+                    <span class="match-team">W101</span>
+                    <span class="match-team">W102</span>
+                    <span class="match-score">—</span>
+                    <span class="match-score">—</span>
+                    <a href="predictions/0719.html" class="pred-link">📊</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div><!-- /stage-final -->
+    </div><!-- /tab-schedule -->
 
-
-        <!-- ==================== 小组积分（所有组一次展示）==================== -->
-        <div class="tab-content" id="tab-groups">
+    <!-- ==================== 积分榜 ==================== -->
+    <div class="tab-content" id="tab-groups">
             <div class="groups-grid" id="groupsGrid"></div>
-        </div><!-- /tab-groups -->
+        
+    <div class="global-stats">
+        <div class="stats-section">
+            <h2>射手榜</h2>
+            <div class="table-wrapper">
+                <table class="stats-table">
+                    <thead><tr>
+                        <th class="rank">排名</th>
+                        <th>球员</th>
+                        <th>球队</th>
+                        <th class="number">进球数</th>
+                    </tr></thead>
+                    <tbody>
+                        <tr><td class="rank">1</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        <tr><td class="rank">2</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        <tr><td class="rank">3</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        <tr><td class="rank">4</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        <tr><td class="rank">5</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="stats-section">
+            <h2>助攻榜</h2>
+            <div class="table-wrapper">
+                <table class="stats-table">
+                    <thead><tr>
+                        <th class="rank">排名</th>
+                        <th>球员</th>
+                        <th>球队</th>
+                        <th class="number">助攻数</th>
+                    </tr></thead>
+                    <tbody>
+                        <tr><td class="rank">1</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        <tr><td class="rank">2</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        <tr><td class="rank">3</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        <tr><td class="rank">4</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                        <tr><td class="rank">5</td><td>—</td><td>—</td><td class="number">—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </div><!-- /tab-groups -->
 
 
         <!-- ==================== 射手榜 & 助攻榜（合并）==================== -->
@@ -787,14 +1843,24 @@
             stats[t] = { name:t, played:0, won:0, drawn:0, lost:0, gf:0, ga:0, pts:0 };
         });
 
-        var rows = document.querySelectorAll('#tab-schedule tr[data-group="' + groupId + '"]');
+        // 适配新的 div 布局：.match-row > .match-group("A组") + .match-teams + .match-score
+        var rows = document.querySelectorAll('#tab-schedule .match-row');
         rows.forEach(function(row) {
-            var cells = row.querySelectorAll('td');
-            if (cells.length < 4) return;
-            var matchText = cells[2].textContent.trim();
-            var score = parseScore(cells[3].textContent);
+            var groupEl = row.querySelector('.match-group');
+            if (!groupEl) return;
+            var groupText = groupEl.textContent.trim();
+            // 提取组别字母，如 "A组" → "A"
+            var gMatch = groupText.match(/^([A-Z])/);
+            if (!gMatch || gMatch[1] !== groupId) return;
+
+            var teamsEl = row.querySelector('.match-teams');
+            var scoreEl = row.querySelector('.match-score');
+            if (!teamsEl || !scoreEl) return;
+
+            var score = parseScore(scoreEl.textContent);
             if (!score) return;
 
+            var matchText = teamsEl.textContent.trim();
             var parts = matchText.split(/\s+vs\s+/i);
             if (parts.length !== 2) return;
             var a = parts[0].trim(), b = parts[1].trim();
@@ -837,10 +1903,10 @@
             html += '<thead><tr><th>\u6392\u540D</th><th>\u7403\u961F</th><th>\u573A\u6B21</th><th>\u80DC</th><th>\u5E73</th><th>\u8D1F</th><th>\u8FDB</th><th>\u5931</th><th>\u51C0\u80DC</th><th>\u79EF\u5206</th></tr></thead>';
             html += '<tbody>';
             standings.forEach(function(t, i) {
-                var q = i < 2 ? ' <span class="qualify">\u2713\u664B\u7EA7</span>' : '';
-                html += '<tr>';
+                var rowClass = i < 2 ? ' class="qualify-row"' : '';
+                html += '<tr' + rowClass + '>';
                 html += '<td class="rank">' + (i+1) + '</td>';
-                html += '<td><a href="teams/' + TEAM_EN[t.name] + '.html" class="team-clickable">' + t.name + '</a>' + q + '</td>';
+                html += '<td><a href="teams/' + TEAM_EN[t.name] + '.html" class="team-clickable">' + t.name + '</a></td>';
                 html += '<td>' + t.played + '</td>';
                 html += '<td>' + t.won     + '</td>';
                 html += '<td>' + t.drawn   + '</td>';
