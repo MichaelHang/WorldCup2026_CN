@@ -1,0 +1,8 @@
+# 依赖和脚本
+update_scores.py
+
+# 备份文件
+*.bak
+
+# WorkBuddy 工作目录
+.workbuddy/
