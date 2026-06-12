@@ -1843,7 +1843,7 @@
             stats[t] = { name:t, played:0, won:0, drawn:0, lost:0, gf:0, ga:0, pts:0 };
         });
 
-        // 适配新的 div 布局：.match-row > .match-group("A组") + .match-teams + .match-score
+        // 适配新的 div 布局：.match-row > .match-group + .match-team×2 + .match-score×2 + .pred-link
         var rows = document.querySelectorAll('#tab-schedule .match-row');
         rows.forEach(function(row) {
             var groupEl = row.querySelector('.match-group');
@@ -1853,18 +1853,19 @@
             var gMatch = groupText.match(/^([A-Z])/);
             if (!gMatch || gMatch[1] !== groupId) return;
 
-            var teamsEl = row.querySelector('.match-teams');
-            var scoreEl = row.querySelector('.match-score');
-            if (!teamsEl || !scoreEl) return;
+            // 新布局：两个 .match-team 和两个 .match-score
+            var teamEls = row.querySelectorAll('.match-team');
+            var scoreEls = row.querySelectorAll('.match-score');
+            if (teamEls.length < 2 || scoreEls.length < 2) return;
 
-            var score = parseScore(scoreEl.textContent);
-            if (!score) return;
+            var a = teamEls[0].textContent.trim();
+            var b = teamEls[1].textContent.trim();
+            var scoreA = scoreEls[0].textContent.trim();
+            var scoreB = scoreEls[1].textContent.trim();
 
-            var matchText = teamsEl.textContent.trim();
-            var parts = matchText.split(/\s+vs\s+/i);
-            if (parts.length !== 2) return;
-            var a = parts[0].trim(), b = parts[1].trim();
-            var ga = score[0], gb = score[1];
+            // 比分必须是数字
+            var ga = parseInt(scoreA), gb = parseInt(scoreB);
+            if (isNaN(ga) || isNaN(gb)) return;
 
             if (!stats[a] && stats[b]) {
                 var tmp = a; a = b; b = tmp;
