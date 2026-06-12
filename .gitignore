@@ -6,3 +6,4 @@ update_scores.py
 
 # WorkBuddy 工作目录
 .workbuddy/
+.DS_Store
