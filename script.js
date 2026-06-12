@@ -1,35 +1,3 @@
-// ========= 动态加载 Tab 片段 =========
-var _loadedTabs = {};
-
-function loadTabFragment(tabName, callback) {
-    if (_loadedTabs[tabName]) {
-        if (callback) callback();
-        return;
-    }
-    var container;
-    if (tabName === 'schedule') {
-        container = document.getElementById('tab-schedule');
-    } else if (tabName === 'groups') {
-        container = document.getElementById('statsContainer');
-    } else {
-        if (callback) callback();
-        return;
-    }
-
-    var url = 'tabs/' + tabName + '.html';
-    fetch(url).then(function(r) {
-        if (!r.ok) throw new Error('Failed to load ' + url);
-        return r.text();
-    }).then(function(html) {
-        container.innerHTML = html;
-        _loadedTabs[tabName] = true;
-        if (callback) callback();
-    }).catch(function(e) {
-        console.error('加载失败:', e);
-        if (callback) callback();
-    });
-}
-
 // ========= Tab 切换 =========
 function switchTab(tabName) {
     document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
@@ -43,9 +11,7 @@ function switchTab(tabName) {
     if (content) content.classList.add('active');
 
     if (tabName === 'groups') {
-        loadTabFragment('groups', function() {
-            buildAllGroups();
-        });
+        buildAllGroups();
     }
 }
 
@@ -199,11 +165,7 @@ function handleHash() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 赛程表立即加载（默认显示）
-    loadTabFragment('schedule', function() {
-        buildAllGroups();
-        handleHash();
-    });
+    handleHash();
 });
 
 window.addEventListener('hashchange', function() {
