@@ -16,11 +16,41 @@ function switchTab(tabName) {
 }
 
 
+// ========= 赛程组装 =========
+var STAGES = [
+    {key:'group', title:'第一阶段小组赛', cls:'stage-group',
+     dates:['0612','0613','0614','0615','0616','0617','0618','0619',
+            '0620','0621','0622','0623','0624','0625','0626','0627','0628']},
+    {key:'32', title:'Round of 32（1/16决赛）', cls:'stage-32',
+     dates:['0701','0702','0703']},
+    {key:'16', title:'Round of 16（1/8决赛）', cls:'stage-16',
+     dates:['0705','0706']},
+    {key:'quarter', title:'Quarter-finals（1/4决赛）', cls:'stage-quarter',
+     dates:['0715']},
+    {key:'semi', title:'Semi-finals（半决赛）', cls:'stage-semi',
+     dates:['0717']},
+    {key:'final', title:'Final（总决赛）', cls:'stage-final',
+     dates:['0719']}
+];
+
+function buildSchedule() {
+    var container = document.getElementById('schedule-container');
+    if (!container) return;
+    var html = '';
+    STAGES.forEach(function(stage) {
+        html += '<div class="stage-card ' + stage.cls + '">';
+        html += '<div class="stage-title">' + stage.title + '</div>';
+        html += '<div class="table-wrapper">';
+        stage.dates.forEach(function(d) {
+            if (SCHEDULE_DATA[d]) html += SCHEDULE_DATA[d];
+        });
+        html += '</div></div>';
+    });
+    container.innerHTML = html;
+}
+
+
 // ======== 球队阵容数据 ========
-
-    // 球队数据已移至 teams/ 目录的各HTML文件中
-    ;
-
 
 var GROUP_TEAMS = {
     'A': ['墨西哥','南非','韩国','捷克'],
@@ -69,17 +99,14 @@ function calculateGroup(groupId) {
         stats[t] = { name:t, played:0, won:0, drawn:0, lost:0, gf:0, ga:0, pts:0 };
     });
 
-    // 适配新的 div 布局：.match-row > .match-group + .match-team×2 + .match-score×2 + .pred-link
     var rows = document.querySelectorAll('#tab-schedule .match-row');
     rows.forEach(function(row) {
         var groupEl = row.querySelector('.match-group');
         if (!groupEl) return;
         var groupText = groupEl.textContent.trim();
-        // 提取组别字母，如 "A组" → "A"
         var gMatch = groupText.match(/^([A-Z])/);
         if (!gMatch || gMatch[1] !== groupId) return;
 
-        // 新布局：两个 .match-team 和两个 .match-score
         var teamEls = row.querySelectorAll('.match-team');
         var scoreEls = row.querySelectorAll('.match-score');
         if (teamEls.length < 2 || scoreEls.length < 2) return;
@@ -89,7 +116,6 @@ function calculateGroup(groupId) {
         var scoreA = scoreEls[0].textContent.trim();
         var scoreB = scoreEls[1].textContent.trim();
 
-        // 比分必须是数字
         var ga = parseInt(scoreA), gb = parseInt(scoreB);
         if (isNaN(ga) || isNaN(gb)) return;
 
@@ -149,11 +175,6 @@ function buildAllGroups() {
     grid.innerHTML = html;
 }
 
-// ========= 球队阵容弹窗 =========
-
-
-
-
 // ========= 初始化 =========
 function handleHash() {
     var hash = window.location.hash.replace('#', '') || 'schedule';
@@ -165,6 +186,7 @@ function handleHash() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    buildSchedule();
     handleHash();
 });
 
