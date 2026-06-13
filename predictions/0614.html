@@ -9,39 +9,36 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
+
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
+
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
+
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
-  /* Match cards */
+
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
+
   .match-body { padding:20px; }
-  
-  /* Placeholder */
+
   .placeholder-card .match-body { text-align:center; padding:30px 20px; }
   .ph-icon { font-size:2em; margin-bottom:8px; }
   .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+
+  .prob-section, .score-section, .factor-section, .upset-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child { margin-bottom:0; }
+
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
+
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +50,25 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
+
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
+
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid var(--border); }
+  .upset-label { font-size:0.85em; color:#8b949e; min-width:72px; display:flex; align-items:center; gap:4px; }
+  .upset-value { font-weight:700; font-size:1em; min-width:80px; }
+  .upset-desc { font-size:0.82em; color:#8b949e; flex:1; line-height:1.4; }
+
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
+
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,54 +80,315 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月14日 · 预测</h1>
-    <p class="sub">4场比赛 · 0场已预测</p>
+    <p class="sub">4场比赛 · 焦点战：巴西 vs 摩洛哥</p>
   </header>
   <div class="day-nav"><a href="0613.html" class="nav-btn">← 前一天</a><span class="nav-current">6月14日</span><a href="0615.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
+
+    <!-- Match 1: 卡塔尔 vs 瑞士 -->
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">03:00</span>
-        <span class="match-teams">卡塔尔 vs 瑞士</span>
-        <span class="match-venue">旧金山湾区体育场</span>
+        <span class="match-teams">🇶🇦 卡塔尔 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #56)</span> vs 瑞士 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #19)</span> 🇨🇭</span>
+        <span class="match-venue">温哥华体育场</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇨🇭 瑞士 <span style="color:#8b949e;font-size:0.75em;">(#19)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:68%"></div></div>
+          <span class="prob-pct">68.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:21%"></div></div>
+          <span class="prob-pct">21.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇶🇦 卡塔尔 <span style="color:#8b949e;font-size:0.75em;">(#56)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:11%"></div></div>
+          <span class="prob-pct">11.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:100%"></div></div>
+          <span class="score-pct">15.2%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-2</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:82%"></div></div>
+          <span class="score-pct">12.4%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:68%"></div></div>
+          <span class="score-pct">10.3%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-2</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:59%"></div></div>
+          <span class="score-pct">8.9%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:49%"></div></div>
+          <span class="score-pct">7.5%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>Elo差距470：瑞士1891 vs 卡塔尔1421，纸面实力悬殊</li>
+          <li>瑞士防线由阿坎吉统领，面对卡塔尔进攻体系优势明显</li>
+          <li>卡塔尔主场劣势（温哥华并非亚洲），需长途适应</li>
+          <li>卡塔尔阿费夫是唯一X因素，亚洲杯MVP有单兵破局能力</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟢 低 (10%)</span>
+            <span class="upset-desc">瑞士FIFA#19远强于卡塔尔#56，Elo差470，瑞士防守体系几乎不给冷门空间</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+
+    <!-- Match 2: 巴西 vs 摩洛哥 -->
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">06:00</span>
-        <span class="match-teams">巴西 vs 摩洛哥</span>
-        <span class="match-venue">纽约/新泽西体育场</span>
+        <span class="match-teams">🇧🇷 巴西 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #6)</span> vs 摩洛哥 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #7)</span> 🇲🇦</span>
+        <span class="match-venue">MetLife体育场（新泽西）</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇧🇷 巴西 <span style="color:#8b949e;font-size:0.75em;">(#6)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:41%"></div></div>
+          <span class="prob-pct">41.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:32%"></div></div>
+          <span class="prob-pct">32.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇲🇦 摩洛哥 <span style="color:#8b949e;font-size:0.75em;">(#7)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:27%"></div></div>
+          <span class="prob-pct">27.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:100%"></div></div>
+          <span class="score-pct">16.8%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:77%"></div></div>
+          <span class="score-pct">13.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:68%"></div></div>
+          <span class="score-pct">11.5%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:54%"></div></div>
+          <span class="score-pct">9.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:47%"></div></div>
+          <span class="score-pct">7.9%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>FIFA排名仅差1位(#6 vs #7)，是今天最势均力敌的对决</li>
+          <li>摩洛哥2022世界杯四强班底仍在：哈基米、齐耶赫、布努防线核心</li>
+          <li>巴西维尼修斯+罗德里戈双星攻击线，但面对摩洛哥铁桶阵破密集能力受考验</li>
+          <li>MetLife大球场氛围：巴西球迷基数庞大，近似半个主场</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (35%)</span>
+            <span class="upset-desc">FIFA排名仅差1位，摩洛哥有2022年淘汰西葡的巨人杀手血统，巴西首战常有慢热传统</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+
+    <!-- Match 3: 海地 vs 苏格兰 -->
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">09:00</span>
-        <span class="match-teams">海地 vs 苏格兰</span>
-        <span class="match-venue">波士顿体育场</span>
+        <span class="match-teams">🇭🇹 海地 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #83)</span> vs 苏格兰 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #42)</span> 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+        <span class="match-venue">亚特兰大梅赛德斯奔驰体育场</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🏴󠁧󠁢󠁳󠁣󠁴󠁿 苏格兰 <span style="color:#8b949e;font-size:0.75em;">(#42)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:54%"></div></div>
+          <span class="prob-pct">54.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:26%"></div></div>
+          <span class="prob-pct">26.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇭🇹 海地 <span style="color:#8b949e;font-size:0.75em;">(#83)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:20%"></div></div>
+          <span class="prob-pct">20.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:100%"></div></div>
+          <span class="score-pct">15.8%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:74%"></div></div>
+          <span class="score-pct">11.7%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-2</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:66%"></div></div>
+          <span class="score-pct">10.4%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-2</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:53%"></div></div>
+          <span class="score-pct">8.4%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:42%"></div></div>
+          <span class="score-pct">6.6%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>苏格兰近期状态火热：近9场6胜，热身赛4-0玻利维亚、4-1库拉索</li>
+          <li>海地世界杯初体验，球队整体大赛经验薄弱</li>
+          <li>苏格兰罗伯逊+麦金组成的左路强侧是突破点</li>
+          <li>海地球员多效力于法国联赛，身体对抗能力不俗</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (32%)</span>
+            <span class="upset-desc">苏格兰非传统强队(#42)，海地首秀不可预测，法甲体系球员+杯赛首战紧张可能带来意外</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+
+    <!-- Match 4: 澳大利亚 vs 土耳其 -->
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">12:00</span>
-        <span class="match-teams">澳大利亚 vs 土耳其</span>
-        <span class="match-venue">BC Place温哥华</span>
+        <span class="match-teams">🇦🇺 澳大利亚 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #27)</span> vs 土耳其 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #22)</span> 🇹🇷</span>
+        <span class="match-venue">旧金山Levi's体育场</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇹🇷 土耳其 <span style="color:#8b949e;font-size:0.75em;">(#22)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:43%"></div></div>
+          <span class="prob-pct">43.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:30%"></div></div>
+          <span class="prob-pct">30.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇦🇺 澳大利亚 <span style="color:#8b949e;font-size:0.75em;">(#27)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:27%"></div></div>
+          <span class="prob-pct">27.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:100%"></div></div>
+          <span class="score-pct">15.5%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:71%"></div></div>
+          <span class="score-pct">11.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:66%"></div></div>
+          <span class="score-pct">10.2%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:56%"></div></div>
+          <span class="score-pct">8.7%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:48%"></div></div>
+          <span class="score-pct">7.4%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>FIFA排名级差仅5位(#22 vs #27)，Elo差134，纸面最接近的比赛</li>
+          <li>土耳其恰尔汗奥卢+阿克图尔科格鲁创造力强，但防守端偶有漏洞</li>
+          <li>澳大利亚身体对抗+定位球优势，亚洲区最强高空轰炸能力</li>
+          <li>双方均为最后一个比赛日出战，心理压力分布均匀</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#D85A30;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟠 较高 (48%)</span>
+            <span class="upset-desc">FIFA排名仅差5位，Elo差134，澳洲身体对抗可搅乱土耳其节奏，今天最可能爆冷的场次</span>
+          </div>
+        </div>
       </div>
     </div>
-  
+
+  <div class="footer-note">模型数据截至 2026年6月13日 · Elo来源: eloratings.net · FIFA排名: 2026年6月11日 · 蒙特卡洛模拟 100,000次</div>
 </div>
 </body>
 </html>

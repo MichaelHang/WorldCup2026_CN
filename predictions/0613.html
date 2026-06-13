@@ -37,8 +37,8 @@
   .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
   
   /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
+  .prob-section, .score-section, .factor-section, .upset-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child { margin-bottom:0; }
   
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
   
@@ -65,9 +65,10 @@
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
   
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid var(--border); }
+  .upset-label { font-size:0.85em; color:#8b949e; min-width:72px; display:flex; align-items:center; gap:4px; }
+  .upset-value { font-weight:700; font-size:1em; min-width:80px; }
+  .upset-desc { font-size:0.82em; color:#8b949e; flex:1; line-height:1.4; }
   
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
   
@@ -149,15 +150,12 @@
 
           </ul>
         </div>
-        <div class="script-section">
-          <h3>剧本推演</h3>
-          <div class="script-item">
-            <span class="script-label">剧本A</span>
-            <span class="script-desc">加拿大开场高压，戴维斯左路连续突破制造机会，上半场1-0领先；波黑下半场体能下降，加拿大70分钟后锁定胜局</span>
-          </div>
-          <div class="script-item">
-            <span class="script-label">剧本B</span>
-            <span class="script-desc">波黑利用哲科支点作用稳守反击，加拿大久攻不下心态急躁，波黑定位球破门后全线退守</span>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#D85A30;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟠 较高 (45%)</span>
+            <span class="upset-desc">加拿大首次参赛世界杯主场加成需打折，波黑老将经验丰富防守韧性足</span>
           </div>
         </div>
       </div>
@@ -226,15 +224,12 @@
 
           </ul>
         </div>
-        <div class="script-section">
-          <h3>剧本推演</h3>
-          <div class="script-item">
-            <span class="script-label">剧本A</span>
-            <span class="script-desc">美国利用主场气势开场猛攻，普利西奇灵光一闪破僵；巴拉圭被迫压出后防线漏洞增加</span>
-          </div>
-          <div class="script-item">
-            <span class="script-label">剧本B</span>
-            <span class="script-desc">巴拉圭教科书式低位防守+反击，美国控球占优但威胁寥寥，0-0闷平或巴拉圭偷袭得手</span>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#D85A30;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟢 低 (18%)</span>
+            <span class="upset-desc">美国FIFA#17远超巴拉圭#41，主场作战优势明显，模型不确定性主要来自Elo数据偏差而非真实冷门风险</span>
           </div>
         </div>
       </div>
