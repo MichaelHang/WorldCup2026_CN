@@ -9,39 +9,34 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
+
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
+
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
+
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
+
   /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
+
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
+
   /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child { margin-bottom:0; }
+
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
+
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +48,25 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
+
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
+
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid var(--border); }
+  .upset-label { font-size:0.85em; color:#8b949e; min-width:72px; display:flex; align-items:center; gap:4px; }
+  .upset-value { font-weight:700; font-size:1em; min-width:80px; }
+  .upset-desc { font-size:0.82em; color:#8b949e; flex:1; line-height:1.4; }
+
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
+
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,54 +78,308 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月15日 · 预测</h1>
-    <p class="sub">4场比赛 · 0场已预测</p>
+    <p class="sub">4场比赛 · 4场已预测</p>
   </header>
   <div class="day-nav"><a href="0614.html" class="nav-btn">← 前一天</a><span class="nav-current">6月15日</span><a href="0616.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">01:00</span>
-        <span class="match-teams">德国 vs 库拉索</span>
-        <span class="match-venue">休斯顿体育场</span>
+        <span class="match-teams">🇩🇪 德国 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #10)</span> vs 库拉索 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #82)</span> 🇨🇼</span>
+        <span class="match-venue">NRG体育场 · 休斯顿</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇩🇪 德国 <span style="color:#8b949e;font-size:0.75em;">(#10)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:204.6%"></div></div>
+          <span class="prob-pct">93.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:11.0%"></div></div>
+          <span class="prob-pct">5.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇨🇼 库拉索 <span style="color:#8b949e;font-size:0.75em;">(#82)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:4.4%"></div></div>
+          <span class="prob-pct">2.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">4-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:99.0%"></div></div>
+          <span class="score-pct">18.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">3-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:88.0%"></div></div>
+          <span class="score-pct">16.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">5-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:71.5%"></div></div>
+          <span class="score-pct">13.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:60.5%"></div></div>
+          <span class="score-pct">11.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">6-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>Elo差距492分（德国1925 vs 库拉索1433）：这是世界杯小组赛阶段实力最悬殊的对决之一，库拉索Elo仅相当于世界第96位水平</li>
+          <li>库拉索首次参加世界杯，全队26人均为世界杯首秀且从未击败过FIFA排名60名以上的对手，大赛首战心理压力巨大</li>
+          <li>德国弗洛里安·维尔茨+穆西亚拉+哈弗茨三叉戟攻击力顶级，诺伊尔回归镇守球门，整体实力全方位碾压</li>
+          <li>库拉索预选赛10场不败（7胜3平）但对手均为CONCACAF弱旅（百慕大、特多等），防守数据需大幅降权，主场加成×0.5</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟢 低 (9%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">德国FIFA#10远强于库拉索#82，Elo差492分，库拉索首次世界杯经验为零，爆冷几乎不可能</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">04:00</span>
-        <span class="match-teams">荷兰 vs 日本</span>
-        <span class="match-venue">达拉斯体育场</span>
+        <span class="match-teams">🇳🇱 荷兰 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #8)</span> vs 日本 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #18)</span> 🇯🇵</span>
+        <span class="match-venue">AT&T体育场 · 阿灵顿</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇳🇱 荷兰 <span style="color:#8b949e;font-size:0.75em;">(#8)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:83.6%"></div></div>
+          <span class="prob-pct">38.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:72.6%"></div></div>
+          <span class="prob-pct">33.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇯🇵 日本 <span style="color:#8b949e;font-size:0.75em;">(#18)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:63.8%"></div></div>
+          <span class="prob-pct">29.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:88.0%"></div></div>
+          <span class="score-pct">16.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:60.5%"></div></div>
+          <span class="score-pct">11.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:41.25%"></div></div>
+          <span class="score-pct">7.5%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>荷兰四大主力缺阵：哈维·西蒙斯（ACL赛季报销）、廷贝尔（腹股沟）、德利赫特（背部手术）、斯豪滕（ACL），创造力大幅削弱</li>
+          <li>日本xFIFA排名被严重低估：预选赛xG差值每90分钟+0.41，是所有前20种子中实际表现最超Elo预期的球队，2026年3月客场1-0击败英格兰</li>
+          <li>Elo仅差38分（1944 vs 1906），远小于FIFA排名差（#8 vs #18）所暗示的实力差距，本质是一场抛硬币比赛</li>
+          <li>利物浦内战定乾坤：远藤航vs范迪克+加克波+格拉芬贝赫，中场缠斗将决定比赛节奏和控球权归属</li>
+          <li>日本三笘薰（腿筋）、南野拓实（ACL）双双缺阵，但堂安律+久保建英+伊东纯也的边路组合仍能制造实质性威胁</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (43%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">荷兰四大主力伤缺严重削弱实力，日本xG数据被严重低估，客场1-0英格兰证明竞争力，当日最可能爆冷的比赛</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">07:00</span>
-        <span class="match-teams">科特迪瓦 vs 厄瓜多尔</span>
-        <span class="match-venue">费城体育场</span>
+        <span class="match-teams">🇨🇮 科特迪瓦 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #33)</span> vs 厄瓜多尔 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #23)</span> 🇪🇨</span>
+        <span class="match-venue">林肯金融球场 · 费城</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇪🇨 厄瓜多尔 <span style="color:#8b949e;font-size:0.75em;">(#23)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:94.6%"></div></div>
+          <span class="prob-pct">43.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:70.4%"></div></div>
+          <span class="prob-pct">32.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇨🇮 科特迪瓦 <span style="color:#8b949e;font-size:0.75em;">(#33)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:55.0%"></div></div>
+          <span class="prob-pct">25.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:77.0%"></div></div>
+          <span class="score-pct">14.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:71.5%"></div></div>
+          <span class="score-pct">13.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-2</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:41.25%"></div></div>
+          <span class="score-pct">7.5%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>厄瓜多尔CONMEBOL预选赛18场仅失5球，南美区历史级防守，以南美第二晋级（力压巴西、乌拉圭），贝卡塞塞打造的4-4-2体系极为稳固</li>
+          <li>Elo差距240分（1935 vs 1695）显示厄瓜多尔实力明显占优，但FIFA排名仅差10位（#23 vs #33），按规则以FIFA为主做加权校正</li>
+          <li>科特迪瓦2023非洲杯冠军+世预赛10场零封，全队总身价超5.15亿欧元为非洲最高，阿马德·迪亚洛+弗兰克·凯西+扬·迪奥曼德实力不俗</li>
+          <li>厄瓜多尔核心恩纳·瓦伦西亚（队史49球，连续两届世界杯进球）36岁高龄仍是攻击核心，莫伊塞斯·凯塞多中场统治力决定比赛走势</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (36%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">FIFA排名接近(Elo差距大)，科特迪瓦非洲杯冠军+零封出线有被低估的防守，厄瓜多尔虽占优但进攻依赖36岁老将</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">10:00</span>
-        <span class="match-teams">瑞典 vs 突尼斯</span>
-        <span class="match-venue">蒙特雷体育场</span>
+        <span class="match-teams">🇸🇪 瑞典 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #38)</span> vs 突尼斯 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #45)</span> 🇹🇳</span>
+        <span class="match-venue">BBVA体育场 · 蒙特雷</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇸🇪 瑞典 <span style="color:#8b949e;font-size:0.75em;">(#38)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:79.2%"></div></div>
+          <span class="prob-pct">36.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:74.8%"></div></div>
+          <span class="prob-pct">34.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇹🇳 突尼斯 <span style="color:#8b949e;font-size:0.75em;">(#45)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:66.0%"></div></div>
+          <span class="prob-pct">30.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:88.0%"></div></div>
+          <span class="score-pct">16.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:60.5%"></div></div>
+          <span class="score-pct">11.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:38.5%"></div></div>
+          <span class="score-pct">7.0%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>瑞典状态极差：近10场仅1胜2平7负，预选赛0胜靠欧国联附加赛晋级，波特新帅刚上任8个月，战术体系仍在磨合</li>
+          <li>瑞典锋线世界级：伊萨克（利物浦）+吉奥克雷斯（阿森纳）双核火力强大，但库卢塞夫斯基伤缺导致边路创造力大幅下降</li>
+          <li>突尼斯创造历史纪录：世预赛10场9胜1平且零失球，是世界杯预选赛历史上首支零封晋级的球队，防守组织极为严密</li>
+          <li>突尼斯预选赛头号射手本·鲁姆丹（4球）意外落选最终名单，新帅拉穆奇上任仅执教2场（0-0加拿大、1-0海地），磨合不足</li>
+          <li>突尼斯预选赛对手均为非洲弱旅（赤几、纳米比亚、利比里亚等），零封含金量需降权，但防守纪律性和Skhiri的中场拦截不容低估</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (44%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">FIFA仅差7位实力接近，瑞典10场7负状态崩盘，突尼斯历史级防守+瑞典锋线双核的矛盾对决，平局概率极高</span>
+          </div>
+        </div>
       </div>
     </div>
-  
+
 </div>
 </body>
 </html>
