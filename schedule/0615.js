@@ -7,8 +7,8 @@ SCHEDULE_DATA['0615'] = `
                     <span class="match-group">E组</span>
                     <span class="match-team">德国</span>
                     <span class="match-team">库拉索</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">7</span>
+                    <span class="match-score">1</span>
                     <a href="predictions/0615.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
