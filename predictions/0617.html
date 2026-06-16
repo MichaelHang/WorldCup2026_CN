@@ -9,39 +9,39 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
+
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
+
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
+
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
+
   /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
+
   .match-body { padding:20px; }
-  
+
   /* Placeholder */
   .placeholder-card .match-body { text-align:center; padding:30px 20px; }
   .ph-icon { font-size:2em; margin-bottom:8px; }
   .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
+
   /* Predicted card sections */
   .prob-section, .score-section, .factor-section, .upset-section { margin-bottom:16px; }
   .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child { margin-bottom:0; }
-  
+
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
+
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,25 +53,25 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
+
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
+
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
+
   .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid var(--border); }
   .upset-label { font-size:0.85em; color:#8b949e; min-width:72px; display:flex; align-items:center; gap:4px; }
   .upset-value { font-weight:700; font-size:1em; min-width:80px; }
   .upset-desc { font-size:0.82em; color:#8b949e; flex:1; line-height:1.4; }
-  
+
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
+
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -83,35 +83,166 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月17日 · 预测</h1>
-    <p class="sub">4场比赛 · 2场已预测</p>
+    <p class="sub">4场比赛 · 4场已预测</p>
   </header>
   <div class="day-nav"><a href="0616.html" class="nav-btn">← 前一天</a><span class="nav-current">6月17日</span><a href="0618.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">00:00</span>
-        <span class="match-teams">阿根廷 vs 阿尔及利亚</span>
+        <span class="match-teams">🇦🇷 阿根廷 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #1)</span> vs 阿尔及利亚 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #28)</span> 🇩🇿</span>
         <span class="match-venue">堪萨斯城体育场</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">03:00</span>
-        <span class="match-teams">奥地利 vs 约旦</span>
-        <span class="match-venue">旧金山湾区体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇦🇷 阿根廷 <span style="color:#8b949e;font-size:0.75em;">(#1)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:151.8%"></div></div>
+          <span class="prob-pct">69.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:46.2%"></div></div>
+          <span class="prob-pct">21.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇩🇿 阿尔及利亚 <span style="color:#8b949e;font-size:0.75em;">(#28)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:22.0%"></div></div>
+          <span class="prob-pct">10.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:71.5%"></div></div>
+          <span class="score-pct">13.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:60.5%"></div></div>
+          <span class="score-pct">11.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">3-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:49.5%"></div></div>
+          <span class="score-pct">9.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>阿根廷Elo 2115 vs 阿尔及利亚 1772（差距343分），FIFA #1 vs #27，是本届小组赛首轮最大强弱悬殊对决之一，卫冕冠军全方位占优</li>
+          <li>阿根廷热身赛2战全胜且零失球：2-0洪都拉斯+3-0冰岛，Messi+Alvarez+Martinez三线进攻防守端Romero+Otamendi+Molina体系稳健</li>
+          <li>阿尔及利亚1-0客胜Netherlands爆出本届最大冷门，Mahrez+Ait-Nouri+Amoura三线威胁能力不容忽视，但FIFA排名低27位整体实力差距明显</li>
+          <li>小组赛首轮双方都偏保守+中立场地(堪萨斯城)无阿根廷主观加成，但阿尔及利亚防守数据来自非洲预选赛弱旅需大幅降权</li>
+          <li>Algeria主帅Petković（瑞士人，2024年上任）执教体系注重防守反击+快速转换，面对阿根廷技术流可能采取低位摆大巴拖延战术</li>
+          <li>⚠️ 平局概率上调至21%（基线约15%）：小组赛首轮保守倾向+Algeria防守反击体系天然倾向于闷平，但阿根廷阵容深度足以撕开铁桶阵</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (28%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">阿尔及利亚1-0客胜Netherlands证明巨人杀手属性，FIFA#28绝对实力强于排名暗示，Mahrez领衔反击可能偷一球，1-0/1-1冷门比分值得警惕</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">03:00</span>
-        <span class="match-teams">🇫🇷 法国 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #3)</span> vs 塞内加尔 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #23)</span> 🇸🇳</span>
+        <span class="match-teams">🇦🇹 奥地利 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #24)</span> vs 约旦 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #63)</span> 🇯🇴</span>
+        <span class="match-venue">旧金山湾区体育场</span>
+      </div>
+      <div class="match-body">
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇦🇹 奥地利 <span style="color:#8b949e;font-size:0.75em;">(#24)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:127.6%"></div></div>
+          <span class="prob-pct">58.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:55.0%"></div></div>
+          <span class="prob-pct">25.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇯🇴 约旦 <span style="color:#8b949e;font-size:0.75em;">(#28)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:37.4%"></div></div>
+          <span class="prob-pct">17.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:71.5%"></div></div>
+          <span class="score-pct">13.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:66.0%"></div></div>
+          <span class="score-pct">12.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:49.5%"></div></div>
+          <span class="score-pct">9.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>Elo差距150分(1830 vs 1680)，FIFA排名差39位(#24 vs #63)，中欧对西亚实力差距明显但远未到西班牙vs佛得角那种碾压级别</li>
+          <li>奥地利Rangnick高位逼抢体系热身赛1-0胜Tunisia展现防守纪律，Sabitzer+Laimer+Baumgartner中场控制力欧洲一流</li>
+          <li>约旦首次参加世界杯正赛（FIFA #63），全队除Mousa Al-Tamari（雷恩）外基本效力亚洲联赛，2023亚洲杯亚军展现战术素养但顶级对抗经验为零</li>
+          <li>约旦主帅Sellami（摩洛哥人，2024年上任）曾参加1998世界杯，擅长防守反击+定位球战术，面对奥地利压迫体系可能采用深度防守</li>
+          <li>中立场地（旧金山湾区），两队均无主场加成，Al-Tamari作为约旦唯一五大联赛球员将承担主要进攻任务</li>
+          <li>⚠️ 平局概率上调至25%（基线约18%）：小组赛首轮保守倾向+约旦防守反击体系+奥地利遇密集防守耐心不足的问题</li>
+          <li>约旦亚洲预选赛6场仅失2球的防守数据含金量需审视——对手为科威特、巴勒斯坦等亚洲中下游，面对欧洲强队考验完全不同</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (30%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">约旦首次参赛神秘感+Al-Tamari反击爆点+奥地利面对密集防守耐心不足，约旦若先进球可能重演希腊2004式铁桶阵</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="match-card predicted-card">
+      <div class="match-header">
+        <span class="match-time">03:00</span>
+        <span class="match-teams">🇫🇷 法国 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #3)</span> vs 塞内加尔 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #15)</span> 🇸🇳</span>
         <span class="match-venue">纽约/新泽西体育场</span>
       </div>
       <div class="match-body">
@@ -128,7 +259,7 @@
           <span class="prob-pct">28.0%</span>
         </div>
         <div class="prob-row">
-          <span class="prob-label lose">🇸🇳 塞内加尔 <span style="color:#8b949e;font-size:0.75em;">(#23)</span> 胜</span>
+          <span class="prob-label lose">🇸🇳 塞内加尔 <span style="color:#8b949e;font-size:0.75em;">(#15)</span> 胜</span>
           <div class="prob-bar-bg"><div class="prob-bar lose" style="width:44.0%"></div></div>
           <span class="prob-pct">20.0%</span>
         </div>
@@ -143,22 +274,22 @@
         <div class="score-item">
           <span class="score-label">1-0</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:60.5%"></div></div>
-          <span class="score-pct">11.0%</span>
+          <span class="prob-pct">11.0%</span>
         </div>
         <div class="score-item">
           <span class="score-label">2-1</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
-          <span class="score-pct">10.0%</span>
+          <span class="prob-pct">10.0%</span>
         </div>
         <div class="score-item">
           <span class="score-label">0-0</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:49.5%"></div></div>
-          <span class="score-pct">9.0%</span>
+          <span class="prob-pct">9.0%</span>
         </div>
         <div class="score-item">
           <span class="score-label">2-0</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
-          <span class="score-pct">8.0%</span>
+          <span class="prob-pct">8.0%</span>
         </div>
 
         </div>
@@ -166,11 +297,11 @@
           <h3>关键因子</h3>
           <ul>
           <li>⚡ 历史重演风险：2002年世界杯揭幕战塞内加尔1-0击败卫冕冠军法国，24年后再度相遇，心理层面塞内加尔不落下风</li>
-          <li>法国热身赛1-2被科特迪瓦逆转绝杀，科特迪瓦(FIFA#33)与塞内加尔(FIFA#23)实力相近，这是明确的危险信号</li>
-          <li>Elo仅差203分(2063 vs 1860)，FIFA排名差仅20位，实力差距远小于排名数字暗示的鸿沟——本质是一场势均力敌的比赛</li>
-          <li>法国Hugo Ekitike(跟腱)缺阵削弱锋线轮换深度，但Mbappe+Dembele+Kolo Muani的攻击群仍是最顶级配置</li>
-          <li>塞内加尔Mane+Koulibaly+Mendy领衔，全队近半球员效力五大联赛，非洲冠军底蕴+2002历史记忆不容低估</li>
-          <li>⚠️ 平局概率大幅上调：小组赛首轮+实力接近(FIFA差<15位？仅差20位，接近阈值)+法国近期防守不稳(近2场失3球)</li>
+          <li>法国热身赛1-2被科特迪瓦逆转绝杀，Amad Diallo终场前绝杀，这是明确的危险信号——防守端注意力下降+锋线把握机会能力存疑</li>
+          <li>Elo仅差203分(2063 vs 1860)，FIFA排名差仅12位(#3 vs #15)，实力差距远小于排名数字暗示的鸿沟——本质是一场势均力敌的比赛</li>
+          <li>法国Hugo Ekitiké(跟腱)+Boubacar Kamara(膝盖)长期缺阵，Camavinga+Kolo Muani被排除，Mbappé四月腿筋受伤虽已康复但状态成疑</li>
+          <li>塞内加尔热身赛0-0沙特状态一般，但Mane+Koulibaly+Mendy+Jackson+Sarr阵容豪华，非洲冠军底蕴+2002历史记忆不容低估</li>
+          <li>⚠️ 平局概率大幅上调至28%（基线约19%）：小组赛首轮+实力接近(FIFA差<15位)+法国近期防守不稳(近2场失3球)+历史重演心理</li>
 
           </ul>
         </div>
@@ -187,7 +318,7 @@
     <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">06:00</span>
-        <span class="match-teams">🇮🇶 伊拉克 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #73)</span> vs 挪威 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #31)</span> 🇳🇴</span>
+        <span class="match-teams">🇮🇶 伊拉克 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #57)</span> vs 挪威 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #31)</span> 🇳🇴</span>
         <span class="match-venue">波士顿体育场</span>
       </div>
       <div class="match-body">
@@ -204,7 +335,7 @@
           <span class="prob-pct">28.0%</span>
         </div>
         <div class="prob-row">
-          <span class="prob-label lose">🇮🇶 伊拉克 <span style="color:#8b949e;font-size:0.75em;">(#73)</span> 胜</span>
+          <span class="prob-label lose">🇮🇶 伊拉克 <span style="color:#8b949e;font-size:0.75em;">(#57)</span> 胜</span>
           <div class="prob-bar-bg"><div class="prob-bar lose" style="width:48.4%"></div></div>
           <span class="prob-pct">22.0%</span>
         </div>
@@ -214,27 +345,27 @@
         <div class="score-item">
           <span class="score-label">0-1</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:77.0%"></div></div>
-          <span class="score-pct">14.0%</span>
+          <span class="prob-pct">14.0%</span>
         </div>
         <div class="score-item">
           <span class="score-label">1-1</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:66.0%"></div></div>
-          <span class="score-pct">12.0%</span>
+          <span class="prob-pct">12.0%</span>
         </div>
         <div class="score-item">
           <span class="score-label">0-0</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
-          <span class="score-pct">10.0%</span>
+          <span class="prob-pct">10.0%</span>
         </div>
         <div class="score-item">
           <span class="score-label">0-2</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:49.5%"></div></div>
-          <span class="score-pct">9.0%</span>
+          <span class="prob-pct">9.0%</span>
         </div>
         <div class="score-item">
           <span class="score-label">1-0</span>
           <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
-          <span class="score-pct">8.0%</span>
+          <span class="prob-pct">8.0%</span>
         </div>
 
         </div>
@@ -242,11 +373,11 @@
           <h3>关键因子</h3>
           <ul>
           <li>⚡ 伊拉克隐藏实力被严重低估：热身赛1-1逼平西班牙（全场仅让西班牙进1球），这是所有弱队中质量最高的热身赛表现</li>
-          <li>挪威拥有Haaland+Odegaard双核但历史上从未晋级世界杯（自1998年以来首次），大赛经验为零，且历来有遇弱不强的传统</li>
+          <li>挪威拥有Haaland+Odegaard双核但历史上自1998年以来从未晋级世界杯，大赛经验为零，且历来有遇弱不强的传统</li>
           <li>Elo差距307分(1914 vs 1607)暗示挪威大优，但伊拉克vs西班牙的数据点直接挑战这一假设——按FIFA排名校准后需大幅上调伊拉克</li>
           <li>挪威热身赛1-1摩洛哥（好）+3-1瑞典（瑞典当时状态崩盘），表现中规中矩但缺乏碾压弱队的统治力证据</li>
-          <li>⚠️ 平局概率大幅上调：伊拉克防守vs西班牙仅失1球显示clean sheet能力>40%，小组赛首轮双方保守+挪威大赛首秀紧张</li>
-          <li>伊拉克预选赛6连胜出线（亚洲区），状态火热且防守稳健，绝非FIFA#73排名所暗示的鱼腩</li>
+          <li>⚠️ 平局概率大幅上调至28%（基线约19%）：伊拉克防守vs西班牙仅失1球显示clean sheet能力>40%，小组赛首轮双方保守+挪威大赛首秀紧张</li>
+          <li>伊拉克预选赛6连胜出线（亚洲区），状态火热且防守稳健，绝非FIFA#57排名所暗示的鱼腩</li>
 
           </ul>
         </div>
