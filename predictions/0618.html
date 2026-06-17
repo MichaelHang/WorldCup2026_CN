@@ -9,39 +9,39 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
+
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
+
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
+
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
+
   /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
+
   .match-body { padding:20px; }
-  
+
   /* Placeholder */
   .placeholder-card .match-body { text-align:center; padding:30px 20px; }
   .ph-icon { font-size:2em; margin-bottom:8px; }
   .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
+
   /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child { margin-bottom:0; }
+
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
+
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +53,25 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
+
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
+
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid var(--border); }
+  .upset-label { font-size:0.85em; color:#8b949e; min-width:72px; display:flex; align-items:center; gap:4px; }
+  .upset-value { font-weight:700; font-size:1em; min-width:80px; }
+  .upset-desc { font-size:0.82em; color:#8b949e; flex:1; line-height:1.4; }
+
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
+
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,54 +83,317 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月18日 · 预测</h1>
-    <p class="sub">4场比赛 · 0场已预测</p>
+    <p class="sub">4场比赛 · 4场已预测</p>
   </header>
   <div class="day-nav"><a href="0617.html" class="nav-btn">← 前一天</a><span class="nav-current">6月18日</span><a href="0619.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">01:00</span>
-        <span class="match-teams">葡萄牙 vs 刚果民主共和国</span>
+        <span class="match-teams">🇵🇹 葡萄牙 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #5)</span> vs 刚果民主共和国 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #46)</span> 🇨🇩</span>
         <span class="match-venue">休斯顿体育场</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇵🇹 葡萄牙 <span style="color:#8b949e;font-size:0.75em;">(#5)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:136.4%"></div></div>
+          <span class="prob-pct">62.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:52.8%"></div></div>
+          <span class="prob-pct">24.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇨🇩 刚果民主 <span style="color:#8b949e;font-size:0.75em;">(#46)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:30.8%"></div></div>
+          <span class="prob-pct">14.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:77.0%"></div></div>
+          <span class="score-pct">14.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:66.0%"></div></div>
+          <span class="score-pct">12.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">3-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:49.5%"></div></div>
+          <span class="score-pct">9.0%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>葡萄牙Elo 1989 vs 刚果民主 1652（差距337分），FIFA #5 vs #46，纸面实力差距明显，葡萄牙拥有Bruno Fernandes+Bernardo Silva+Rafael Leao等顶级攻击线</li>
+          <li>葡萄牙热身赛2-1智利+2-1尼日利亚两连胜，但两场都是一球小胜——攻击群尚未完全进入世界杯状态，虐菜能力不如德国/西班牙级别</li>
+          <li>刚果民主共和国（前扎伊尔）1974年后时隔52年重返世界杯，不是纯菜鸟但顶级舞台经验为零，0-0逼平丹麦证明防守体系有一定抗压能力</li>
+          <li>刚果民主1-2不敌智利的比赛中暴露面对快速转换时后防线漏洞，葡萄牙边路速度可能成为突破口</li>
+          <li>刚果民主阵容以欧洲二级联赛球员为主（Bakambu+Wissa领衔锋线），面对葡萄牙防守体系难以创造持续威胁</li>
+          <li>⚠️ 平局概率上调至24%（基线约15%）：小组赛首轮保守倾向+刚果民主0-0丹麦展示的防守韧性+葡萄牙热身赛未打出碾压表现</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (28%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">刚果民主0-0丹麦证明防守体系可靠，葡萄牙热身赛两场1球小胜暴露终结能力不足，0-0/1-1冷平值得警惕</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">04:00</span>
-        <span class="match-teams">英格兰 vs 克罗地亚</span>
+        <span class="match-teams">🇬🇧 英格兰 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #4)</span> vs 克罗地亚 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #11)</span> 🇭🇷</span>
         <span class="match-venue">达拉斯体育场</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇬🇧 英格兰 <span style="color:#8b949e;font-size:0.75em;">(#4)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:81.4%"></div></div>
+          <span class="prob-pct">37.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:77.0%"></div></div>
+          <span class="prob-pct">35.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇭🇷 克罗地亚 <span style="color:#8b949e;font-size:0.75em;">(#11)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:61.6%"></div></div>
+          <span class="prob-pct">28.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:77.0%"></div></div>
+          <span class="score-pct">14.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:66.0%"></div></div>
+          <span class="score-pct">12.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:60.5%"></div></div>
+          <span class="score-pct">11.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>⚡ 本日焦点战！英格兰FIFA #4 vs 克罗地亚 #11，Elo仅差112分(2024 vs 1912)，FIFA排名差仅7位——本质是一场势均力敌的顶级对决</li>
+          <li>历史重演风险：2018世界杯半决赛克罗地亚2-1淘汰英格兰，Modrić魔笛依旧在阵，心理层面克罗地亚毫不畏惧</li>
+          <li>英格兰热身赛2战全胜且零失球：1-0新西兰+3-0哥斯达黎加，防守端Stones+Guehi组合稳固，进攻端Kane+Bellingham+Foden+Saka四核驱动</li>
+          <li>克罗地亚热身赛0-2完败比利时（进攻乏力+防线被Lukaku压制），随后2-1斯洛文尼亚有所回暖但整体状态不如英格兰</li>
+          <li>克罗地亚中场Modrić+Kovačić+Brozović经验丰富控制力强，但年龄老化（Modrić 40岁）可能导致面对英格兰年轻中场的体能劣势</li>
+          <li>⚠️ 平局概率大幅上调至35%（基线约22%）：小组赛首轮保守倾向+两队实力极度接近(FIFA差<15位)+2018历史记忆+双方都不想输开局战</li>
+          <li>L组死亡之组——英格兰、克罗地亚、加纳、巴拿马——首轮正面交锋将直接决定小组出线走势，两队可能各取1分保底</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (38%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">两队实力极度接近(FIFA仅差7位)，克罗地亚2018年淘汰英格兰的心理优势+Modrić终极舞动，平局或克罗地亚取胜都不算"意外"</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">07:00</span>
-        <span class="match-teams">加纳 vs 巴拿马</span>
+        <span class="match-teams">🇬🇭 加纳 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #73)</span> vs 巴拿马 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #34)</span> 🇵🇦</span>
         <span class="match-venue">波士顿体育场</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇬🇭 加纳 <span style="color:#8b949e;font-size:0.75em;">(#73)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:61.6%"></div></div>
+          <span class="prob-pct">28.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:70.4%"></div></div>
+          <span class="prob-pct">32.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇵🇦 巴拿马 <span style="color:#8b949e;font-size:0.75em;">(#34)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:88.0%"></div></div>
+          <span class="prob-pct">40.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:77.0%"></div></div>
+          <span class="score-pct">14.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:66.0%"></div></div>
+          <span class="score-pct">12.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">0-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:55.0%"></div></div>
+          <span class="score-pct">10.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:44.0%"></div></div>
+          <span class="score-pct">8.0%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>⚠️ 数据反转！巴拿马FIFA #34 vs 加纳 #73——巴拿马反超加纳39个排名位，Elo也高出220分(1730 vs 1510)，数据一致指向巴拿马是更强者</li>
+          <li>巴拿马热身赛表现扎实：1-1逼平波黑（波黑附加赛淘汰意大利晋级）、4-2多明尼加、2-6巴西（面对顶级强队比分不意外）</li>
+          <li>加纳热身赛仅1场1-1威尔士，备战不充分+进攻端缺乏火力输出，近5场正式比赛进球率偏低</li>
+          <li>加纳拥有世界杯传统优势——2006/2010/2014/2022连续四届参赛，2010年八强经验，大赛底蕴远超巴拿马(仅2018年一次参赛)</li>
+          <li>巴拿马阵容以MLS和美职联球员为主，身体素质强但技术细腻度不足，面对加纳非洲式身体对抗可能不会处于下风</li>
+          <li>⚠️ 平局概率上调至32%（基线约22%）：两队实力接近+首轮保守倾向+加纳大赛经验vs巴拿马数据优势的均衡博弈</li>
+          <li>L组死亡之组中这场是两队最有希望拿分的比赛——输球一方几乎告别晋级希望，双方战术可能极度谨慎</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟡 中 (35%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">加纳FIFA#73远低于巴拿马#34，但加纳世界杯经验丰富+非洲身体优势，高平局率意味着加纳拿分场景不容忽视</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="match-card placeholder-card">
+    <div class="match-card predicted-card">
       <div class="match-header">
         <span class="match-time">10:00</span>
-        <span class="match-teams">哥伦比亚 vs 乌兹别克斯坦</span>
+        <span class="match-teams">🇨🇴 哥伦比亚 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #13)</span> vs 乌兹别克斯坦 <span style="color:#8b949e;font-size:0.8em;font-weight:400;">(FIFA #50)</span> 🇺🇿</span>
         <span class="match-venue">瓜达拉哈拉体育场</span>
       </div>
       <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+        <div class="prob-section">
+          <h3>胜平负概率</h3>
+        <div class="prob-row">
+          <span class="prob-label win">🇨🇴 哥伦比亚 <span style="color:#8b949e;font-size:0.75em;">(#13)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar win" style="width:147.4%"></div></div>
+          <span class="prob-pct">67.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label draw">平局</span>
+          <div class="prob-bar-bg"><div class="prob-bar draw" style="width:48.4%"></div></div>
+          <span class="prob-pct">22.0%</span>
+        </div>
+        <div class="prob-row">
+          <span class="prob-label lose">🇺🇿 乌兹别克 <span style="color:#8b949e;font-size:0.75em;">(#50)</span> 胜</span>
+          <div class="prob-bar-bg"><div class="prob-bar lose" style="width:24.2%"></div></div>
+          <span class="prob-pct">11.0%</span>
+        </div>
+        </div>
+        <div class="score-section">
+          <h3>最可能比分</h3>
+        <div class="score-item">
+          <span class="score-label">2-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:82.5%"></div></div>
+          <span class="score-pct">15.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:71.5%"></div></div>
+          <span class="score-pct">13.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">3-0</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:60.5%"></div></div>
+          <span class="score-pct">11.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">2-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:49.5%"></div></div>
+          <span class="score-pct">9.0%</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">1-1</span>
+          <div class="score-bar-bg"><div class="score-bar" style="width:38.5%"></div></div>
+          <span class="score-pct">7.0%</span>
+        </div>
+
+        </div>
+        <div class="factor-section">
+          <h3>关键因子</h3>
+          <ul>
+          <li>哥伦比亚Elo 1982 vs 乌兹别克 1714（差距268分），FIFA #13 vs #50，实力差距明显，哥伦比亚是K组最强球队之一</li>
+          <li>哥伦比亚热身赛2战全胜且状态火爆：3-1哥斯达黎加+2-0约旦，Luis Díaz+James Rodríguez进攻组合火力全开，5进球仅失1球</li>
+          <li>乌兹别克斯坦首次参加世界杯正赛（FIFA #50），中亚首支世界杯参赛队——历史性时刻但大赛首秀紧张不可避免</li>
+          <li>乌兹别克热身赛0-2加拿大+1-2荷兰，两战皆负但面对荷兰仅1球小负（Shomurodov打入一球），防守面对强队有一定韧性</li>
+          <li>乌兹别克阵容以本国联赛+俄罗斯联赛球员为主，Shomurodov(罗马)是唯一五大联赛球员，整体技术水平与哥伦比亚差距显著</li>
+          <li>⚠️ 平局概率上调至22%（基线约15%）：小组赛首轮+乌兹别克首秀可能采取铁桶防守+史上首次参赛的"摆大巴"战术倾向</li>
+          <li>中立场地（瓜达拉哈拉，墨西哥），非东道主比赛无主场加成；哥伦比亚南美预选赛表现出色，整体实力碾压中亚球队</li>
+
+          </ul>
+        </div>
+        <div class="upset-section">
+          <h3>冷门指数</h3>
+          <div class="upset-row">
+            <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+            <span class="upset-value">🟢 低 (19%)</span>
+            <span class="upset-desc" style="color:#8b949e;font-size:0.82em;">哥伦比亚实力碾压+状态火热，乌兹别克首秀紧张+阵容差距明显，但乌兹别克1-2荷兰的韧性值得纳入微小冷门可能</span>
+          </div>
+        </div>
       </div>
     </div>
-  
+
 </div>
 </body>
 </html>
