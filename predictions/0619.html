@@ -31,11 +31,6 @@
   
   .match-body { padding:20px; }
   
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
   /* Predicted card sections */
   .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
   .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
@@ -68,6 +63,15 @@
   .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
   .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
   .script-desc { font-size:0.9em; line-height:1.5; }
+
+  /* Upset section */
+  .upset-section { margin-bottom:16px; background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-section h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
+  .upset-row { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px; flex-wrap:wrap; }
+  .upset-row:last-child { margin-bottom:0; }
+  .upset-label { font-weight:600; font-size:0.88em; display:flex; align-items:center; gap:4px; }
+  .upset-value { font-weight:700; color:#fff; font-size:0.92em; }
+  .upset-desc { color:#8b949e; font-size:0.82em; width:100%; line-height:1.4; }
   
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
   
@@ -82,54 +86,287 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月19日 · 预测</h1>
-    <p class="sub">4场比赛 · 0场已预测</p>
+    <p class="sub">5场比赛 · 5场已预测</p>
   </header>
   <div class="day-nav"><a href="0618.html" class="nav-btn">← 前一天</a><span class="nav-current">6月19日</span><a href="0620.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">03:00</span>
-        <span class="match-teams">捷克 vs 南非</span>
-        <span class="match-venue">亚特兰大体育场</span>
+
+<!-- 捷克 vs 南非 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🇨🇿 捷克 <span style="color:#8b949e;font-size:0.75em;">(FIFA #40)</span> vs 南非 <span style="color:#8b949e;font-size:0.75em;">(FIFA #60)</span> 🇿🇦</span>
+    <span class="match-venue">亚特兰大体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇨🇿 捷克</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:62%"></div></div>
+        <span class="prob-pct">62%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:22%"></div></div>
+        <span class="prob-pct">22%</span>
       </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">03:00</span>
-        <span class="match-teams">瑞士 vs 波黑</span>
-        <span class="match-venue">洛杉矶体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">06:00</span>
-        <span class="match-teams">加拿大 vs 卡塔尔</span>
-        <span class="match-venue">BC Place温哥华</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label lose">南非 🇿🇦</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:16%"></div></div>
+        <span class="prob-pct">16%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">09:00</span>
-        <span class="match-teams">墨西哥 vs 韩国</span>
-        <span class="match-venue">瓜达拉哈拉体育场</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">18%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：捷克(1733) vs 南非(1517)，差距216分，捷克占据明显优势</li>
+        <li>FIFA排名差20位，捷克#40 vs 南非#60，实力差距清晰</li>
+        <li>捷克近5场：胜危地马拉3-1、胜科索沃2-1、平丹麦2-2(pen胜)、平直布罗陀2-2(pen胜)、负韩国1-2（WC首秀），攻防两端表现不错</li>
+        <li>南非近5场：平尼加拉瓜0-0、平巴拿马1-1、胜巴拿马1-0、负墨西哥0-2（WC首秀），防守尚可但进攻乏力</li>
+        <li>A组首轮，双方偏保守，但捷克进攻火力明显更强</li>
+        <li>中立场地，无主场加成因素</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (28%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">南非FIFA#60远逊于捷克#40，但A组首轮平局概率偏高（约22%），南非0-0尼加拉瓜展现防守韧性</div>
+    </div>
+  </div>
+</div>
+
+<!-- 瑞士 vs 波黑 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🇨🇭 瑞士 <span style="color:#8b949e;font-size:0.75em;">(FIFA #19)</span> vs 波黑 <span style="color:#8b949e;font-size:0.75em;">(FIFA #64)</span> 🇧🇦</span>
+    <span class="match-venue">洛杉矶体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇨🇭 瑞士</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:72%"></div></div>
+        <span class="prob-pct">72%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:18%"></div></div>
+        <span class="prob-pct">18%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">波黑 🇧🇦</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:10%"></div></div>
+        <span class="prob-pct">10%</span>
       </div>
     </div>
-  
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">17%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:30%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：瑞士(1894) vs 波黑(1591)，差距303分，巨大的实力鸿沟</li>
+        <li>FIFA排名差45位，瑞士#19 vs 波黑#64，实力悬殊</li>
+        <li>瑞士近5场：胜约旦4-1、平澳大利亚1-1、平挪威0-0、败德国3-4、胜喀麦隆4-0（WC首秀），攻击火力强劲</li>
+        <li>波黑近5场：平北马其顿0-0、平巴拿马1-1、平意大利1-1(pen胜)、平威尔士1-1(pen胜)，平局太多，防守偏弱</li>
+        <li>瑞士世界杯首秀1-1卡塔尔展现一定韧性</li>
+        <li>中立场地，无主场加成因素</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (15%)</span>
+      </div>
+      <div class="upset-desc">波黑FIFA#64远弱于瑞士#19，Elo差距303分。波黑近期5场4平暴露不稳，但pen胜率不错说明有一定抗压能力</div>
+    </div>
+  </div>
+</div>
+
+<!-- 加拿大 vs 卡塔尔 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">06:00</span>
+    <span class="match-teams">🇨🇦 加拿大 <span style="color:#8b949e;font-size:0.75em;">(FIFA #30)</span> vs 卡塔尔 <span style="color:#8b949e;font-size:0.75em;">(FIFA #56)</span> 🇶🇦</span>
+    <span class="match-venue">BC Place温哥华</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇨🇦 加拿大</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:58%"></div></div>
+        <span class="prob-pct">58%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:24%"></div></div>
+        <span class="prob-pct">24%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">卡塔尔 🇶🇦</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:18%"></div></div>
+        <span class="prob-pct">18%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">15%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：加拿大(1793) vs 卡塔尔(1423)，差距370分，显著优势</li>
+        <li>FIFA排名差26位，加拿大#30 vs 卡塔尔#56</li>
+        <li>加拿大有主场加成（东道主首次参赛）×0.7折扣</li>
+        <li>加拿大近5场：胜乌兹别克斯坦2-0、平爱尔兰1-1、平危地马拉2-2、平突尼斯0-0、胜玻利维亚2-0（WC首秀1-1波黑），状态平稳</li>
+        <li>卡塔尔近5场：平萨尔瓦多0-0、负爱尔兰0-1、平瑞士1-1（WC首秀），进攻乏力，连续3场不胜</li>
+        <li>卡塔尔2026世界杯非首次参赛（2022年主办国），有一定大赛经验</li>
+        <li>BC Place有顶棚，温哥华天气不受海拔影响</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (32%)</span>
+      </div>
+      <div class="upset-desc">卡塔尔FIFA#56虽弱，但近期防守坚韧（3场不胜未大败），加拿大主场加成经验不足打折扣，A组首轮平局风险偏高</div>
+    </div>
+  </div>
+</div>
+
+<!-- 墨西哥 vs 韩国 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">09:00</span>
+    <span class="match-teams">🇲🇽 墨西哥 <span style="color:#8b949e;font-size:0.75em;">(FIFA #14)</span> vs 韩国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #25)</span> 🇰🇷</span>
+    <span class="match-venue">瓜达拉哈拉体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇲🇽 墨西哥</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:65%"></div></div>
+        <span class="prob-pct">65%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:20%"></div></div>
+        <span class="prob-pct">20%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">韩国 🇰🇷</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:15%"></div></div>
+        <span class="prob-pct">15%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">16%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:30%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：墨西哥(1867) vs 韩国(1756)，差距111分，墨西哥优势但不显著</li>
+        <li>FIFA排名差11位，墨西哥#14 vs 韩国#25，实力接近</li>
+        <li>墨西哥是东道主（非首次参赛），主场加成 ×1.3</li>
+        <li>墨西哥近5场：胜南非2-0（WC首秀）、胜塞尔维亚5-1、胜澳大利亚1-0、胜加纳2-0、平比利时1-1，状态极佳，进攻火力全开</li>
+        <li>韩国近5场：胜捷克2-1（WC首秀）、胜萨尔瓦多1-0、胜特立尼达5-0、负奥地利0-1、负加纳0-4，攻强守弱</li>
+        <li>瓜达拉哈拉高海拔对客队体能消耗较大</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (22%)</span>
+      </div>
+      <div class="upset-desc">墨西哥FIFA#14占优，主场海拔+东道主加成，且状态极佳（连续胜利）。韩国防守较差（连丢4球），冷门概率低</div>
+    </div>
+  </div>
+</div>
+
+<!-- 美国 vs 澳大利亚 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">12:00</span>
+    <span class="match-teams">🇺🇸 美国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #17)</span> vs 澳大利亚 <span style="color:#8b949e;font-size:0.75em;">(FIFA #27)</span> 🇦🇺</span>
+    <span class="match-venue">AT&T体育场阿灵顿</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇺🇸 美国</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:60%"></div></div>
+        <span class="prob-pct">60%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:23%"></div></div>
+        <span class="prob-pct">23%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">澳大利亚 🇦🇺</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:17%"></div></div>
+        <span class="prob-pct">17%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">15%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：美国(1733) vs 澳大利亚(1774)，Elo上澳大利亚略高41分，但FIFA排名美国#17优于澳大利亚#27</li>
+        <li>FIFA排名差10位，两队实力接近</li>
+        <li>美国是东道主（非首次参赛），主场加成 ×1.3，这是决定性因素</li>
+        <li>美国近5场：胜巴拉圭4-1（WC首秀）、平德国1-2、胜塞内加尔3-2、负葡萄牙0-2、胜乌拉圭5-1，状态波动但进攻火力足</li>
+        <li>澳大利亚近5场：胜土耳其2-0（WC首秀）、平瑞士1-1、负墨西哥0-1、胜库拉索5-1、胜喀麦隆1-0，防守稳健</li>
+        <li>AT&T体育场阿灵顿为顶级室内场馆，气候完全可控</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (26%)</span>
+      </div>
+      <div class="upset-desc">澳大利亚Elo略高但FIFA排名落后，美国主场加成显著。两队实力接近但东道主优势明显，不过澳大利亚防守好，冷门仍有微弱可能</div>
+    </div>
+  </div>
+</div>
+
+  <div class="footer-note">预测基于 Elo Rating + FIFA 排名 + 近期状态 + 贝叶斯修正<br/>数据截止 2026年6月18日</div>
 </div>
 </body>
 </html>
