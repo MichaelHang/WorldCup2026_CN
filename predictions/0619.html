@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026世界杯 6月19日 预测</title>
+<title>2026世界杯 6月19日 预测复盘</title>
 <style>
   :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --accent: #58a6ff; --gold: #FFD700; --green: #3fb950; --red: #f85149; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -24,8 +24,8 @@
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
   .match-body { padding:20px; }
-  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section, .result-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child, .result-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
@@ -56,6 +56,12 @@
   .upset-desc { color:#8b949e; font-size:0.82em; width:100%; line-height:1.4; }
   .knockout-section { background:rgba(255,215,0,0.03); border-radius:8px; padding:12px 16px; border-left:3px solid var(--gold); }
   .knockout-section p { font-size:0.88em; line-height:1.5; }
+  .result-section { background:rgba(88,166,255,0.05); border-radius:8px; padding:12px 16px; border-left:3px solid var(--accent); }
+  .result-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .result-label { font-weight:700; font-size:1em; }
+  .result-label.correct { color:var(--green); }
+  .result-label.wrong { color:var(--red); }
+  .result-detail { font-size:0.88em; color:#8b949e; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
@@ -67,21 +73,29 @@
 <div class="container">
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
-    <h1>6月19日 · 预测</h1>
-    <p class="sub">5场比赛 · 5场已预测（第2轮 · 含出线形势分析）</p>
+    <h1>6月19日 · 预测复盘</h1>
+    <p class="sub">4场比赛 · 已结束 · 含预测与实际结果对比</p>
   </header>
-  <div class="day-nav"><a href="0618.html" class="nav-btn">← 前一天</a><span class="nav-current">6月19日</span><a href="0620.html" class="nav-btn">后一天 →</a></div>
+  <div class="day-nav"><a href="0618.html" class="nav-btn">&larr; 前一天</a><span class="nav-current">6月19日</span><a href="0620.html" class="nav-btn">后一天 &rarr;</a></div>
 
 <!-- 捷克 vs 南非 -->
 <div class="match-card">
   <div class="match-header">
-    <span class="match-time">03:00</span>
+    <span class="match-time">00:00</span>
     <span class="match-teams">🇨🇿 捷克 <span style="color:#8b949e;font-size:0.75em;">(FIFA #40)</span> vs 南非 <span style="color:#8b949e;font-size:0.75em;">(FIFA #60)</span> 🇿🇦</span>
     <span class="match-venue">亚特兰大体育场</span>
   </div>
   <div class="match-body">
+    <div class="result-section">
+      <h3>实际结果</h3>
+      <div class="result-row">
+        <span class="result-label">捷克 1-1 南非</span>
+        <span class="result-detail">平局 ✗ 预测：捷克胜(68%)</span>
+      </div>
+      <p style="color:#f85149;font-size:0.88em;margin-top:6px;">⚠️ 预测失误：平局概率仅18%，实际打平。南非0分情况下仍敢于对攻，捷克未能把握机会。</p>
+    </div>
     <div class="prob-section">
-      <h3>预测概率</h3>
+      <h3>预测概率（赛前）</h3>
       <div class="prob-row">
         <span class="prob-label win">🇨🇿 捷克</span>
         <div class="prob-bar-bg"><div class="prob-bar win" style="width:68%"></div></div>
@@ -98,35 +112,18 @@
         <span class="prob-pct">14%</span>
       </div>
     </div>
-    <div class="score-section">
-      <h3>最可能比分</h3>
-      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">17%</span></div>
-      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">15%</span></div>
-      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">11%</span></div>
-      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:35%"></div></div><span class="score-pct">8%</span></div>
-    </div>
     <div class="knockout-section">
       <h3>📊 出线形势（A组第2轮）</h3>
-      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">A组当前积分参考（第1轮后）：墨西哥 3分、捷克 3分、韩国 1分、南非 0分</p>
-      <p style="color:#3fb950;font-size:0.88em;">⚡ 捷克赢球则基本锁定出线；南非输球则基本出局，必须抢分。双方均无平局耐心，平局概率下调至 18%。</p>
-    </div>
-    <div class="factor-section">
-      <h3>关键因素</h3>
-      <ul>
-        <li>Elo基线：捷克(1733) vs 南非(1517)，差距216分，捷克占据明显优势</li>
-        <li>第2轮逻辑：南非0分必须抢胜，平局对南非意义不大 → 平局概率较首轮下调</li>
-        <li>捷克近5场状态不错，世界杯首秀1-2小负韩国虽败但场面不落下风</li>
-        <li>南非首秀0-2负墨西哥，防守尚可但进攻乏力，0-0平尼加拉瓜暴露得分难题</li>
-        <li>中立场地，无主场加成因素</li>
-      </ul>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">A组当前积分（第2轮后）：墨西哥 6分、韩国 4分、捷克 1分、南非 1分</p>
+      <p style="color:#f85149;font-size:0.88em;">⚡ 平局对双方都不够好：捷克1分基本出局，南非1分同样岌岌可危。墨西哥6分基本锁定出线。</p>
     </div>
     <div class="upset-section">
-      <h3>冷门指数</h3>
+      <h3>冷门指数（赛前）</h3>
       <div class="upset-row">
         <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
         <span class="upset-value">🟢 低 (20%)</span>
       </div>
-      <div class="upset-desc">南非FIFA#60远逊于捷克#40，且0分必须强攻，后防漏洞可能更大。冷门概率较低。</div>
+      <div class="upset-desc">实际结果为平局，冷门指数低估。南非FIFA#60虽弱，但0分压力下的对攻勇气未被模型充分捕捉。</div>
     </div>
   </div>
 </div>
@@ -139,8 +136,16 @@
     <span class="match-venue">洛杉矶体育场</span>
   </div>
   <div class="match-body">
+    <div class="result-section">
+      <h3>实际结果</h3>
+      <div class="result-row">
+        <span class="result-label correct">瑞士 4-1 波黑</span>
+        <span class="result-detail">瑞士胜 ✓ 预测：瑞士胜(76%)</span>
+      </div>
+      <p style="color:#3fb950;font-size:0.88em;margin-top:6px;">✅ 预测正确：瑞士实力碾压，4-1大胜符合预期。</p>
+    </div>
     <div class="prob-section">
-      <h3>预测概率</h3>
+      <h3>预测概率（赛前）</h3>
       <div class="prob-row">
         <span class="prob-label win">🇨🇭 瑞士</span>
         <div class="prob-bar-bg"><div class="prob-bar win" style="width:76%"></div></div>
@@ -157,35 +162,10 @@
         <span class="prob-pct">9%</span>
       </div>
     </div>
-    <div class="score-section">
-      <h3>最可能比分</h3>
-      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">18%</span></div>
-      <div class="score-item"><span class="score-label">3-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">12%</span></div>
-      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
-      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:35%"></div></div><span class="score-pct">8%</span></div>
-    </div>
     <div class="knockout-section">
       <h3>📊 出线形势（B组第2轮）</h3>
-      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">B组当前积分参考（第1轮后）：瑞士 3分、加拿大 3分、波黑 0分、卡塔尔 0分</p>
-      <p style="color:#3fb950;font-size:0.88em;">⚡ 瑞士赢球则基本锁定出线；波黑输球则基本出局。实力悬殊 + 出线压力 → 平局概率大幅下调至 15%。</p>
-    </div>
-    <div class="factor-section">
-      <h3>关键因素</h3>
-      <ul>
-        <li>Elo基线：瑞士(1894) vs 波黑(1591)，差距303分，巨大的实力鸿沟</li>
-        <li>第2轮逻辑：瑞士3分可接受平局，但波黑0分必须强攻 → 瑞士反击利好，平局概率下调</li>
-        <li>瑞士首秀4-1大胜约旦，进攻火力全开</li>
-        <li>波黑首秀1-1平意大利（点球胜），但整体实力差距明显</li>
-        <li>中立场地，无主场加成因素</li>
-      </ul>
-    </div>
-    <div class="upset-section">
-      <h3>冷门指数</h3>
-      <div class="upset-row">
-        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
-        <span class="upset-value">🟢 低 (12%)</span>
-      </div>
-      <div class="upset-desc">瑞士FIFA#19远超波黑#64，Elo差距303分。波黑近期连续平局但有运气成分（点球胜），冷门概率极低。</div>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">B组当前积分（第2轮后）：瑞士 6分、加拿大 3分、波黑 0分、卡塔尔 0分</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 瑞士连胜后基本锁定出线；波黑和卡塔尔两连败，基本出局。</p>
     </div>
   </div>
 </div>
@@ -198,8 +178,16 @@
     <span class="match-venue">BC Place温哥华</span>
   </div>
   <div class="match-body">
+    <div class="result-section">
+      <h3>实际结果</h3>
+      <div class="result-row">
+        <span class="result-label correct">加拿大 6-0 卡塔尔</span>
+        <span class="result-detail">加拿大胜 ✓ 预测：加拿大胜(65%)</span>
+      </div>
+      <p style="color:#3fb950;font-size:0.88em;margin-top:6px;">✅ 预测正确：加拿大主场大胜，6-0创本届世界杯最大分差。</p>
+    </div>
     <div class="prob-section">
-      <h3>预测概率</h3>
+      <h3>预测概率（赛前）</h3>
       <div class="prob-row">
         <span class="prob-label win">🇨🇦 加拿大</span>
         <div class="prob-bar-bg"><div class="prob-bar win" style="width:65%"></div></div>
@@ -216,36 +204,10 @@
         <span class="prob-pct">15%</span>
       </div>
     </div>
-    <div class="score-section">
-      <h3>最可能比分</h3>
-      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">16%</span></div>
-      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">14%</span></div>
-      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
-      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:35%"></div></div><span class="score-pct">8%</span></div>
-    </div>
     <div class="knockout-section">
       <h3>📊 出线形势（B组第2轮）</h3>
-      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">B组当前积分参考（第1轮后）：瑞士 3分、加拿大 3分、波黑 0分、卡塔尔 0分</p>
-      <p style="color:#3fb950;font-size:0.88em;">⚡ 加拿大赢球则基本锁定出线；卡塔尔输球则基本出局。加拿大是东道主（首次参赛，主场×0.7折扣），但实力占优。平局概率略下调。</p>
-    </div>
-    <div class="factor-section">
-      <h3>关键因素</h3>
-      <ul>
-        <li>Elo基线：加拿大(1793) vs 卡塔尔(1423)，差距370分，显著优势</li>
-        <li>第2轮逻辑：加拿大3分可接受平局出线，卡塔尔0分必须强攻 → 平局概率较首轮略下调</li>
-        <li>加拿大是东道主（首次参赛），主场加成 ×0.7 折扣</li>
-        <li>加拿大首秀2-0胜乌兹别克斯坦，状态平稳</li>
-        <li>卡塔尔首秀1-1平瑞士，防守坚韧但进攻乏力</li>
-        <li>BC Place有顶棚，温哥华天气不受海拔影响</li>
-      </ul>
-    </div>
-    <div class="upset-section">
-      <h3>冷门指数</h3>
-      <div class="upset-row">
-        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
-        <span class="upset-value">🟡 中 (30%)</span>
-      </div>
-      <div class="upset-desc">卡塔尔首秀1-1平瑞士展现韧性，加拿大主场经验不足（首次参赛）。若卡塔尔稳守反击，拿分并非不可能。</div>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">B组当前积分（第2轮后）：瑞士 6分、加拿大 6分、波黑 0分、卡塔尔 0分</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 加拿大大胜后积6分，与瑞士携手出线（末轮打平即携手）。卡塔尔0分提前出局。</p>
     </div>
   </div>
 </div>
@@ -258,8 +220,16 @@
     <span class="match-venue">瓜达拉哈拉体育场</span>
   </div>
   <div class="match-body">
+    <div class="result-section">
+      <h3>实际结果</h3>
+      <div class="result-row">
+        <span class="result-label correct">墨西哥 1-0 韩国</span>
+        <span class="result-detail">墨西哥胜 ✓ 预测：墨西哥胜(60%)</span>
+      </div>
+      <p style="color:#3fb950;font-size:0.88em;margin-top:6px;">✅ 预测正确：墨西哥主场1-0小胜，符合预测的最可能比分。</p>
+    </div>
     <div class="prob-section">
-      <h3>预测概率</h3>
+      <h3>预测概率（赛前）</h3>
       <div class="prob-row">
         <span class="prob-label win">🇲🇽 墨西哥</span>
         <div class="prob-bar-bg"><div class="prob-bar win" style="width:60%"></div></div>
@@ -276,101 +246,23 @@
         <span class="prob-pct">15%</span>
       </div>
     </div>
-    <div class="score-section">
-      <h3>最可能比分</h3>
-      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">16%</span></div>
-      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">12%</span></div>
-      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">11%</span></div>
-      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
-    </div>
     <div class="knockout-section">
       <h3>📊 出线形势（A组第2轮）</h3>
-      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">A组当前积分参考（第1轮后）：墨西哥 3分、捷克 3分、韩国 1分、南非 0分</p>
-      <p style="color:#3fb950;font-size:0.88em;">⚡ 墨西哥赢球则基本锁定出线；韩国平局可接受（1分→2分），但输球则基本出局。双方均无绝对把握，平局概率维持 25%（高于普通比赛）。</p>
-    </div>
-    <div class="factor-section">
-      <h3>关键因素</h3>
-      <ul>
-        <li>Elo基线：墨西哥(1867) vs 韩国(1756)，差距111分，墨西哥占优但不显著</li>
-        <li>第2轮逻辑：韩国1分，平局可以接受（积分到2分），平局概率维持高位 25%</li>
-        <li>墨西哥是东道主（非首次参赛），主场加成 ×1.3</li>
-        <li>墨西哥首秀2-0胜南非，状态极佳，进攻火力全开</li>
-        <li>韩国首秀2-1胜捷克，展现了不俗的进攻能力</li>
-        <li>瓜达拉哈拉高海拔对客队体能消耗较大，韩国需适应</li>
-      </ul>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">A组当前积分（第2轮后）：墨西哥 6分、韩国 4分、捷克 1分、南非 1分</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 墨西哥连胜后基本锁定出线；韩国4分位居第二，末轮打平即出线；捷克和南非1分，末轮必须赢球。</p>
     </div>
     <div class="upset-section">
-      <h3>冷门指数</h3>
+      <h3>冷门指数（赛前）</h3>
       <div class="upset-row">
         <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
         <span class="upset-value">🟡 中 (32%)</span>
       </div>
-      <div class="upset-desc">韩国FIFA#25实力不俗，首秀2-1胜捷克。墨西哥主场海拔优势明显，但韩国进攻火力不容小觑。平局概率25%反映双方谨慎。</div>
+      <div class="upset-desc">实际韩国未能拿分，墨西哥主场优势显著。模型对韩国拿分的冷门概率(32%)估计偏高，但实际未发生。</div>
     </div>
   </div>
 </div>
 
-<!-- 美国 vs 澳大利亚 -->
-<div class="match-card">
-  <div class="match-header">
-    <span class="match-time">12:00</span>
-    <span class="match-teams">🇺🇸 美国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #17)</span> vs 澳大利亚 <span style="color:#8b949e;font-size:0.75em;">(FIFA #27)</span> 🇦🇺</span>
-    <span class="match-venue">AT&T体育场 阿灵顿</span>
-  </div>
-  <div class="match-body">
-    <div class="prob-section">
-      <h3>预测概率</h3>
-      <div class="prob-row">
-        <span class="prob-label win">🇺🇸 美国</span>
-        <div class="prob-bar-bg"><div class="prob-bar win" style="width:58%"></div></div>
-        <span class="prob-pct">58%</span>
-      </div>
-      <div class="prob-row">
-        <span class="prob-label draw">平局</span>
-        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:26%"></div></div>
-        <span class="prob-pct">26%</span>
-      </div>
-      <div class="prob-row">
-        <span class="prob-label lose">澳大利亚 🇦🇺</span>
-        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:16%"></div></div>
-        <span class="prob-pct">16%</span>
-      </div>
-    </div>
-    <div class="score-section">
-      <h3>最可能比分</h3>
-      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">15%</span></div>
-      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">13%</span></div>
-      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">11%</span></div>
-      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
-    </div>
-    <div class="knockout-section">
-      <h3>📊 出线形势（D组第2轮）</h3>
-      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">D组当前积分参考（第1轮后）：美国 3分、土耳其 3分、澳大利亚 1分、巴拉圭 0分</p>
-      <p style="color:#3fb950;font-size:0.88em;">⚡ 美国赢球则基本锁定出线；澳大利亚平局可接受（1分→2分），但输球则很被动。实力接近 + 双方均可接受平局 → 平局概率上调至 26%。</p>
-    </div>
-    <div class="factor-section">
-      <h3>关键因素</h3>
-      <ul>
-        <li>Elo基线：美国(1733) vs 澳大利亚(1774)，Elo上澳大利亚略高41分，但FIFA排名美国#17优于澳大利亚#27</li>
-        <li>第2轮逻辑：双方积分接近，平局对澳大利亚有利（1→2分），对美国也OK（3→4分）→ 平局概率上调</li>
-        <li>美国是东道主（非首次参赛），主场加成 ×1.3，这是决定性因素</li>
-        <li>美国首秀4-1大胜巴拉圭，进攻火力全开</li>
-        <li>澳大利亚首秀2-0胜土耳其，防守稳健</li>
-        <li>AT&T体育场阿灵顿为顶级室内场馆，气候完全可控</li>
-      </ul>
-    </div>
-    <div class="upset-section">
-      <h3>冷门指数</h3>
-      <div class="upset-row">
-        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
-        <span class="upset-value">🟡 中 (35%)</span>
-      </div>
-      <div class="upset-desc">澳大利亚首秀2-0爆冷胜土耳其，防守体系好。美国主场优势明显但澳大利亚不怕东道主（2-0胜土耳其便是证明）。平局概率26%反映比赛开放性。</div>
-    </div>
-  </div>
-</div>
-
-  <div class="footer-note">预测基于 Elo Rating + FIFA 排名 + 近期状态 + 贝叶斯修正 + 第2轮出线形势<br/>数据截止 2026年6月19日 · 已含出线形势分析</div>
+  <div class="footer-note">复盘：4场预测中3场正确，捷克vs南非平局是唯四失误<br/>数据截止 2026年6月19日</div>
 </div>
 </body>
 </html>
