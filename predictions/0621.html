@@ -9,39 +9,24 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
-  /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +38,25 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+  .upset-section { margin-bottom:16px; background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-section h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
+  .upset-row { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px; flex-wrap:wrap; }
+  .upset-row:last-child { margin-bottom:0; }
+  .upset-label { font-weight:600; font-size:0.88em; display:flex; align-items:center; gap:4px; }
+  .upset-value { font-weight:700; color:#fff; font-size:0.92em; }
+  .upset-desc { color:#8b949e; font-size:0.82em; width:100%; line-height:1.4; }
+  .knockout-section { background:rgba(255,215,0,0.03); border-radius:8px; padding:12px 16px; border-left:3px solid var(--gold); }
+  .knockout-section p { font-size:0.88em; line-height:1.5; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,54 +68,254 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月21日 · 预测</h1>
-    <p class="sub">4场比赛 · 0场已预测</p>
+    <p class="sub">4场比赛 · 全部已预测（第2轮 · 含出线形势分析）</p>
   </header>
-  <div class="day-nav"><a href="0620.html" class="nav-btn">← 前一天</a><span class="nav-current">6月21日</span><a href="0622.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">01:00</span>
-        <span class="match-teams">荷兰 vs 瑞典</span>
-        <span class="match-venue">休斯顿体育场</span>
+  <div class="day-nav"><a href="0620.html" class="nav-btn">&larr; 前一天</a><span class="nav-current">6月21日</span><a href="0622.html" class="nav-btn">后一天 &rarr;</a></div>
+
+<!-- 荷兰 vs 瑞典 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">01:00</span>
+    <span class="match-teams">🇳🇱 荷兰 <span style="color:#8b949e;font-size:0.75em;">(FIFA #8)</span> vs 瑞典 <span style="color:#8b949e;font-size:0.75em;">(FIFA #38)</span> 🇸🇪</span>
+    <span class="match-venue">休斯顿体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇳🇱 荷兰</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:58%"></div></div>
+        <span class="prob-pct">58%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:28%"></div></div>
+        <span class="prob-pct">28%</span>
       </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">04:00</span>
-        <span class="match-teams">德国 vs 科特迪瓦</span>
-        <span class="match-venue">多伦多体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">08:00</span>
-        <span class="match-teams">厄瓜多尔 vs 库拉索</span>
-        <span class="match-venue">堪萨斯城体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label lose">瑞典 🇸🇪</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:14%"></div></div>
+        <span class="prob-pct">14%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">12:00</span>
-        <span class="match-teams">突尼斯 vs 日本</span>
-        <span class="match-venue">蒙特雷体育场</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势（F组第2轮）</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">F组当前积分（第1轮后）：瑞典 3分(+4)、荷兰 1分(0)、日本 1分(0)、突尼斯 0分(-4)</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 瑞典3分位列榜首，平局即可达4分基本出线；荷兰1分必须抢3分（输球则1分濒临出局，赢球则4分掌握主动权）。瑞典可稳守反击，荷兰必须强攻——平局概率上调至28%。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：荷兰(1944) vs 瑞典(1755)，差距189分，荷兰FIFA #8 vs 瑞典 #38，实力差距明显</li>
+        <li>第2轮逻辑：瑞典3分可接受平局（→4分基本出线），荷兰1分必须赢 → 荷兰压上进攻为瑞典反击留出空间 → 平局概率上调至28%（首轮基线约18%）</li>
+        <li>荷兰首秀2-2平日本（范戴克+德佩+德容首发），进攻火力在线（2球）但防守漏2球暴露问题</li>
+        <li>瑞典首秀5-1横扫突尼斯（伊萨克帽子戏法），状态火爆，锋线势不可挡</li>
+        <li>荷兰近5场：平日本2-2（WC）、胜哈萨克斯坦3-0、平挪威2-2、胜摩尔多瓦4-0、胜安道尔5-0，欧预赛8战6胜火力强劲</li>
+        <li>休斯顿室内球场，气候可控，对技术型荷兰有利</li>
+        <li>⚠️ 平局概率上调主因：瑞典3分可保平 + 荷兰防守不稳(首秀丢2球) + 瑞典首秀5球大胜信心爆棚</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (32%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">瑞典首秀5-1状态火爆，荷兰首秀防守漏洞(被日本进2球)。Elo差距189分不算碾压，平局概率28%为全场最高，瑞典拿分概率达42%。荷兰被逼平甚至输球并非不可想象。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 德国 vs 科特迪瓦 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">04:00</span>
+    <span class="match-teams">🇩🇪 德国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #10)</span> vs 科特迪瓦 <span style="color:#8b949e;font-size:0.75em;">(FIFA #33)</span> 🇨🇮</span>
+    <span class="match-venue">多伦多体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇩🇪 德国</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:68%"></div></div>
+        <span class="prob-pct">68%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:22%"></div></div>
+        <span class="prob-pct">22%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">科特迪瓦 🇨🇮</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:10%"></div></div>
+        <span class="prob-pct">10%</span>
       </div>
     </div>
-  
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">15%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势（E组第2轮）</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">E组当前积分（第1轮后）：德国 3分(+6)、科特迪瓦 3分(+1)、厄瓜多尔 0分(-1)、库拉索 0分(-6)</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ E组榜首大战！双方同积3分，赢球则6分基本锁定出线。平局各取4分仍掌握出线主动权（考虑到另一场厄瓜多尔大概率胜库拉索）。德国实力碾压但科特迪瓦首秀1-0展现韧性，平局概率上调至22%。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：德国(1939) vs 科特迪瓦(1743)，差距196分，德国FIFA #10 vs 科特迪瓦 #33，德国明显占优</li>
+        <li>第2轮逻辑：双方同积3分，平局各取4分仍掌握出线主动权 → 平局概率上调至22%（首轮基线约16%）</li>
+        <li>德国首秀7-1血洗库拉索——穆西亚拉帽子戏法、哈弗茨梅开二度，攻击力恐怖</li>
+        <li>科特迪瓦首秀1-0小胜厄瓜多尔（Haller制胜球），防守体系稳固但进攻创造力有限</li>
+        <li>德国拥有穆西亚拉+哈弗茨+萨内+基米希等世界级球员，阵容深度碾压</li>
+        <li>科特迪瓦核心：Haller(多特)、Fofana(切尔西)、Kessie(吉达国民)，个人能力不弱但整体配合远不如德国</li>
+        <li>多伦多中立场地，人工草皮可能影响科特迪瓦控球节奏，利好德国技术型打法</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (15%)</span>
+      </div>
+      <div class="upset-desc">德国首秀7-1攻击力恐怖，Elo差距196分+FIFA差距23位。科特迪瓦防守虽稳（首秀零封），但面对德国碾压级火力几乎无冷门可能。平局（22%）是科特迪瓦最好的期望结果。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 厄瓜多尔 vs 库拉索 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">08:00</span>
+    <span class="match-teams">🇪🇨 厄瓜多尔 <span style="color:#8b949e;font-size:0.75em;">(FIFA #23)</span> vs 库拉索 <span style="color:#8b949e;font-size:0.75em;">(FIFA #82)</span> 🇨🇼</span>
+    <span class="match-venue">堪萨斯城体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇪🇨 厄瓜多尔</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:82%"></div></div>
+        <span class="prob-pct">82%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:12%"></div></div>
+        <span class="prob-pct">12%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">库拉索 🇨🇼</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:6%"></div></div>
+        <span class="prob-pct">6%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">16%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">3-0</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势（E组第2轮）</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">E组当前积分（第1轮后）：德国 3分(+6)、科特迪瓦 3分(+1)、厄瓜多尔 0分(-1)、库拉索 0分(-6)</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ E组生死战！双方同积0分，输球则0分基本出局。厄瓜多尔赢球则3分保留出线希望；库拉索首秀1-7惨败德国，实力悬殊明显。平局概率下调至12%（双方都必须抢3分）。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：厄瓜多尔(1890) vs 库拉索(1427)，差距463分——碾压级差距，FIFA #23 vs #82</li>
+        <li>第2轮逻辑：双方同积0分，都是生死战 → 平局对各取1分无意义，必须抢3分 → 平局概率下调至12%</li>
+        <li>厄瓜多尔首秀0-1负科特迪瓦（Caicedo+Valencia全主力但进攻乏力），作为南美区预选赛表现不俗的球队（击败乌拉圭+智利），实力远非比分所示</li>
+        <li>库拉索历史上最小的世界杯参赛国（人口仅15万），首秀1-7惨败德国毫无招架之力，世界杯正赛经验为零</li>
+        <li>库拉索预选赛10场不败（Dick Advocaat执教）令人惊讶，但对手多为加勒比小国，面对南美强队真实差距暴露无遗</li>
+        <li>堪萨斯城气候炎热潮湿，对厄瓜多尔（高原国家）体能影响较大 → 下半场可能对库拉索有利（唯一冷门机会）</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (12%)</span>
+      </div>
+      <div class="upset-desc">库拉索1-7惨败德国暴露真实水平，Elo差距463分+FIFA差距59位。厄瓜多尔首秀虽0-1负但场面不落下风，本场拿下3分毫无悬念。唯一变数是酷热天气影响厄瓜多尔体能。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 突尼斯 vs 日本 -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">12:00</span>
+    <span class="match-teams">🇹🇳 突尼斯 <span style="color:#8b949e;font-size:0.75em;">(FIFA #45)</span> vs 日本 <span style="color:#8b949e;font-size:0.75em;">(FIFA #18)</span> 🇯🇵</span>
+    <span class="match-venue">蒙特雷体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇹🇳 突尼斯</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:20%"></div></div>
+        <span class="prob-pct">20%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:18%"></div></div>
+        <span class="prob-pct">18%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">日本 🇯🇵</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:62%"></div></div>
+        <span class="prob-pct">62%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">0-2</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势（F组第2轮）</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">F组当前积分（第1轮后）：瑞典 3分(+4)、荷兰 1分(0)、日本 1分(0)、突尼斯 0分(-4)</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 日本1分必须赢球掌握出线主动权（→4分，若荷兰不胜瑞典则升至第2）；突尼斯0分输球直接出局，赢球则3分保留希望。双方都需要3分但日本实力明显占优，平局概率下调至18%。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：突尼斯(1585) vs 日本(1910)，差距325分——日本FIFA #18 vs 突尼斯 #45，差距显著</li>
+        <li>第2轮逻辑：突尼斯0分必须抢3分（输球=出局），日本1分赢球=4分主动权在手，平局=2分极为被动 → 双方都需要3分 → 平局概率下调至18%</li>
+        <li>日本首秀2-2平荷兰（久保建英+三苫薰各进一球），踢出全攻全守的高质量表现，面对FIFA #8不落下风</li>
+        <li>突尼斯首秀1-5惨败瑞典，防线被伊萨克彻底打穿，球队士气可能受重创</li>
+        <li>日本拥有欧洲顶级联赛球员阵容（三苫薰、久保建英、远藤航、富安健洋），传控型打法成熟</li>
+        <li>日本近5场：平荷兰2-2（WC）、胜新西兰4-0、胜沙特2-0、胜印尼6-0、负巴西0-2，亚洲区碾压级优势</li>
+        <li>蒙特雷（墨西哥）高温高原，对亚洲球队日本有利（日本夏季联赛经验丰富），对北非球队突尼斯体能考验巨大</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (28%)</span>
+      </div>
+      <div class="upset-desc">突尼斯1-5惨败士气低迷，日本2-2平荷兰状态正盛。Elo差距325分明显，但突尼斯非洲杯经验丰富+全北非球员风格顽强。日本"赢不了弱队"的旧疾需警惕，突尼斯拿分概率38%不容忽视。</div>
+    </div>
+  </div>
+</div>
+
+  <div class="footer-note">预测基于 Elo Rating + FIFA 排名 + 世界杯第1轮实际战果 + 贝叶斯修正 + 第2轮出线形势<br/>数据截止 2026年6月20日 · Elo来源: eloratings.net(6月18日) · FIFA排名来源: 2026年6月11日</div>
 </div>
 </body>
 </html>
