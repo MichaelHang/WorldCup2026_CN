@@ -9,39 +9,24 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
-  /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +38,25 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+  .upset-section { margin-bottom:16px; background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-section h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
+  .upset-row { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px; flex-wrap:wrap; }
+  .upset-row:last-child { margin-bottom:0; }
+  .upset-label { font-weight:600; font-size:0.88em; display:flex; align-items:center; gap:4px; }
+  .upset-value { font-weight:700; color:#fff; font-size:0.92em; }
+  .upset-desc { color:#8b949e; font-size:0.82em; width:100%; line-height:1.4; }
+  .knockout-section { background:rgba(255,215,0,0.03); border-radius:8px; padding:12px 16px; border-left:3px solid var(--gold); }
+  .knockout-section p { font-size:0.88em; line-height:1.5; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,54 +68,250 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月22日 · 预测</h1>
-    <p class="sub">4场比赛 · 0场已预测</p>
+    <p class="sub">4场比赛 · 全部已预测（第2轮 · 含出线形势分析）</p>
   </header>
-  <div class="day-nav"><a href="0621.html" class="nav-btn">← 前一天</a><span class="nav-current">6月22日</span><a href="0623.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">00:00</span>
-        <span class="match-teams">西班牙 vs 沙特</span>
-        <span class="match-venue">亚特兰大体育场</span>
+  <div class="day-nav"><a href="0621.html" class="nav-btn">&larr; 前一天</a><span class="nav-current">6月22日</span><a href="0623.html" class="nav-btn">后一天 &rarr;</a></div>
+
+<!-- 西班牙 vs 沙特（H组第2轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">00:00</span>
+    <span class="match-teams">🇪🇸 西班牙 <span style="color:#8b949e;font-size:0.75em;">(FIFA #2)</span> vs 沙特 <span style="color:#8b949e;font-size:0.75em;">(FIFA #61)</span> 🇸🇦</span>
+    <span class="match-venue">Mercedes-Benz体育场 亚特兰大</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇪🇸 西班牙</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:82%"></div></div>
+        <span class="prob-pct">82%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:22%"></div></div>
+        <span class="prob-pct">22%</span>
       </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">03:00</span>
-        <span class="match-teams">比利时 vs 伊朗</span>
-        <span class="match-venue">洛杉矶体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">06:00</span>
-        <span class="match-teams">乌拉圭 vs 佛得角</span>
-        <span class="match-venue">迈阿密体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label lose">沙特 🇸🇦</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:10%"></div></div>
+        <span class="prob-pct">10%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">09:00</span>
-        <span class="match-teams">新西兰 vs 埃及</span>
-        <span class="match-venue">BC Place温哥华</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">18%</span></div>
+      <div class="score-item"><span class="score-label">3-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">15%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">10%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：西班牙(2129) vs 沙特(约1680)，差距约450分——几乎碾压级优势</li>
+        <li>FIFA排名：西班牙#2 世界第二，沙特#61 中东球队，实力差距巨大</li>
+        <li>第1轮西班牙0-0佛得角（意外平局），沙特1-1乌拉圭（表现不差但被追平）</li>
+        <li>西班牙控球率通常65%+，World Cup首秀0-0佛得角暴露锋线终结效率问题</li>
+        <li>沙特近5场热身赛：0-0巴拉圭、2-2乌克兰、1-1阿曼、0-0约旦、1-1乌拉圭——4场平局，稳守反击风格极度保守</li>
+        <li>沙特Elo极低（约1680），世界杯经验为零，面对西班牙大概率全线退守</li>
+        <li>亚特兰大气候炎热潮湿，沙特体能劣势将被放大</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (12%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">沙特虽然防守极度保守（近5场4平），但面对全球控球最强的西班牙，铁桶阵难以持久。西班牙首秀0-0暴露的终结力问题可能在次轮爆发。沙特拿分概率约12%，低但值得关注。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 比利时 vs 伊朗（G组第2轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🇧🇪 比利时 <span style="color:#8b949e;font-size:0.75em;">(FIFA #9)</span> vs 伊朗 <span style="color:#8b949e;font-size:0.75em;">(FIFA #20)</span> 🇮🇷</span>
+    <span class="match-venue">SoFi体育场 洛杉矶</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇧🇪 比利时</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:50%"></div></div>
+        <span class="prob-pct">50%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:35%"></div></div>
+        <span class="prob-pct">35%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">伊朗 🇮🇷</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:15%"></div></div>
+        <span class="prob-pct">15%</span>
       </div>
     </div>
-  
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">16%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势（G组第2轮）</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">G组当前积分（第1轮后）：比利时1分、埃及1分、伊朗1分、新西兰1分（四队同分！）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 四队同积1分——本轮关键之战！比利时赢球则4分掌握出线主动权，平局则2分仍有可能；伊朗赢球则4分，平局2分。G组全部4队在第3轮前仍需努力。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：比利时(1879) vs 伊朗(1756)，差距123分，比利时占优但非碾压</li>
+        <li>FIFA排名：比利时#9 世界第九黄金一代，伊朗#20 亚洲一流</li>
+        <li>第1轮比利时1-1埃及、伊朗2-2新西兰——两场比赛都是平局，印证本轮平局概率极高的判断</li>
+        <li>比利时近5场：1-1埃及(WC首秀)、平塞尔维亚、平捷克、胜波兰、平威尔士——热身赛稳定性一般但大赛表现不俗</li>
+        <li>伊朗近5场：2-2新西兰(WC首秀)、胜韩国、平约旦、胜巴林、平伊拉克——亚洲区预选赛防守稳健</li>
+        <li>⚠️ 平局概率大幅上调至35%（基线约22%）：第1轮两场均平局+伊朗防守反击风格+比利时锋线终结效率一般（首秀仅1球）</li>
+        <li>SoFi体育场为室内场馆，气候完全可控，利于双方战术发挥</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (36%)</span>
+      </div>
+      <div class="upset-desc">伊朗FIFA#20并非鱼腩，亚洲区预选赛防守稳健，首战2-2新西兰展现进攻火力。比利时首战仅1-1埃及，锋线终结效率堪忧。35%平局概率+15%伊朗胜率 = 伊朗拿分概率50%。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 乌拉圭 vs 佛得角（H组第2轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">06:00</span>
+    <span class="match-teams">🇺🇾 乌拉圭 <span style="color:#8b949e;font-size:0.75em;">(FIFA #16)</span> vs 佛得角 <span style="color:#8b949e;font-size:0.75em;">(FIFA #67)</span> 🇨🇻</span>
+    <span class="match-venue">硬石体育场 迈阿密</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇺🇾 乌拉圭</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:62%"></div></div>
+        <span class="prob-pct">62%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:26%"></div></div>
+        <span class="prob-pct">26%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">佛得角 🇨🇻</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:12%"></div></div>
+        <span class="prob-pct">12%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">15%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势（H组第2轮）</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">H组当前积分（第1轮后）：西班牙1分、沙特1分、乌拉圭1分、佛得角1分（四队同分！）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ H组四队同积1分！乌拉圭赢球则4分掌握主动权，平局则2分仍有机会；佛得角1分需抢分出線。乌拉圭主场作战实力占优。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：乌拉圭(1870) vs 佛得角(1606)，差距264分，乌拉圭明显占优</li>
+        <li>FIFA排名：乌拉圭#16 南美劲旅，佛得角#67 非洲岛国球队</li>
+        <li>第1轮乌拉圭1-1沙特、佛得角0-0西班牙——乌拉圭对阵同级对手有竞争力，佛得角零封世界第二展现防守韧性</li>
+        <li>乌拉圭近5场热身赛：1-1沙特、平智利、平秘鲁、胜玻利维亚、平哥伦比亚——南美风格保守，平局率高</li>
+        <li>佛得角0-0西班牙虽惊艳但也要理性看待——西班牙首战保守试探，佛得角反击效率待检验</li>
+        <li>⚠️ 平局概率上调至26%（基线约18%）：乌拉圭南美比赛平局文化浓厚，佛得角防守体系稳固，首战零封西班牙证明下限不低</li>
+        <li>迈阿密气候湿热，下半场对佛得角体能考验极大</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (18%)</span>
+      </div>
+      <div class="upset-desc">佛得角0-0西班牙令人印象深刻，但面对乌拉圭主场攻势难以90分钟守住。乌拉圭Elo优势明显，佛得角拿分概率（平+胜）约38%属合理区间。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 新西兰 vs 埃及（G组第2轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">09:00</span>
+    <span class="match-teams">🇳🇿 新西兰 <span style="color:#8b949e;font-size:0.75em;">(FIFA #85)</span> vs 埃及 <span style="color:#8b949e;font-size:0.75em;">(FIFA #29)</span> 🇪🇬</span>
+    <span class="match-venue">BC Place 温哥华</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇳🇿 新西兰</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:18%"></div></div>
+        <span class="prob-pct">18%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:32%"></div></div>
+        <span class="prob-pct">32%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">埃及 🇪🇬</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:60%"></div></div>
+        <span class="prob-pct">50%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">0-2</span><div class="score-bar-bg"><div class="score-bar" style="width:40%"></div></div><span class="score-pct">9%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势（G组第2轮）</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">G组当前积分（第1轮后）：比利时1分、埃及1分、伊朗1分、新西兰1分（四队同分！）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 四队同分局势下，埃及赢球则4分有望领跑小组；新西兰赢球则4分但净胜球劣势。平局各取1分→同积2分，仍有望出线。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：新西兰(约1650) vs 埃及(1711)，差距61分，实力接近</li>
+        <li>FIFA排名：新西兰#85 大洋洲冠军，埃及#29 非洲劲旅</li>
+        <li>第1轮新西兰2-2伊朗（进球两个！）、埃及1-1比利时——两队首战均打入2球且被追平，攻防两端均有威胁</li>
+        <li>新西兰近5场：2-2伊朗(WC首秀)、平巴布亚新几内亚、胜萨摩亚、平斐济、胜汤加——大洋洲范围内统治级但对抗欧洲/亚洲球队差距明显</li>
+        <li>埃及近5场：1-1比利时(WC首秀)、平刚果、胜安哥拉、平尼日利亚、胜南苏丹——非洲区预选赛表现稳定</li>
+        <li>⚠️ 平局概率大幅上调至32%（基线约20%）：新西兰首战2-2伊朗证明进攻火力，埃及首战1-1比利时展现韧性，实力接近比赛天然偏平</li>
+        <li>Vancuver BC Place为室内场馆，客场气候对埃及无影响</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (38%)</span>
+      </div>
+      <div class="upset-desc">埃及虽然FIFA#29远强于新西兰#85，但首战仅1-1比利时未能取胜，进攻火力存疑。新西兰2-2伊朗展现惊人进攻端表现。平局概率32%极高，新西兰拿分（赢或平）概率达50%。</div>
+    </div>
+  </div>
+</div>
+
+  <div class="footer-note">预测基于 Elo Rating + FIFA 排名 + 近期状态 + 贝叶斯修正 + 第2轮出线形势<br/>数据截止 2026年6月21日 · 已含出线形势分析 · G/H组四队同分</div>
 </div>
 </body>
 </html>
