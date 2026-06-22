@@ -9,39 +9,29 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
+
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
+
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
+
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
+
   /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +43,24 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+  .upset-section { background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:0.9em; }
+  .upset-label { color:#8b949e; min-width:80px; }
+  .upset-value { color:#fff; font-weight:700; }
+  .upset-desc { color:#c9d1d9; font-size:0.85em; line-height:1.5; margin-top:6px; }
+  .knockout-section { background:rgba(255,215,0,0.05); border-left:3px solid var(--gold); border-radius:6px; padding:12px 16px; }
+  .knockout-section p { font-size:0.88em; line-height:1.6; margin-bottom:4px; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
+
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,54 +72,270 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月23日 · 预测</h1>
-    <p class="sub">4场比赛 · 0场已预测</p>
+    <p class="sub">4场比赛 · 4场已预测（第2轮 · 含出线形势分析）</p>
   </header>
   <div class="day-nav"><a href="0622.html" class="nav-btn">← 前一天</a><span class="nav-current">6月23日</span><a href="0624.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">01:00</span>
-        <span class="match-teams">阿根廷 vs 奥地利</span>
-        <span class="match-venue">达拉斯体育场</span>
+
+<!-- 阿根廷 vs 奥地利（J组第2轮 · J组头名之战） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">01:00</span>
+    <span class="match-teams">🇦🇷 阿根廷 <span style="color:#8b949e;font-size:0.75em;">(FIFA #1)</span> vs 奥地利 <span style="color:#8b949e;font-size:0.75em;">(FIFA #24)</span> 🇦🇹</span>
+    <span class="match-venue">AT&T体育场 达拉斯</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇦🇷 阿根廷</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:60%"></div></div>
+        <span class="prob-pct">60%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:25%"></div></div>
+        <span class="prob-pct">25%</span>
       </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">05:00</span>
-        <span class="match-teams">法国 vs 伊拉克</span>
-        <span class="match-venue">费城体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">08:00</span>
-        <span class="match-teams">挪威 vs 塞内加尔</span>
-        <span class="match-venue">纽约/新泽西体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label lose">奥地利 🇦🇹</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:15%"></div></div>
+        <span class="prob-pct">15%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">11:00</span>
-        <span class="match-teams">约旦 vs 阿尔及利亚</span>
-        <span class="match-venue">旧金山湾区体育场</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">3-1</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">J组当前积分：阿根廷3分（+3 GD）、奥地利3分（+2 GD）、约旦0分（-2 GD）、阿尔及利亚0分（-3 GD）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 本场胜者基本锁定J组第一并提前晋级32强；输球者需在末轮力拼净胜球；平局则阿根廷凭净胜球优势居首，双方末轮均有出线主动权。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：阿根廷(约2120) vs 奥地利(约1830)，差距约290分——卫冕冠军占优</li>
+        <li>FIFA排名：阿根廷#1（卫冕冠军）vs 奥地利#24（自1998年重返世界杯），实力差距明显</li>
+        <li>阿根廷首战3-0阿尔及利亚，梅西帽子戏法追平克洛泽世界杯16球纪录</li>
+        <li>奥地利首战3-1约旦，朗尼克体系下进攻端表现出色，萨比策+施密德+阿瑙托维奇三叉戟</li>
+        <li>阿根廷近5场全胜（含5-0赞比亚、3-0冰岛、2-0洪都拉斯），热身赛3场零封</li>
+        <li>奥地利近5场4胜1平（5-1加纳、1-0韩国、1-0突尼斯、3-1约旦、0-0危地马拉），仅2场未失球</li>
+        <li>市场盘口：阿根廷-1.5让1.5球，Bet365阿根廷胜赔率-145，反映主流预期2球以内小胜</li>
+        <li>奥地利右闸波什颌骨骨折出战存疑，防守右路可能成为阿根廷主攻点</li>
+        <li>阿瑙托维奇需独自扛起进攻线（卡拉季奇存疑），Messi+Alvarez+Macias三叉戟冲击</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (18%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">阿根廷实力占优且梅西状态火热，但奥地利朗尼克体系下逼平过比利时、击败韩国，防守反击有威胁。冷门指数18%反映奥地利偶有搅局能力但难以全取3分。奥地利拿分（平局或胜）概率约40%，主要来自平局场景。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 法国 vs 伊拉克（I组第2轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">05:00</span>
+    <span class="match-teams">🇫🇷 法国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #3)</span> vs 伊拉克 <span style="color:#8b949e;font-size:0.75em;">(FIFA #57)</span> 🇮🇶</span>
+    <span class="match-venue">Lincoln Financial Field 费城</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇫🇷 法国</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:90%"></div></div>
+        <span class="prob-pct">90%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:7%"></div></div>
+        <span class="prob-pct">7%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">伊拉克 🇮🇶</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:3%"></div></div>
+        <span class="prob-pct">3%</span>
       </div>
     </div>
-  
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">3-0</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">18%</span></div>
+      <div class="score-item"><span class="score-label">4-0</span><div class="score-bar-bg"><div class="score-bar" style="width:85%"></div></div><span class="score-pct">16%</span></div>
+      <div class="score-item"><span class="score-label">3-1</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">5-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">10%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">I组当前积分：挪威3分（+3 GD）、法国3分（+2 GD）、塞内加尔0分（-2 GD）、伊拉克0分（-3 GD）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 法国本场赢球即可基本锁定出线（净胜球优势将决定末轮与挪威的J组头名之争）；输球则末轮需击败挪威才有出线主动权。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：法国(约2050) vs 伊拉克(约1620)，差距约430分——接近碾压级</li>
+        <li>FIFA排名：法国#3 vs 伊拉克#57，两届世界杯冠军 vs 自1986年来首次重返世界杯</li>
+        <li>法国首战3-1塞内加尔，姆巴佩梅开二度（已2球），Barcola+Olise+Dembélé前场多点开花</li>
+        <li>伊拉克首战1-4惨败挪威，防守端漏洞明显，Aymen Hussein进球已是亮点</li>
+        <li>法国近5场4胜1负（仅热身赛1-2科特迪瓦），预选赛5胜1平进16球失4球</li>
+        <li>伊拉克近5场仅1平4负（1-4挪威、0-2委内瑞拉、1-1西班牙、1-0安道尔、2-1玻利维亚）</li>
+        <li>市场盘口：法国-2.5让2.5球，BET365法国胜赔率-700，几乎一边倒</li>
+        <li>Deschamps轮换策略：可能保留核心面对挪威，转派Mateta/Thuram/Akliouche出场</li>
+        <li>伊拉克首战丢4球暴露防线脆弱，Hassan回归但难以应对法国攻击群</li>
+        <li>法国阵容深度恐怖：Mbappé+Dembélé+Olise+Barcola+Thuram+Mateta+Cherki 7名进攻手</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (10%)</span>
+      </div>
+      <div class="upset-desc">法国实力碾压，伊拉克首战已暴露4-1惨败的防线漏洞。冷门指数仅10%，主要来自平局场景（伊拉克极端摆大巴偷1球7-0的极端防守）。伊拉克全取3分概率仅3%，但拿到1分（平局）可能性上升至7%。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 挪威 vs 塞内加尔（I组第2轮 · I组次名之争） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">08:00</span>
+    <span class="match-teams">🇳🇴 挪威 <span style="color:#8b949e;font-size:0.75em;">(FIFA #31)</span> vs 塞内加尔 <span style="color:#8b949e;font-size:0.75em;">(FIFA #15)</span> 🇸🇳</span>
+    <span class="match-venue">MetLife Stadium 新泽西</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇳🇴 挪威</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:48%"></div></div>
+        <span class="prob-pct">48%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:28%"></div></div>
+        <span class="prob-pct">28%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">塞内加尔 🇸🇳</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:24%"></div></div>
+        <span class="prob-pct">24%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">I组当前积分：挪威3分（+3 GD）、法国3分（+2 GD）、塞内加尔0分（-2 GD）、伊拉克0分（-3 GD）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 本场胜者将与法国携手出线（积6分）；输球方末轮需击败伊拉克并寄望法国帮忙；平局则双方末轮仍有悬念。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：挪威(约1930) vs 塞内加尔(约1910)，势均力敌——本届最接近对决</li>
+        <li>FIFA排名：挪威#31 vs 塞内加尔#15，塞内加尔账面占优</li>
+        <li>挪威首战4-1大胜伊拉克，Haaland梅开二度（已2球），Odegaard+Sorloth前场三叉戟</li>
+        <li>塞内加尔首战1-3法国，防守端暴露问题，但17岁Mbaye成为非洲世界杯最年轻进球者</li>
+        <li>挪威近5场2胜2平1负（10-0平摩洛哥热身赛、4-1伊拉克、0-1热身赛荷兰）</li>
+        <li>塞内加尔近5场2胜1平2负（热身赛3-2美国、1-3法国），状态不稳</li>
+        <li>市场盘口：DraftKings挪威+115/平+260/塞内加尔+240，几乎平赔</li>
+        <li>历史交锋：1次交手塞内加尔全胜（暗示心理优势）</li>
+        <li>塞内加尔伤情：Koulibaly+Gueye带伤出战存疑，防线组织能力下降</li>
+        <li>挪威边后卫Ryerson+Moller Wolfe伤愈归队，攻防均衡</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (52%)</span>
+      </div>
+      <div class="upset-desc">这是I组头名之争也是潜在爆冷焦点。挪威账面占优但塞内加尔Mané+Ndiaye+Jackson锋线反击威胁大，平局概率高达28%反映双方实力接近。塞内加尔+挪威任一胜出+平局都算常见结果。冷门指数52%意味着弱队（塞内加尔）拿到积分的概率相当高。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 约旦 vs 阿尔及利亚（J组第2轮 · 背水一战） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">11:00</span>
+    <span class="match-teams">🇯🇴 约旦 <span style="color:#8b949e;font-size:0.75em;">(FIFA #63)</span> vs 阿尔及利亚 <span style="color:#8b949e;font-size:0.75em;">(FIFA #28)</span> 🇩🇿</span>
+    <span class="match-venue">Levi's Stadium 旧金山湾区</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇯🇴 约旦</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:25%"></div></div>
+        <span class="prob-pct">25%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:24%"></div></div>
+        <span class="prob-pct">24%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">阿尔及利亚 🇩🇿</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:51%"></div></div>
+        <span class="prob-pct">51%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-3</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">0-2</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">7%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">J组当前积分：阿根廷3分（+3 GD）、奥地利3分（+2 GD）、约旦0分（-2 GD）、阿尔及利亚0分（-3 GD）</p>
+      <p style="color:#f85149;font-size:0.88em;">⚡ 本场是约旦/阿尔及利亚的背水一战，输球方基本告别16强；胜者仍需在末轮寄望阿根廷vs奥地利分出胜负且净胜球有利。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：约旦(约1560) vs 阿尔及利亚(约1740)，差距约180分——阿尔及利亚占优</li>
+        <li>FIFA排名：约旦#63（首次参赛）vs 阿尔及利亚#28（自2014年重返），差距35位</li>
+        <li>约旦首战1-3奥地利（Olwan进球队史世界杯首球，78分钟才丢第2球，90+分钟连丢2球）</li>
+        <li>阿尔及利亚首战0-3阿根廷，防守端被Messi打穿但创造机会有限</li>
+        <li>约旦近5场0胜2平3负（热身赛0-2哥伦比亚、1-4瑞士、2-2尼日利亚、2-2哥斯达黎加）</li>
+        <li>阿尔及利亚近5场3胜1平1负（热身赛7-0危地马拉、1-0荷兰、0-0乌拉圭、4-0玻利维亚）</li>
+        <li>市场盘口：阿尔及利亚-1.5让1.5球，BET365阿尔及利亚胜赔率-140，平局+300，约旦+500</li>
+        <li>阿尔及利亚阵容深度远超约旦：Mahrez+Amoura+Gouiri+Chaibi+Mahrez+Maza</li>
+        <li>约旦防线漏洞：近5场每场至少丢2球（4-1瑞士、2-3奥地利、0-2哥伦比亚）</li>
+        <li>两队历史交锋仅2次（1974年6-0阿尔及利亚、2004年1-1友谊赛），无借鉴价值</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (49%)</span>
+      </div>
+      <div class="upset-desc">两队背水一战，进攻欲望强烈，模型预测大比分（1-2/1-3）反映双方均需抢3分的开放态势。冷门指数49%主要来自约旦绝地反击+平局场景，约旦+阿尔及利亚任一胜+平局概率合计75%。约旦主场荣誉+Al-Taamari反击速度可能制造冷门。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">预测基于FIFA排名、Elo评分、近5场战绩和博彩市场赔率 · 仅供研究参考</div>
 </div>
 </body>
 </html>
