@@ -34,8 +34,8 @@ SCHEDULE_DATA['0622'] = `
                     <span class="match-group">G组</span>
                     <span class="match-team">新西兰</span>
                     <span class="match-team">埃及</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">1</span>
+                    <span class="match-score">3</span>
                     <a href="predictions/0622.html" class="pred-link">📊</a>
                 </div>
             </div>
