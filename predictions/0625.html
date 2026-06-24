@@ -9,39 +9,29 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
+
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
+
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
+
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
+
   /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +43,24 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+  .upset-section { background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:0.9em; }
+  .upset-label { color:#8b949e; min-width:80px; }
+  .upset-value { color:#fff; font-weight:700; }
+  .upset-desc { color:#c9d1d9; font-size:0.85em; line-height:1.5; margin-top:6px; }
+  .knockout-section { background:rgba(255,215,0,0.05); border-left:3px solid var(--gold); border-radius:6px; padding:12px 16px; }
+  .knockout-section p { font-size:0.88em; line-height:1.6; margin-bottom:4px; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
+
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,32 +72,392 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>6月25日 · 预测</h1>
-    <p class="sub">2场比赛 · 0场已预测</p>
+    <p class="sub">6场比赛 · A/B/C组第3轮（出线生死战）</p>
   </header>
   <div class="day-nav"><a href="0624.html" class="nav-btn">← 前一天</a><span class="nav-current">6月25日</span><a href="0626.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">10:00</span>
-        <span class="match-teams">阿尔及利亚 vs 奥地利</span>
-        <span class="match-venue">堪萨斯城体育场</span>
+
+<!-- 瑞士 vs 加拿大（B组第3轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🇨🇭 瑞士 <span style="color:#8b949e;font-size:0.75em;">(FIFA #19)</span> vs 加拿大 <span style="color:#8b949e;font-size:0.75em;">(FIFA #30)</span> 🇨🇦</span>
+    <span class="match-venue">BC Place 温哥华</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇨🇭 瑞士胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:48%"></div></div>
+        <span class="prob-pct">48%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:36%"></div></div>
+        <span class="prob-pct">36%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇨🇦 加拿大胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:16%"></div></div>
+        <span class="prob-pct">16%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">10:00</span>
-        <span class="match-teams">约旦 vs 阿根廷</span>
-        <span class="match-venue">达拉斯体育场</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">2-2</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势 — B组</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">B组当前积分：加拿大4分（+6 GD）、瑞士4分（+3 GD）、波黑1分（-3 GD）、卡塔尔1分（-6 GD）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 平局则双方携手出线！加拿大赢球锁定小组第一，瑞士赢球则看另一场净胜球定排名。两队均积4分的情况下，一场平局是最优解——双方都没有理由冒险进攻，本场平局概率高达36%。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：瑞士1885 vs 加拿大1777，差距108分——瑞士纸面占优</li>
+        <li>FIFA排名：瑞士#19 vs 加拿大#30，但差距远小于排名数字所暗示</li>
+        <li>加拿大作为东道主占据主场优势（BC Place温哥华），Elo等效+50加成</li>
+        <li>瑞士首战1-1卡塔尔（Embolo点球扳平），次战4-1波黑，进攻端逐渐找到感觉</li>
+        <li>加拿大首战1-1波黑，次战6-0血洗卡塔尔（Larin等多人进球），士气正盛</li>
+        <li>瑞士近5场：4-1波黑、1-1卡塔尔、热身赛1-0奥地利、2-1瑞典——防守稳健但进攻效率一般</li>
+        <li>加拿大近5场：6-0卡塔尔、1-1波黑、热身赛3-1洪都拉斯、2-0危地马拉——主场进攻极具威胁</li>
+        <li>瑞士Embolo、Okafor等锋线磨合渐入佳境；加拿大Jonathan David（FIFA #30核心）状态火热</li>
+        <li>关键变量：两队都想避免输球，平局是最优策略，可能导致保守踢法</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (47%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">本场冷门指数高达47%，核心驱动是平局对双方均有利的出线格局。瑞士FIFA#19理应占优，但加拿大主场作战+平局即出线的双重因素使瑞士取胜概率降至48%。加拿大拿到积分（平或胜）的概率高达52%，是本比赛日最值得关注的冷门候选。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 波黑 vs 卡塔尔（B组第3轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🇧🇦 波黑 <span style="color:#8b949e;font-size:0.75em;">(FIFA #64)</span> vs 卡塔尔 <span style="color:#8b949e;font-size:0.75em;">(FIFA #56)</span> 🇶🇦</span>
+    <span class="match-venue">Lumen Field 西雅图</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇧🇦 波黑胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:66%"></div></div>
+        <span class="prob-pct">66%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:10%"></div></div>
+        <span class="prob-pct">10%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇶🇦 卡塔尔胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:24%"></div></div>
+        <span class="prob-pct">24%</span>
       </div>
     </div>
-  
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:85%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">7%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">6%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势 — B组</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">B组当前积分：加拿大4分（+6 GD）、瑞士4分（+3 GD）、波黑1分（-3 GD）、卡塔尔1分（-6 GD）</p>
+      <p style="color:#f85149;font-size:0.88em;">⚡ 赢球方有望以4分竞争小组第三出线席位；平局则双方双双出局（均仅2分），输球方直接淘汰。这是一场真正的"生死战"——双方都必须全力争胜，没有平局余地。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：波黑1596 vs 卡塔尔1437，差距159分——波黑占优</li>
+        <li>⚡ FIFA/Elo矛盾：FIFA排名卡塔尔#56反超波黑#64，以Elo为主做加权校正（Elo/FIFA权重7:3）</li>
+        <li>波黑首战1-1加拿大（Lukić进球），次战1-4惨败瑞士——防线漏洞明显</li>
+        <li>卡塔尔首战1-1瑞士（Khoukhi进球），次战0-6被加拿大血洗——创本届最大分差</li>
+        <li>波黑近5场：1-4瑞士、1-1加拿大、热身赛1-0北马其顿、1-2希腊——整体表现平庸</li>
+        <li>卡塔尔近5场：0-6加拿大、1-1瑞士、热身赛1-3埃及、0-2沙特——连续大败信心受创</li>
+        <li>波黑Dzeko+ Pjanic经验老道但年事已高；卡塔尔AFC亚洲杯冠军班底核心老化</li>
+        <li>两队防线均为本届最弱梯队之一：波黑丢5球、卡塔尔丢7球，本场可能互爆</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (38%)</span>
+      </div>
+      <div class="upset-desc">冷门指数38%主要来自Elo/FIFA排名严重矛盾——FIFA认为卡塔尔#56比波黑#64更强。卡塔尔虽6-0惨败加拿大，但首战逼平瑞士展现韧性。波黑1-4瑞士同样暴露防线问题。两队防守均不可靠，卡塔尔全取3分概率24%，拿到积分概率合计34%。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 苏格兰 vs 巴西（C组第3轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">06:00</span>
+    <span class="match-teams">🏴󠁧󠁢󠁳󠁣󠁴󠁿 苏格兰 <span style="color:#8b949e;font-size:0.75em;">(FIFA #42)</span> vs 巴西 <span style="color:#8b949e;font-size:0.75em;">(FIFA #6)</span> 🇧🇷</span>
+    <span class="match-venue">Gillette体育场 福克斯波罗</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🏴󠁧󠁢󠁳󠁣󠁴󠁿 苏格兰胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:10%"></div></div>
+        <span class="prob-pct">10%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:18%"></div></div>
+        <span class="prob-pct">18%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇧🇷 巴西胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:72%"></div></div>
+        <span class="prob-pct">72%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">0-2</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">17%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">0-3</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势 — C组</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">C组当前积分：巴西4分（+3 GD）、摩洛哥4分（+1 GD）、苏格兰3分（0 GD）、海地0分（-4 GD）</p>
+      <p style="color:#f85149;font-size:0.88em;">⚡ 苏格兰必须赢球才能确保出线（6分直接晋级），平局仅4分需看其他小组第三名脸色；巴西平局即可5分出线。苏格兰将全力进攻，但面对巴西Vini Jr+Cunha锋线，这可能是双刃剑。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：苏格兰1768 vs 巴西1986，差距218分——巴西明显占优</li>
+        <li>FIFA排名：苏格兰#42 vs 巴西#6，实力差距极为显著</li>
+        <li>苏格兰首战1-0海地（McGinn 28'），次战0-1摩洛哥（Saibari进球）——防守尚可但进攻乏力</li>
+        <li>巴西首战1-1摩洛哥（Vini Jr/Saibari），次战3-0海地（Cunha×2+Vini Jr）——渐入佳境</li>
+        <li>苏格兰近5场：0-1摩洛哥、1-0海地、热身赛1-1挪威、0-2德国——进攻端效率偏低</li>
+        <li>巴西近5场：3-0海地、1-1摩洛哥、热身赛2-0智利、3-1秘鲁——Vini Jr+Cunha组合状态火热</li>
+        <li>苏格兰McGinn是唯一稳定得分点；巴西Vini Jr+Cunha+Paqueta前场三人组配合日趋成熟</li>
+        <li>苏格兰防守组织较好（2场仅失1球），但面对巴西级别的进攻火力尚待检验</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (21%)</span>
+      </div>
+      <div class="upset-desc">巴西实力碾压，苏格兰虽防守稳健但进攻端难威胁巴西防线。冷门指数21%主要来自平局场景（苏格兰摆大巴+巴西阵容轮换可能），以及苏格兰背水一战的斗志加成。苏格兰赢球概率仅10%，平局18%。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 摩洛哥 vs 海地（C组第3轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">06:00</span>
+    <span class="match-teams">🇲🇦 摩洛哥 <span style="color:#8b949e;font-size:0.75em;">(FIFA #7)</span> vs 海地 <span style="color:#8b949e;font-size:0.75em;">(FIFA #83)</span> 🇭🇹</span>
+    <span class="match-venue">Lincoln Financial Field 费城</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇲🇦 摩洛哥胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:85%"></div></div>
+        <span class="prob-pct">85%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:10%"></div></div>
+        <span class="prob-pct">10%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇭🇹 海地胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:5%"></div></div>
+        <span class="prob-pct">5%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">19%</span></div>
+      <div class="score-item"><span class="score-label">3-0</span><div class="score-bar-bg"><div class="score-bar" style="width:85%"></div></div><span class="score-pct">15%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">4-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势 — C组</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">C组当前积分：巴西4分（+3 GD）、摩洛哥4分（+1 GD）、苏格兰3分（0 GD）、海地0分（-4 GD）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 摩洛哥赢球或平局均可确保出线（7分或5分）；海地已提前出局（0分-4 GD，即使赢球仅3分），本场更多是为荣誉而战。摩洛哥若取胜且有足够净胜球，有望反超巴西争夺小组第一。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：摩洛哥1866 vs 海地1528，差距338分——摩洛哥碾压级优势</li>
+        <li>FIFA排名：摩洛哥#7 vs 海地#83，为本比赛日差距最悬殊对决</li>
+        <li>⚡ Elo/FIFA轻微矛盾：FIFA #7 vs Elo #18，按规则以FIFA为主加权校正（摩洛哥实力被Elo低估）</li>
+        <li>摩洛哥首战1-1巴西（Saibari进球），次战1-0苏格兰（Saibari再进球）——防守固若金汤</li>
+        <li>海地首战0-1苏格兰，次战0-3巴西——0进球4失球，攻防两端均无力</li>
+        <li>摩洛哥近5场：1-0苏格兰、1-1巴西、热身赛3-0利比里亚、2-0赞比亚——连续4场零封</li>
+        <li>海地近5场：0-3巴西、0-1苏格兰、热身赛0-4新西兰、1-2牙买加——5场不胜仅1球</li>
+        <li>摩洛哥Hakimi+Bounou+Saibari构成稳健中轴；海地首次世界杯经验为零，已完全暴露</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (12%)</span>
+      </div>
+      <div class="upset-desc">冷门指数全场最低。摩洛哥FIFA#7+4场零封的防守体系面对0进球的海地，实力差距不可逾越。海地赢球概率仅5%，拿到积分（平或胜）概率合计15%。唯一冷门场景：摩洛哥大面积轮换+海地超级大巴偷得1分。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 捷克 vs 墨西哥（A组第3轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">09:00</span>
+    <span class="match-teams">🇨🇿 捷克 <span style="color:#8b949e;font-size:0.75em;">(FIFA #40)</span> vs 墨西哥 <span style="color:#8b949e;font-size:0.75em;">(FIFA #14)</span> 🇲🇽</span>
+    <span class="match-venue">Estadio Azteca 墨西哥城</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇨🇿 捷克胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:10%"></div></div>
+        <span class="prob-pct">10%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:12%"></div></div>
+        <span class="prob-pct">12%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇲🇽 墨西哥胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:78%"></div></div>
+        <span class="prob-pct">78%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">0-2</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">16%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">0-3</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势 — A组</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">A组当前积分：墨西哥6分（+3 GD）、韩国3分（0 GD）、捷克1分（-1 GD）、南非1分（-2 GD）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 墨西哥已提前出线，平局即可锁定小组第一；捷克必须赢球才有出线希望（4分竞争小组第三），平局仅2分直接出局。捷克将全力进攻，但在Azteca高原主场面对东道主，难度极大。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：捷克1696 vs 墨西哥1896，差距200分——墨西哥占优</li>
+        <li>FIFA排名：捷克#40 vs 墨西哥#14，实力差距明显</li>
+        <li>墨西哥作为东道主，坐拥Azteca高原主场（海拔2250m），Elo等效额外+50加成</li>
+        <li>捷克首战1-2韩国（Krejci进球），次战1-1南非——2场仅1胜，进攻效率不佳</li>
+        <li>墨西哥首战2-0南非（Quinones+Jimenez），次战1-0韩国——2场零封，防守稳固</li>
+        <li>捷克近5场：1-1南非、1-2韩国、热身赛2-0斯洛伐克、1-1波兰——整体攻击力不足</li>
+        <li>墨西哥近5场：1-0韩国、2-0南非、热身赛3-0洪都拉斯、4-1危地马拉——攻守俱佳</li>
+        <li>墨西哥Quinones+Jimenez+Lozano锋线状态正佳；捷克Soucek+Schick核心发挥低迷</li>
+        <li>墨西哥已经出线，可能轮换部分主力，但主场作战仍不会放水</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (18%)</span>
+      </div>
+      <div class="upset-desc">冷门指数18%主要来自墨西哥已出线可能轮换的变量。捷克背水一战需全力进攻，但在Azteca高原面对东道主墨西哥，实力和地利均处于劣势。捷克赢球概率仅10%，平局12%（对捷克而言平局等同出局）。墨西哥大概率2-0轻松取胜。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 南非 vs 韩国（A组第3轮） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">09:00</span>
+    <span class="match-teams">🇿🇦 南非 <span style="color:#8b949e;font-size:0.75em;">(FIFA #60)</span> vs 韩国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #25)</span> 🇰🇷</span>
+    <span class="match-venue">Estadio Akron 瓜达拉哈拉</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇿🇦 南非胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:9%"></div></div>
+        <span class="prob-pct">9%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:15%"></div></div>
+        <span class="prob-pct">15%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇰🇷 韩国胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:76%"></div></div>
+        <span class="prob-pct">76%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">18%</span></div>
+      <div class="score-item"><span class="score-label">0-2</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>📊 出线形势 — A组</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">A组当前积分：墨西哥6分（+3 GD）、韩国3分（0 GD）、捷克1分（-1 GD）、南非1分（-2 GD）</p>
+      <p style="color:#f85149;font-size:0.88em;">⚡ 韩国赢球将直接以6分小组第二出线；平局则4分需看其他组第三名成绩（出线概率约60%）；输球则仅3分，几乎不可能以第三名晋级。南非必须赢球才有出线希望。韩国掌握主动权，赢球是最稳妥的出路。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>Elo基线：南非1527 vs 韩国1771，差距244分——韩国明显占优</li>
+        <li>FIFA排名：南非#60 vs 韩国#25，亚洲劲旅对非洲二线，实力差距显著</li>
+        <li>南非首战0-2墨西哥，次战1-1捷克——仅进1球失3球，攻防两端均不出色</li>
+        <li>韩国首战2-1捷克（Hwang In-Beom+Oh Hyeon-Gyu），次战0-1墨西哥——惜败东道主</li>
+        <li>南非近5场：1-1捷克、0-2墨西哥、热身赛0-1塞内加尔、1-0安哥拉——对阵强队难进球</li>
+        <li>韩国近5场：0-1墨西哥、2-1捷克、热身赛3-0泰国、2-1伊拉克——孙兴慜领衔攻击线有破门能力</li>
+        <li>韩国Son Heung-min+Lee Kang-in+Oh Hyeon-Gyu进攻组合技战术水平远超南非</li>
+        <li>南非Bafana Bafana缺乏大赛经验，自2010年本土世界杯后首次重返正赛</li>
+        <li>韩国世界杯经验丰富（连续11届参赛），关键比赛心理素质优于南非</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (20%)</span>
+      </div>
+      <div class="upset-desc">冷门指数20%主要来自韩国略有保守心态（平局也有出线机会）和南非背水一战。韩国FIFA#25实力远超南非#60，Son Heung-min领衔的攻击线应能破门。南非赢球概率仅9%，平局15%，韩国大概率1-0或2-0取胜。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">预测基于FIFA排名、Elo评分、近5场战绩和赛事情境分析 · 模型v5（Elo→贝叶斯→战术修正→蒙特卡洛10万次） · 仅供研究参考</div>
 </div>
 </body>
 </html>
