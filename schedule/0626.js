@@ -7,8 +7,8 @@ SCHEDULE_DATA['0626'] = `
                     <span class="match-group">E组</span>
                     <span class="match-team">库拉索</span>
                     <span class="match-team">科特迪瓦</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">0</span>
+                    <span class="match-score">2</span>
                     <a href="predictions/0626.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
@@ -16,8 +16,8 @@ SCHEDULE_DATA['0626'] = `
                     <span class="match-group">E组</span>
                     <span class="match-team">厄瓜多尔</span>
                     <span class="match-team">德国</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">2</span>
+                    <span class="match-score">1</span>
                     <a href="predictions/0626.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
@@ -25,8 +25,8 @@ SCHEDULE_DATA['0626'] = `
                     <span class="match-group">F组</span>
                     <span class="match-team">日本</span>
                     <span class="match-team">瑞典</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">0</span>
+                    <span class="match-score">0</span>
                     <a href="predictions/0626.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
@@ -34,8 +34,8 @@ SCHEDULE_DATA['0626'] = `
                     <span class="match-group">F组</span>
                     <span class="match-team">突尼斯</span>
                     <span class="match-team">荷兰</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">0</span>
+                    <span class="match-score">2</span>
                     <a href="predictions/0626.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
