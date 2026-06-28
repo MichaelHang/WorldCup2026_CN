@@ -7,8 +7,8 @@ SCHEDULE_DATA['0628'] = `
                     <span class="match-group">L组</span>
                     <span class="match-team">巴拿马</span>
                     <span class="match-team">英格兰</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">0</span>
+                    <span class="match-score">2</span>
                     <a href="predictions/0628.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
@@ -16,8 +16,8 @@ SCHEDULE_DATA['0628'] = `
                     <span class="match-group">L组</span>
                     <span class="match-team">克罗地亚</span>
                     <span class="match-team">加纳</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">2</span>
+                    <span class="match-score">1</span>
                     <a href="predictions/0628.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
@@ -25,8 +25,8 @@ SCHEDULE_DATA['0628'] = `
                     <span class="match-group">K组</span>
                     <span class="match-team">哥伦比亚</span>
                     <span class="match-team">葡萄牙</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">0</span>
+                    <span class="match-score">0</span>
                     <a href="predictions/0628.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
