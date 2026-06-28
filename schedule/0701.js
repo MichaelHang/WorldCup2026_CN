@@ -4,54 +4,27 @@ SCHEDULE_DATA['0701'] = `
             <div class="date-matches">
                 <div class="match-row">
                     <span class="match-time">03:00</span>
-                    <span class="match-group">Round of 32</span>
-                    <span class="match-team">2A</span>
-                    <span class="match-team">2B</span>
+                    <span class="match-group">1/16决赛</span>
+                    <span class="match-team">法国</span>
+                    <span class="match-team">瑞典</span>
                     <span class="match-score">—</span>
                     <span class="match-score">—</span>
                     <a href="predictions/0701.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
-                    <span class="match-time">01:00</span>
-                    <span class="match-group">Round of 32</span>
-                    <span class="match-team">1C</span>
-                    <span class="match-team">2F</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
-                    <a href="predictions/0701.html" class="pred-link">📊</a>
-                </div>
-                <div class="match-row">
-                    <span class="match-time">04:30</span>
-                    <span class="match-group">Round of 32</span>
-                    <span class="match-team">1E</span>
-                    <span class="match-team">ABCD</span>
+                    <span class="match-time">06:00</span>
+                    <span class="match-group">1/16决赛</span>
+                    <span class="match-team">科特迪瓦</span>
+                    <span class="match-team">挪威</span>
                     <span class="match-score">—</span>
                     <span class="match-score">—</span>
                     <a href="predictions/0701.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
                     <span class="match-time">09:00</span>
-                    <span class="match-group">Round of 32</span>
-                    <span class="match-team">1F</span>
-                    <span class="match-team">2C</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
-                    <a href="predictions/0701.html" class="pred-link">📊</a>
-                </div>
-                <div class="match-row">
-                    <span class="match-time">01:00</span>
-                    <span class="match-group">Round of 32</span>
-                    <span class="match-team">2E</span>
-                    <span class="match-team">2I</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
-                    <a href="predictions/0701.html" class="pred-link">📊</a>
-                </div>
-                <div class="match-row">
-                    <span class="match-time">05:00</span>
-                    <span class="match-group">Round of 32</span>
-                    <span class="match-team">1I</span>
-                    <span class="match-team">CDFGH</span>
+                    <span class="match-group">1/16决赛</span>
+                    <span class="match-team">墨西哥</span>
+                    <span class="match-team">厄瓜多尔</span>
                     <span class="match-score">—</span>
                     <span class="match-score">—</span>
                     <a href="predictions/0701.html" class="pred-link">📊</a>
