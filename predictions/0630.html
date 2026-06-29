@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026世界杯 6月30日 预测</title>
+<style>
+  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --accent: #58a6ff; --gold: #FFD700; --green: #3fb950; --red: #f85149; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
+  .container { max-width:780px; margin:0 auto; }
+
+  .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
+  .back-link:hover { color:var(--gold); }
+
+  header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
+  header h1 { font-size:1.5em; color:#fff; }
+  header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
+
+  .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
+  .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
+  .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
+  .nav-current { color:#fff; font-weight:700; font-size:1em; }
+
+  /* Match cards */
+  .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
+  .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+  .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
+  .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
+  .match-venue { color:#8b949e; font-size:0.8em; }
+  .match-body { padding:20px; }
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
+  .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
+  .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
+  .prob-label.win { color:var(--green); }
+  .prob-label.draw { color:#8b949e; }
+  .prob-label.lose { color:var(--red); }
+  .prob-bar-bg { flex:1; height:20px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden; }
+  .prob-bar { height:100%; border-radius:10px; }
+  .prob-bar.win { background:linear-gradient(90deg,#238636,#3fb950); }
+  .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
+  .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
+  .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
+  .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
+  .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
+  .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
+  .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
+  .factor-section ul { list-style:none; padding:0; }
+  .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
+  .factor-section li::before { content:"▸ "; color:var(--accent); }
+  .factor-section li:last-child { border-bottom:none; }
+  .upset-section { background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:0.9em; }
+  .upset-label { color:#8b949e; min-width:80px; }
+  .upset-value { color:#fff; font-weight:700; }
+  .upset-desc { color:#c9d1d9; font-size:0.85em; line-height:1.5; margin-top:6px; }
+  .knockout-section { background:rgba(255,215,0,0.05); border-left:3px solid var(--gold); border-radius:6px; padding:12px 16px; }
+  .knockout-section p { font-size:0.88em; line-height:1.6; margin-bottom:4px; }
+  .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
+
+  @media (max-width:700px) {
+    .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
+    .prob-label { min-width:70px; font-size:0.82em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back-link">&larr; 返回赛程</a>
+  <header>
+    <h1>6月30日 · 预测</h1>
+    <p class="sub">3场比赛 · 1/16决赛（淘汰赛）· ⚠️ 时间均为美国当地时间</p>
+  </header>
+  <div class="day-nav"><a href="0629.html" class="nav-btn">← 前一天</a><span class="nav-current">6月30日</span><a href="0701.html" class="nav-btn">后一天 →</a></div>
+
+<!-- ========== 德国 vs 巴拉圭 ========== -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🇩🇪 德国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #10, Elo 1916)</span> vs 巴拉圭 <span style="color:#8b949e;font-size:0.75em;">(FIFA #41, Elo 1815)</span> 🇵🇾</span>
+    <span class="match-venue">Gillette Stadium, Foxborough</span>
+  </div>
+  <div class="match-body">
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · Gillette Stadium, 福克斯伯勒</p>
+      <p style="color:#3fb950;font-size:0.88em;">📊 德国 F组第1出线（2胜0平1负，进10球失4球，净胜球+6）；巴拉圭 D组第3出线（1胜1平1负，进2球失4球，净胜球-2），作为8支最佳小组第三之一晋级。德国小组赛展现统治级进攻火力（场均3.3球），但巴拉圭防守韧性极强（3场比赛仅2球失球）。淘汰赛90分钟平局后进入加时+点球，巴拉圭有机会利用防守反击制造麻烦。</p>
+    </div>
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇩🇪 德国胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:62%"></div></div>
+        <span class="prob-pct">62%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:22%"></div></div>
+        <span class="prob-pct">22%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇵🇾 巴拉圭胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:16%"></div></div>
+        <span class="prob-pct">16%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:95%"></div></div><span class="score-pct">15%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">3-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：德国1916 vs 巴拉圭1815，差距101分——德国实力明显占优</li>
+        <li>FIFO排名：德国#10 vs 巴拉圭#41，差距31位，德国高出一个档次</li>
+        <li>德国小组赛表现：7-1库拉索（屠杀）、2-1科特迪瓦（逆转）、1-2厄瓜多尔（意外失利）——进攻火力惊人，场均3.3球，但末轮暴露防守隐患</li>
+        <li>巴拉圭小组赛表现：1-4美国（首战告急）、1-0土耳其（反击制胜）、0-0澳大利亚（死守成功）——攻防极端保守，3场仅进2球</li>
+        <li>德国进攻端：Undav（3球 tournament leading）、Havertz（2球）、Wirtz（1球2助攻）、Musiala（1球3助攻）多点开花</li>
+        <li>巴拉圭进攻端极度依赖 Enciso 和 Almiron，小组赛场均射门仅5.6次</li>
+        <li>德国防守端：3场丢4球，自2014世界杯决赛以来从未零封对手</li>
+        <li>巴拉圭防守端：3场仅丢2球，其中对美国和土耳其各丢1球，对澳大利亚零封——纪律性极强</li>
+        <li>场地：Foxborough（美国境内）对德国无真正主场优势（东道主仅美国/加拿大/墨西哥）</li>
+        <li>淘汰赛规则利好弱队：90分钟平局进入加时+点球，巴拉圭可充分利用防守反击策略</li>
+        <li>历史交锋：德国近两次交手保持不败（2002 WC 1-0胜，2013友谊赛 3-3）</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (22%)</span>
+      </div>
+      <div class="upset-desc">冷门指数22%中等。巴拉圭防守坚韧（3场仅2失球）+ 淘汰赛加时赛规则，给了弱队意外晋级的可能性。德国虽然进攻火力凶猛，但防守端3场丢4球从未零封，且淘汰赛压力巨大。22%冷门概率主要来自淘汰赛特殊赛制——如果90分钟内1-1或0-0，巴拉圭在点球大战中完全有机会。不过德国整体实力明显高一档，爆冷概率控制在中等水平。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 荷兰 vs 摩洛哥 ========== -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">06:00</span>
+    <span class="match-teams">🇳🇱 荷兰 <span style="color:#8b949e;font-size:0.75em;">(FIFA #8, Elo 1980)</span> vs 摩洛哥 <span style="color:#8b949e;font-size:0.75em;">(FIFA #14, Elo 1877)</span> 🇲🇦</span>
+    <span class="match-venue">Estadio BBVA, Monterrey</span>
+  </div>
+  <div class="match-body">
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · Estadio BBVA, 蒙特雷 · 气温38°C</p>
+      <p style="color:#3fb950;font-size:0.88em;">📊 荷兰 F组第1出线（2胜1平0负，进10球失4球，净胜球+6）；摩洛哥 C组第2出线（2胜1平0负，进6球失3球，净胜球+3）。双方小组赛均为不败！这是一场势均力敌的对决——荷兰场均3.3球的恐怖火力对阵摩洛哥的紧凑防守。蒙特雷38°C极端高温将大幅降低比赛节奏，有利于摩洛哥的低位防守体系。摩洛哥多名球员效力荷甲，对荷兰体系极为熟悉，构成天然优势。</p>
+    </div>
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇳🇱 荷兰胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:42%"></div></div>
+        <span class="prob-pct">42%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:28%"></div></div>
+        <span class="prob-pct">28%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇲🇦 摩洛哥胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:30%"></div></div>
+        <span class="prob-pct">30%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">2-2</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">3-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：荷兰1980 vs 摩洛哥1877，差距103分——荷兰占优但不悬殊</li>
+        <li>FIFO排名：荷兰#8 vs 摩洛哥#14，差距6位——同档次对抗</li>
+        <li>荷兰小组赛：5-1瑞典（屠杀）、3-1突尼斯（压倒性优势）、2-2日本（被强队逼平）——进攻端火力全开，场均3.3球，但零封率为0</li>
+        <li>摩洛哥小组赛：4-2海地（高光）、1-0苏格兰（经典防守）、1-1巴西（逼平冠军）——攻防均衡，不败战绩</li>
+        <li>荷兰进攻端：Gakpo（4球/5场）、Brobbey（3球/5场）、Summerville（2球/5场）、Van Dijk（定位球威胁）——多点开花</li>
+        <li>摩洛哥进攻端：Saibari（5球/5场🔥全场最佳！）、Hakimi（1球）、El Kaabi（1球）——Saibari状态火热</li>
+        <li>摩洛哥战术优势：多名球员效力荷甲，对荷兰体系极度熟悉——天然克制优势</li>
+        <li>⚠️ 高温因子：蒙特雷38°C极端天气将大幅降低荷兰高位逼抢效率，利好摩洛哥低位防守反击</li>
+        <li>⚠️ 摩洛哥防线隐忧：主力中卫Aguerd受伤缺阵，替补Saadane经验不足</li>
+        <li>荷兰防守端：3场无一零封，失球偏多——淘汰赛面对摩洛哥高效反击需更谨慎</li>
+        <li>历史交锋：荷兰对非洲球队世界杯从未输过，但摩洛哥2022年展现的韧性远超以往非洲球队</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#D85A30;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟠 较高 (38%)</span>
+      </div>
+      <div class="upset-desc">冷门指数38%较高。这是三场比赛中实力最接近的一场——ELO差103分、FIFA差6位，双方小组赛均不败。摩洛哥Saibari状态火热（5场5球），对荷甲体系熟悉构成天然战术优势，加上蒙特雷38°C高温不利于荷兰高强度压迫，这些因素叠加让摩洛哥拥有显著的爆冷可能。28%的平局概率意味着大概率进入加时/点球，进一步推高冷门指数。这场比赛随时可能以任何结果收场。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 巴西 vs 日本 ========== -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">09:00</span>
+    <span class="match-teams">🇧🇷 巴西 <span style="color:#8b949e;font-size:0.75em;">(FIFA #6, Elo 2009)</span> vs 日本 <span style="color:#8b949e;font-size:0.75em;">(FIFA #18, Elo 1910)</span> 🇯🇵</span>
+    <span class="match-venue">NRG Stadium, Houston</span>
+  </div>
+  <div class="match-body">
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · NRG Stadium, 休斯顿</p>
+      <p style="color:#3fb950;font-size:0.88em;">📊 巴西 C组第1出线（2胜1平0负，进7球失1球，净胜球+6）；日本 F组第2出线（1胜2平0负，进7球失3球，净胜球+4）。两队小组赛合计14粒进球！巴西攻防俱佳（仅失1球），日本不败晋级且2-2逼平荷兰、1-1Sweden、4-0大胜突尼斯——韧性十足。巴西Raphinha因伤出战成疑，日本Kubo和Itakura伤疑。这是实力与韧性的终极对决。</p>
+    </div>
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇧🇷 巴西胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:48%"></div></div>
+        <span class="prob-pct">48%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:27%"></div></div>
+        <span class="prob-pct">27%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇯🇵 日本胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:25%"></div></div>
+        <span class="prob-pct">25%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:95%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">3-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：巴西2009 vs 日本1910，差距99分——巴西占优但差距不大</li>
+        <li>FIFO排名：巴西#6 vs 日本#18，差距12位——差距小于15位，实力接近</li>
+        <li>巴西小组赛：3-0海地（碾压）、3-0苏格兰（全面压制）、1-1摩洛哥（仅平局）——攻防俱佳，仅失1球</li>
+        <li>日本小组赛：2-2荷兰（逼平强队）、4-0突尼斯（火力全开）、1-1瑞典（稳守反击）——不败且攻击力强</li>
+        <li>巴西进攻端：Vinicius Jr（ Tournament standout）、Matheus Cunha（3球2助攻）、Rayan（1球）、Paqueta（核心组织者）</li>
+        <li>日本进攻端：Ueda（关键前锋）、Kamada（组织核心）、Maeda（运动战威胁）、Doan（边路突破）——多点开花能力突出</li>
+        <li>⚠️ 巴西伤病：Raphinata hamstring受伤出战成疑，若缺阵将大幅削弱右路进攻</li>
+        <li>⚠️ 日本伤病：Kubo膝伤疑云、Itakura伤疑——若 Kubo缺阵，左路突破能力下降</li>
+        <li>巴西边路优势：Vinicius Jr对Ito/Taniguchi的一对一突破能力是日本防线最大隐患</li>
+        <li>日本定位球威胁：小组赛从定位球多次得手，Ueda头球能力强——巴西角球防守需警惕</li>
+        <li>2025年东京友谊赛日本3-2胜巴西——心理优势，证明日本有能力击败巴西</li>
+        <li>场地：Houston（美国境内）对巴西无真正主场优势</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#D85A30;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟠 较高 (35%)</span>
+      </div>
+      <div class="upset-desc">冷门指数35%较高。尽管巴西实力占优（ELO+99、FIFO+12位），但日本具备爆冷的一切条件：不败战绩、2025年击败巴西的历史、定位球威胁、以及Raphinha可能缺阵的巴西右路隐患。27%的平局概率意味着日本有很大机会通过90分钟死守进入加时。此外，日本擅长快速转换和高压迫战术，正好克制巴西高位后防线留下的空档。这是一旦日本抓住早段机会，完全可以改变比赛走向的对决。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">预测基于FIFO排名、Elo评分、近5场战绩和淘汰赛赛制分析 · 模型v5（Elo→贝叶斯→战术修正→蒙特卡洛10万次） · 淘汰赛平局概率上调+5% · 仅供研究参考</div>
+</div>
+</body>
+</html>
