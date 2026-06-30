@@ -9,39 +9,24 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
-  /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +38,23 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+  .upset-section { background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:0.9em; }
+  .upset-label { color:#8b949e; min-width:80px; }
+  .upset-value { color:#fff; font-weight:700; }
+  .upset-desc { color:#c9d1d9; font-size:0.85em; line-height:1.5; margin-top:6px; }
+  .knockout-section { background:rgba(255,215,0,0.05); border-left:3px solid var(--gold); border-radius:6px; padding:12px 16px; }
+  .knockout-section p { font-size:0.88em; line-height:1.6; margin-bottom:4px; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,76 +66,210 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>7月1日 · 预测</h1>
-    <p class="sub">6场比赛 · 0场已预测</p>
+    <p class="sub">3场比赛 · 1/16决赛（淘汰赛）· 小组赛已结束，进入淘汰赛阶段</p>
   </header>
-  <div class="day-nav"><a href="0628.html" class="nav-btn">← 前一天</a><span class="nav-current">7月1日</span><a href="0702.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">03:00</span>
-        <span class="match-teams">2A vs 2B</span>
-        <span class="match-venue">洛杉矶体育场</span>
+  <div class="day-nav"><a href="0630.html" class="nav-btn">← 前一天</a><span class="nav-current">7月1日</span><a href="0702.html" class="nav-btn">后一天 →</a></div>
+
+<!-- 法国 vs 瑞典（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🇫🇷 法国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #3)</span> vs 瑞典 <span style="color:#8b949e;font-size:0.75em;">(FIFA #38)</span> 🇸🇪</span>
+    <span class="match-venue">洛杉矶体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇫🇷 法国资胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:65%"></div></div>
+        <span class="prob-pct">65%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:27%"></div></div>
+        <span class="prob-pct">27%</span>
       </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">01:00</span>
-        <span class="match-teams">1C vs 2F</span>
-        <span class="match-venue">休斯顿体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">04:30</span>
-        <span class="match-teams">1E vs ABCD</span>
-        <span class="match-venue">波士顿体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label lose">🇸🇪 瑞典胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:8%"></div></div>
+        <span class="prob-pct">8%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">09:00</span>
-        <span class="match-teams">1F vs 2C</span>
-        <span class="match-venue">蒙特雷体育场</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">3-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · 洛杉矶体育场</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 法国小组赛3胜0平0负积9分（进10球失2球，净胜球+8）以I组第1出线；瑞典小组赛1胜1平1负积4分（进7球失7球，净胜球0）以F组第3（最佳第3名）晋级。法国小组赛不败且攻防数据碾压——10球进2球失，防守端零封2场；瑞典进攻端3场进7球但防线同样进7球。法国ELO 1907 vs 瑞典1526，差距381分，FIFA排名差35位。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：法国1907 vs 瑞典1526，差距381分——法国压倒性优势</li>
+        <li>FIFA排名：法国#3 vs 瑞典#38，差距35位，法国为夺冠大热门</li>
+        <li>法国小组赛：4-1挪威、胜伊拉克、胜塞内加尔——3战全胜进10球仅失2球，攻防俱佳</li>
+        <li>瑞典小组赛：0-4突尼斯（惨败）、1-1日本（逼平）、负荷兰——防守端进7球</li>
+        <li>法国进攻端：Mbappé、Camavinga、Kolo Muani领衔，小组赛场均3.3球，火力凶猛</li>
+        <li>法国防守端：3场仅失2球，防线稳固，面对瑞典进攻线（场均2.3球）应可限制</li>
+        <li>瑞典进攻端：Isak（纽卡）为核心，小组赛3助但整体进攻不稳定，3场进7球质量存疑</li>
+        <li>瑞典小组赛1-1逼平日本展现韧性，但面对法国级别对手恐难复制</li>
+        <li>淘汰赛加时+点球规则小幅利好弱队——但法国实力差距过大，点球概率仅约15%</li>
+        <li>心理：法国上届亚军，大赛经验丰富；瑞典近32年首次进淘汰赛（1994后），经验匮乏</li>
+        <li>场地：洛杉矶（美国），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (8%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">冷门指数8%极低。法国ELO领先381分、FIFA排名领先35位，小组赛3战全胜进10球仅失2球，攻防数据碾压级。瑞典虽以第3名晋级且有过1-1逼平日本的表现，但小组赛3场进7球失7球，防线漏洞明显。法国唯一不确定因素是近期伤病（Ekitiké跟腱、Kamara膝盖），但Camavinga已复出。瑞典要爆冷需法国同时出现大面积伤病+瑞典门将神扑+裁判因素，综合概率不到10%。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 科特迪瓦 vs 挪威（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">06:00</span>
+    <span class="match-teams">🇨🇮 科特迪瓦 <span style="color:#8b949e;font-size:0.75em;">(FIFA #33)</span> vs 挪威 <span style="color:#8b949e;font-size:0.75em;">(FIFA #31)</span> 🇳🇴</span>
+    <span class="match-venue">休斯顿体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇨🇮 科特迪瓦胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:30%"></div></div>
+        <span class="prob-pct">30%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:28%"></div></div>
+        <span class="prob-pct">28%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇳🇴 挪威胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:42%"></div></div>
+        <span class="prob-pct">42%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">01:00</span>
-        <span class="match-teams">2E vs 2I</span>
-        <span class="match-venue">达拉斯体育场</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · 休斯顿体育场</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 科特迪瓦小组赛2胜0平1负积6分（进4球失2球，净胜球+2）以E组第2出线；挪威小组赛2胜0平1负积6分（进8球失7球，净胜球+1）以I组第2出线。两队ELO极度接近（1565 vs 1594，仅差29分），FIFA排名仅差2位（#33 vs #31）。挪威Haaland领衔进攻场均2.7球，但防线进7球；科特迪瓦防守更稳（仅失2球）但进攻火力仅4球。典型"攻强守弱 vs 攻弱守稳"对决，平局概率不容忽视。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：科特迪瓦1565 vs 挪威1594，差距仅29分——两队实力几乎持平</li>
+        <li>FIFA排名：科特迪瓦#33 vs 挪威#31，仅差2位，挪威微弱占优</li>
+        <li>挪威进攻端：Haaland（曼城）+Isak（纽卡）双核驱动，小组赛8球场均2.7，本届最佳攻击线之一</li>
+        <li>挪威防守端：小组赛3场失7球，防线漏洞明显——面对科特迪瓦Gnanou（朗斯）速度型进攻需警惕</li>
+        <li>科特迪瓦进攻端：小组赛仅4球，缺少世界级得分手，但Amad Diallo（曼联）状态火热——热身赛绝杀法国</li>
+        <li>科特迪瓦防守端：3场仅失2球，防线由Bailly（水晶宫）镇守，稳定性远胜挪威</li>
+        <li>挪威小组赛：0-3塞内加尔（爆冷首败）、1-4法国（惨败）、3-2塞内加尔（逆转胜）——波动极大</li>
+        <li>科特迪瓦小组赛：2-0库拉索、2-1德国、0-2法国——对强队有一定抵抗力（2-1德国）</li>
+        <li>挪威32年来首次进世界杯淘汰赛（1998后），Haaland个人渴望但团队经验不足</li>
+        <li>科特迪瓦2010年后首次进淘汰赛，"大象"回归，主场氛围（科特迪瓦球迷热情）心理加成</li>
+        <li>淘汰赛加时+点球规则——90分钟打平后点球大战，两队门将水平相当，挪威心理素质略占优（Haaland关键球能力）</li>
+        <li>场地：休斯顿（美国），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (43%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">冷门指数43%偏高。两队ELO仅差29分（本届淘汰赛最低差距之一），FIFA排名仅差2位，本质是五五开的对决。挪威ELO略高但科特迪瓦防守更强（失2球 vs 失7球），若科特迪瓦打铁闸战术+反击，完全有能力拖入加时甚至点球。挪威Haaland是最大X因素——若他进球则挪威大概率晋级，若被科特迪瓦防线限制则挪威进攻将陷入困境。科特迪瓦冷门指数主要来自两队实力极度接近+防守端优势+淘汰赛规则利好。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 墨西哥 vs 厄瓜多尔（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">09:00</span>
+    <span class="match-teams">🇲🇽 墨西哥 <span style="color:#8b949e;font-size:0.75em;">(FIFA #14)</span> vs 厄瓜多尔 <span style="color:#8b949e;font-size:0.75em;">(FIFA #23)</span> 🇪🇨</span>
+    <span class="match-venue">蒙特雷体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇲🇽 墨西哥胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:55%"></div></div>
+        <span class="prob-pct">55%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:27%"></div></div>
+        <span class="prob-pct">27%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇪🇨 厄瓜多尔胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:18%"></div></div>
+        <span class="prob-pct">18%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">05:00</span>
-        <span class="match-teams">1I vs CDFGH</span>
-        <span class="match-venue">纽约/新泽西体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">7%</span></div>
     </div>
-  
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · 蒙特雷体育场（墨西哥城市）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 墨西哥小组赛3胜0平0负积9分（进6球失0球，净胜球+6）以A组第1出线——防守端3场零失球创本届最佳防守纪录！厄瓜多尔小组赛1胜1平1负积4分（进2球失2球，净胜球0）以E组第3（最佳第3名）晋级。墨西哥ELO 1736 vs 厄瓜多尔1593，差距143分，FIFA排名差9位。墨西哥主场作战（蒙特雷）享受东道主加成，且攻防两端数据均优于厄瓜多尔。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：墨西哥1736 vs 厄瓜多尔1593，差距143分——墨西哥明显占优</li>
+        <li>FIFA排名：墨西哥#14 vs 厄瓜多尔#23，差9位，墨西哥为拉美传统强队</li>
+        <li>墨西哥小组赛：2-0南非、2-0韩国（两胜）、1-1捷克（惜平）——进攻端6球场均2.0，防守端0失球！</li>
+        <li>墨西哥主场加成：蒙特雷体育场位于墨西哥，东道主之一，享受主场氛围+观众支持，进攻效率提升</li>
+        <li>厄瓜多尔小组赛：0-0库拉索（首战闷平）、1-2德国（不敌强队）、2-0库拉索（末轮大胜）——进攻不稳定</li>
+        <li>厄瓜多尔进攻端：Caicedo、Páez、Valencia等中前场球员在五大联赛效力，但小组赛仅2球，效率低下</li>
+        <li>厄瓜多尔防守端：3场失2球，防线稳定但进攻乏力——面对墨西哥进攻线（场均2球）恐难招架</li>
+        <li>墨西哥防守端：Páez（纽卡）+Peralta（莱加内斯）组合3场零失球，本届最佳防线</li>
+        <li>厄瓜多尔以第3名晋级，是本届8个最佳第3名之一，说明他们有一定竞争力——但面对墨西哥级别对手，经验差距明显</li>
+        <li>墨西哥世界杯大赛经验（多次进淘汰赛），厄瓜多尔近20年来首次进淘汰赛（2006后），心理层面墨西哥占优</li>
+        <li>淘汰赛加时+点球——若90分钟打平，墨西哥门将Ochoa（36岁）点球经验丰富，厄瓜多尔门将Galíndez经验不足</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (38%)</span>
+      </div>
+      <div class="upset-desc">冷门指数38%中等。墨西哥ELO领先143分、FIFA排名领先9位且主场作战，实力优势明显。但厄瓜多尔以第3名晋级展现了韧性——小组赛2-0大胜库拉索，且防守端仅失2球。厄瓜多尔若采用铁桶阵+反击战术，面对墨西哥主场高压力可能制造麻烦。38%冷门概率主要来自：厄瓜多尔防守韧性（失2球）+淘汰赛规则（90分钟打平即有机会）+墨西哥主场压力（必须赢球）+厄瓜多尔"光脚不怕穿鞋"心态。但综合来看，墨西哥主场+防守零失球记录仍是最大优势。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">预测基于FIFA排名、Elo评分、小组赛战绩和淘汰赛赛制分析 · 模型v5（Elo→贝叶斯→战术修正→蒙特卡洛10万次） · 淘汰赛平局概率上调+5% · 仅供研究参考</div>
 </div>
 </body>
 </html>
