@@ -25,8 +25,8 @@ SCHEDULE_DATA['0701'] = `
                     <span class="match-group">1/16决赛</span>
                     <span class="match-team">墨西哥</span>
                     <span class="match-team">厄瓜多尔</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">2</span>
+                    <span class="match-score">0</span>
                     <a href="predictions/0701.html" class="pred-link">📊</a>
                 </div>
             </div>
