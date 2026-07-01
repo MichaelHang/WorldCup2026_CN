@@ -9,39 +9,24 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
-  /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +38,23 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+  .upset-section { background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:0.9em; }
+  .upset-label { color:#8b949e; min-width:80px; }
+  .upset-value { color:#fff; font-weight:700; }
+  .upset-desc { color:#c9d1d9; font-size:0.85em; line-height:1.5; margin-top:6px; }
+  .knockout-section { background:rgba(255,215,0,0.05); border-left:3px solid var(--gold); border-radius:6px; padding:12px 16px; }
+  .knockout-section p { font-size:0.88em; line-height:1.6; margin-bottom:4px; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,87 +66,211 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>7月2日 · 预测</h1>
-    <p class="sub">7场比赛 · 0场已预测</p>
+    <p class="sub">3场比赛 · 1/16决赛（淘汰赛）· 英格兰 vs 刚果民主共和国 · 美国 vs 波黑 · 比利时 vs 塞内加尔</p>
   </header>
   <div class="day-nav"><a href="0701.html" class="nav-btn">← 前一天</a><span class="nav-current">7月2日</span><a href="0703.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">09:00</span>
-        <span class="match-teams">1A vs 3CEFHI</span>
-        <span class="match-venue">墨西哥城体育场</span>
+
+<!-- 英格兰 vs 刚果民主共和国（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰 <span style="color:#8b949e;font-size:0.75em;">(FIFA #4)</span> vs 刚果民主共和国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #46)</span> 🇨🇩</span>
+    <span class="match-venue">亚特兰大体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:65%"></div></div>
+        <span class="prob-pct">65%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:26%"></div></div>
+        <span class="prob-pct">26%</span>
       </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">00:00</span>
-        <span class="match-teams">1L vs 3EHIJK</span>
-        <span class="match-venue">亚特兰大体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">04:00</span>
-        <span class="match-teams">1G vs 3AEHIJ</span>
-        <span class="match-venue">西雅图体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label lose">🇨🇩 刚果民主共和国胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:9%"></div></div>
+        <span class="prob-pct">9%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">08:00</span>
-        <span class="match-teams">1D vs 3BEFIJ</span>
-        <span class="match-venue">旧金山湾区体育场</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">14%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">3-0</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · 亚特兰大体育场</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 英格兰小组赛2胜1平0负积7分（进6球失2球，净胜球+4）以L组第1出线——4-2克罗地亚（首战大捷）、2-0加纳、0-0巴拿马。刚果民主共和国小组赛1胜1平1负积4分（进4球失3球，净胜球+1）以K组第3（最佳第3名）晋级——这是刚果民主共和国历史上首次闯入世界杯淘汰赛。英格兰ELO 2020 vs 刚果民主共和国1661，差距359分，FIFA排名差42位。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：英格兰2020 vs 刚果民主共和国1661，差距359分——英格兰压倒性优势</li>
+        <li>FIFA排名：英格兰#4 vs 刚果民主共和国#46，差距42位，三狮军团为夺冠大热门</li>
+        <li>英格兰小组赛：4-2克罗地亚（首战进球如麻）、2-0加纳、0-0巴拿马——3场进6球仅失2球，攻防稳健</li>
+        <li>英格兰进攻端：Bellingham（皇马）、Palmer（切尔西）、Watkins（沃尔夫斯堡）三叉戟火力全开，小组赛首战4球展现强大攻击深度</li>
+        <li>英格兰防守端：Goshko、Guehi、Alexander-Arnold领衔的防线3场仅失2球，面对刚果民主共和国进攻线应可限制</li>
+        <li>刚果民主共和国小组赛：0-2哥伦比亚、1-1葡萄牙、2-0乌兹别克斯坦——进攻端仅4球，缺乏面对顶级防线的得分能力</li>
+        <li>刚果民主共和国进攻端：Muana（圣埃蒂安）、Mokolo Mbokolo等球员在五大联赛效力有限，面对英格兰级别的攻防体系恐难制造威胁</li>
+        <li>刚果民主共和国历史：1974年首次参赛后至今60年来首次重返世界杯淘汰赛，经验极度匮乏，但首次参赛的兴奋感也可能激发超常发挥</li>
+        <li>英格兰大赛经验：近4届世界杯均进淘汰赛（2018第4、2022亚军、2026小组第1），大赛经验丰富</li>
+        <li>淘汰赛加时+点球规则小幅利好弱队——但英格兰实力差距过大，点球概率仅约12%</li>
+        <li>场地：亚特兰大（美国），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (12%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">冷门指数12%极低。英格兰ELO领先359分、FIFA排名领先42位，小组赛6球进2球失攻防数据碾压。刚果民主共和国虽以最佳第3名晋级且首次进淘汰赛，但小组赛仅进4球、缺乏面对顶级防线的得分经验，面对英格兰级别的攻防体系几乎无力招架。唯一变数是刚果民主共和国的"光脚不怕穿鞋"心态+英格兰轻敌，但综合来看爆冷概率极低。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 美国 vs 波黑（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">06:00</span>
+    <span class="match-teams">🇺🇸 美国 <span style="color:#8b949e;font-size:0.75em;">(FIFA #17)</span> vs 波黑 <span style="color:#8b949e;font-size:0.75em;">(FIFA #64)</span> 🇧🇦</span>
+    <span class="match-venue">旧金山湾区体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇺🇸 美国胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:58%"></div></div>
+        <span class="prob-pct">58%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:27%"></div></div>
+        <span class="prob-pct">27%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇧🇦 波黑胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:15%"></div></div>
+        <span class="prob-pct">15%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">03:00</span>
-        <span class="match-teams">1H vs 2J</span>
-        <span class="match-venue">洛杉矶体育场</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · 旧金山湾区体育场（美国主场）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 美国小组赛2胜0平1负积6分（进8球失4球，净胜球+4）以D组第1出线——2-0澳大利亚、2-3土耳其（爆冷负）、4-1卡塔尔。美国作为东道主在旧金山湾区体育场享受主场氛围加成。波黑小组赛1胜1平1负积4分（进5球失6球，净胜球-1）以B组第3（最佳第3名）晋级——0-2瑞士、1-1加拿大、3-0卡塔尔。美国ELO 1733 vs 波黑1591，差距142分，FIFA排名差47位。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：美国1733 vs 波黑1591，差距142分——美国明显占优但非碾压级</li>
+        <li>FIFA排名：美国#17 vs 波黑#64，差距47位，美国为北美霸主</li>
+        <li>美国小组赛：2-0澳大利亚、2-3土耳其（主场爆冷首负）、4-1卡塔尔——3场进8球失4球，进攻火力强大但防线有漏洞</li>
+        <li>美国进攻端：Pulisic（切尔西/AC米兰）、McKennie（尤文图斯）、Weah（巴黎圣日耳曼）领衔，小组赛8球场均2.7，本届进攻最活跃的东道主之一</li>
+        <li>美国主场加成：旧金山湾区体育场（圣克拉拉），美国为东道主之一，主场氛围+观众支持，进攻效率提升</li>
+        <li>波黑小组赛：0-2瑞士、1-1加拿大、3-0卡塔尔——进攻端5球场均1.7，面对强队瑞士无力，但面对加拿大和卡塔尔展现了一定韧性</li>
+        <li>波黑进攻端：Džeko（36岁自由球员）仍是核心射手，小组赛进2球；Mehmedović（RB莱比锡）速度快但缺乏顶级对抗经验</li>
+        <li>波黑防守端：3场失6球，防线不稳定——面对美国场均2.7球的进攻线，防线压力巨大</li>
+        <li>美国vs土耳其爆冷2-3失利——暴露了美国防线面对技术型进攻时的漏洞，但土耳其已淘汰，此问题影响有限</li>
+        <li>波黑30年来首次进世界杯淘汰赛（1998后），Džeko渴望最后一舞但体能和速度下降</li>
+        <li>淘汰赛加时+点球——若90分钟打平，美国门将Turner点球经验丰富（小组赛表现稳定），波黑门将Karanović经验不足</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (32%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">冷门指数32%中等偏高。美国ELO领先142分且主场作战，实力占优。但美国小组赛2-3负于土耳其暴露了防线在面对技术型进攻时的脆弱性——波黑恰恰拥有以Džeko为核心、Mehmedović为爆点的技术型进攻体系。波黑小组赛1-1逼平加拿大展现了韧性，3-0大胜卡塔尔展示了进攻端爆发力。若波黑采用铁桶阵+反击战术，利用Džeko的头球优势+Mehmedović的速度冲击美国右路，完全有能力制造麻烦。32%冷门概率来自：美国防线漏洞+波黑技术型进攻+Džeko关键球能力+主场压力（美国必须赢球）。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 比利时 vs 塞内加尔（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">09:00</span>
+    <span class="match-teams">🇧🇪 比利时 <span style="color:#8b949e;font-size:0.75em;">(FIFA #9)</span> vs 塞内加尔 <span style="color:#8b949e;font-size:0.75em;">(FIFA #15)</span> 🇸🇳</span>
+    <span class="match-venue">西雅图体育场</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇧🇪 比利时胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:46%"></div></div>
+        <span class="prob-pct">46%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:31%"></div></div>
+        <span class="prob-pct">31%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇸🇳 塞内加尔胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:23%"></div></div>
+        <span class="prob-pct">23%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">07:00</span>
-        <span class="match-teams">2K vs 2L</span>
-        <span class="match-venue">多伦多体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:78%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:68%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:58%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">2-2</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">7%</span></div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">11:00</span>
-        <span class="match-teams">1B vs 3EFGIJ</span>
-        <span class="match-venue">BC Place温哥华</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · 西雅图体育场</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 比利时小组赛1胜2平0负积5分（进6球失2球，净胜球+4）以G组第1出线——1-1埃及、1-1伊朗、4-0新西兰。比利时ELO 1889 vs 塞内加尔1867，差距仅22分（本届淘汰赛最低差距之一），FIFA排名仅差6位（#9 vs #15）。塞内加尔小组赛1胜0平2负积3分（进8球失6球，净胜球+2）以I组第3（最佳第3名）晋级——5-0伊拉克、0-4法国、1-4挪威。两队ELO极度接近，本质是五五开的对决。</p>
     </div>
-  
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：比利时1889 vs 塞内加尔1867，差距仅22分——两队实力几乎完全持平</li>
+        <li>FIFA排名：比利时#9 vs 塞内加尔#15，仅差6位，比利时微弱占优</li>
+        <li>比利时小组赛：1-1埃及、1-1伊朗、4-0新西兰——前两轮连续逼平展现韧性，末轮大胜新西兰激活锋线</li>
+        <li>比利时进攻端：Trossard（阿森纳）、Doku（曼城）、Castro（切尔西）速度快技术好，小组赛6球场均2.0，但面对强队埃及和伊朗仅各进1球</li>
+        <li>比利时防守端：3场仅失2球，Dendoncker（西汉姆联）+Vanden Stock组合稳固，面对塞内加尔进攻线有一定优势</li>
+        <li>塞内加尔小组赛：5-0伊拉克（大胜弱队）、0-4法国（惨败）、1-4挪威（大败）——防守端进6球暴露了面对顶级进攻时的脆弱性</li>
+        <li>塞内加尔进攻端：Mané（利雅得新月）、Sarr（利物浦）领衔，小组赛8球场均2.7，但5球来自伊拉克——面对比利时级别的防线能否复制进球存疑</li>
+        <li>塞内加尔防守端：3场失6球，面对比利时快速反击（Trossard+Doku两翼齐飞）恐难招架</li>
+        <li>两队首次对决：比利时和塞内加尔在世界杯历史上从未交手，属于首次碰面</li>
+        <li>比利时经验：近4届世界杯均进淘汰赛（2014第3、2018第4、2022淘汰赛），大赛经验丰富；但核心球员年龄偏大（De Bruyne 33、Hazard 38已退役），"黄金一代"渐入暮年</li>
+        <li>塞内加尔经验：2002年第4、2018年16强，大赛经验丰富，Mané和Sarr均有多次世界杯经历</li>
+        <li>淘汰赛加时+点球——若90分钟打平，两队门将水平相当（Martínez vs Edouard Mendy），点球大战谁赢难料</li>
+        <li>场地：西雅图（美国），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#D85A30;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟠 较高 (48%)</span>
+      </div>
+      <div class="upset-desc">冷门指数48%偏高——本场是7月2日冷门风险最高的比赛。比利时和塞内加尔ELO仅差22分（全场最小差距之一），FIFA排名仅差6位，本质是五五开的对决。塞内加尔虽以第3名晋级且小组赛防守端暴露问题，但进攻端8球场均2.7的火力不容小觑。比利时虽以小组第1出线但前两轮连续逼平，面对塞内加尔的快速反击（Mané+Sarr两翼齐飞）也非稳操胜券。冷门指数高的核心原因是两队实力极度接近+平局概率31%+塞内加尔进攻端潜在爆发力。若塞内加尔先进球或比利时久攻不下，完全可能被拖入加时甚至点球。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">预测基于FIFA排名、Elo评分、小组赛战绩和淘汰赛赛制分析 · 模型v5（Elo→贝叶斯→战术修正→蒙特卡洛10万次） · 淘汰赛平局概率上调+5% · 仅供研究参考</div>
 </div>
 </body>
 </html>
