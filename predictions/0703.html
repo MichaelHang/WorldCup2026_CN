@@ -9,39 +9,24 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
-  /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +38,23 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+  .upset-section { background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:0.9em; }
+  .upset-label { color:#8b949e; min-width:80px; }
+  .upset-value { color:#fff; font-weight:700; }
+  .upset-desc { color:#c9d1d9; font-size:0.85em; line-height:1.5; margin-top:6px; }
+  .knockout-section { background:rgba(255,215,0,0.05); border-left:3px solid var(--gold); border-radius:6px; padding:12px 16px; }
+  .knockout-section p { font-size:0.88em; line-height:1.6; margin-bottom:4px; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,43 +66,215 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>7月3日 · 预测</h1>
-    <p class="sub">3场比赛 · 0场已预测</p>
+    <p class="sub">3场比赛 · 1/16决赛（32强）· 西班牙 vs 奥地利 · 葡萄牙 vs 克罗地亚 · 瑞士 vs 阿尔及利亚</p>
   </header>
-  <div class="day-nav"><a href="0702.html" class="nav-btn">← 前一天</a><span class="nav-current">7月3日</span><a href="0705.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">02:00</span>
-        <span class="match-teams">2D vs 2G</span>
-        <span class="match-venue">达拉斯体育场</span>
+  <div class="day-nav"><a href="0702.html" class="nav-btn">← 前一天</a><span class="nav-current">7月3日</span><a href="0704.html" class="nav-btn">后一天 →</a></div>
+
+<!-- 西班牙 vs 奥地利（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">03:00</span>
+    <span class="match-teams">🇪🇸 西班牙 <span style="color:#8b949e;font-size:0.75em;">(FIFA #2)</span> vs 奥地利 <span style="color:#8b949e;font-size:0.75em;">(FIFA #24)</span> 🇦🇹</span>
+    <span class="match-venue">SoFi体育场（洛杉矶）</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇪🇸 西班牙胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:62%"></div></div>
+        <span class="prob-pct">62%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:26%"></div></div>
+        <span class="prob-pct">26%</span>
       </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">06:00</span>
-        <span class="match-teams">1J vs 2H</span>
-        <span class="match-venue">迈阿密体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">09:00</span>
-        <span class="match-teams">1K vs 3DEIJL</span>
-        <span class="match-venue">堪萨斯城体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label lose">🇦🇹 奥地利胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:12%"></div></div>
+        <span class="prob-pct">12%</span>
       </div>
     </div>
-  
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:95%"></div></div><span class="score-pct">13%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:82%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">3-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:45%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · SoFi体育场（洛杉矶）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 西班牙小组赛2胜1平0负积7分（进5球失0球，净胜球+5）以H组第1出线——4-0沙特阿拉伯、0-0佛得角、1-0乌拉圭，小组赛保持零失球纪录，攻防数据全场最佳。西班牙ELO 2144 vs 奥地利1836，差距308分，FIFA排名差22位（#2 vs #24）。奥地利小组赛1胜1平1负积4分（进6球失6球，净胜球0）以J组第2出线——6-0约旦、3-3阿尔及利亚、0-1阿根廷。西班牙本届夺冠最大热门，奥地利小组赛面对阿尔及利亚3-3被逼平已暴露面对非洲技术流球队的困难。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：西班牙2144 vs 奥地利1836，差距308分——西班牙压倒性优势，本届所有对阵中第2大ELO差距</li>
+        <li>FIFA排名：西班牙#2 vs 奥地利#24，差距22位，现任世界冠军（2024欧洲杯冠军）</li>
+        <li>西班牙小组赛：4-0沙特（首战大胜）、0-0佛得角、1-0乌拉圭——3场进5球**零失球**，本届唯一小组赛零失球的小组第1</li>
+        <li>西班牙进攻端：Rodri（曼城）+Pedri+Gavi中场控制力极强，Nico Williams（毕尔巴鄂）、Lamine Yamal（巴萨）两翼速度惊人，Morata（AC米兰）终结能力稳定</li>
+        <li>西班牙防守端：Laporte+Le Normand领衔后防线3场零失球，面对奥地利场均2球的进攻线完全压制</li>
+        <li>奥地利小组赛：6-0约旦（大胜弱队）、3-3阿尔及利亚（3球被追平）、0-1阿根廷（面对强队无力）——3场进6球失6球，攻防均不稳定</li>
+        <li>奥地利进攻端：Laimer（拜仁）、Wimmer、Babell场均2球火力不弱，但面对西班牙级别的防守恐难复制6-0约旦的比分</li>
+        <li>奥地利防守端：3场失6球，面对西班牙场均1.7球的进攻线，防线压力巨大；3-3阿尔及利亚已暴露防守漏洞</li>
+        <li>西班牙vs佛得角0-0——面对弱队仅1球展现西班牙面对铁桶阵时的攻坚短板，但奥地利并非纯粹的防守型球队</li>
+        <li>奥地利vs阿尔及利亚3-3——主场领先3球被非洲球队连追3球，展现心理层面的不稳定</li>
+        <li>淘汰赛加时+点球——若90分钟打平，西班牙门将乌奈·西蒙点球经验丰富（2024欧洲杯门将），奥地利门将Pichler经验不足</li>
+        <li>场地：SoFi体育场（洛杉矶，美国），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (11%)</span>
+      </div>
+      <div class="upset-desc">冷门指数11%极低。西班牙ELO领先308分（全场第2大差距）、FIFA排名领先22位、小组赛零失球攻防数据完美。奥地利虽小组赛进6球但失6球，攻防极不稳定——面对西班牙级别的攻防体系几乎无力招架。唯一变数是奥地利"光脚不怕穿鞋"的放手一搏心态+西班牙面对弱队攻坚乏力的隐患，但综合来看爆冷概率极低。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 葡萄牙 vs 克罗地亚（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">06:00</span>
+    <span class="match-teams">🇵🇹 葡萄牙 <span style="color:#8b949e;font-size:0.75em;">(FIFA #5)</span> vs 克罗地亚 <span style="color:#8b949e;font-size:0.75em;">(FIFA #11)</span> 🇭🇷</span>
+    <span class="match-venue">BMO Field（多伦多）</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇵🇹 葡萄牙胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:45%"></div></div>
+        <span class="prob-pct">45%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:32%"></div></div>
+        <span class="prob-pct">32%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇭🇷 克罗地亚胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:23%"></div></div>
+        <span class="prob-pct">23%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:50%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · BMO Field（多伦多）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 葡萄牙小组赛1胜2平0负积5分（进6球失1球，净胜球+5）以K组第2出线——0-0哥伦比亚、5-0乌兹别克斯坦、1-1刚果民主共和国。葡萄牙ELO 1990 vs 克罗地亚1905，差距仅85分（全场最小差距之一），FIFA排名仅差6位（#5 vs #11）。克罗地亚小组赛2胜0平1负积6分（进5球失5球，净胜球0）以L组第2出线——1-0加纳、0-0英格兰、0-1巴拿马（末轮爆冷负）。两队实力极度接近，C罗vs莫德里奇的球星对决将是本场焦点。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：葡萄牙1990 vs 克罗地亚1905，差距仅85分——两队实力几乎完全持平，全场最小ELO差距之一</li>
+        <li>FIFA排名：葡萄牙#5 vs 克罗地亚#11，仅差6位，葡萄牙微弱占优</li>
+        <li>葡萄牙小组赛：0-0哥伦比亚、5-0乌兹别克斯坦、1-1刚果民主共和国——末轮1-1被刚果民主共和国逼平暴露了面对铁桶阵时的攻坚短板</li>
+        <li>葡萄牙进攻端：C罗（39岁自由球员）+Raphinha（巴萨）+Leão（AC米兰）+B. Fernandes（曼联），进攻线豪华；5-0乌兹别克斯坦展现火力上限，但面对哥伦比亚和刚果民主共和国进攻哑火</li>
+        <li>葡萄牙防守端：3场仅失1球（1球来自刚果民主共和国），Ruben Dias（曼城）+Cancelo领衔防线极为稳固，面对克罗地亚场均1.7球的进攻有一定优势</li>
+        <li>克罗地亚小组赛：1-0加纳、0-0英格兰、0-1巴拿马——末轮0-1负于巴拿马暴露了面对弱队时心理层面的脆弱性</li>
+        <li>克罗地亚进攻端：莫德里奇（皇马/39岁）+科瓦契奇（切尔西）+布罗佐维奇中场技术流，Perišić+Kramarić锋线经验丰富；但面对英格兰0球、面对葡萄牙级别的防线进攻效率存疑</li>
+        <li>克罗地亚防守端：3场失5球，面对葡萄牙场均2球的进攻线，防线压力较大</li>
+        <li>C罗vs莫德里奇：两位39岁的传奇球星的世界杯告别战可能性极高，情感加成可能影响比赛表现</li>
+        <li>克罗地亚大赛经验：2018年冠军、2022年亚军，世界杯大赛经验极其丰富，末轮爆冷负巴拿马反而可能是"轻装上阵"的信号</li>
+        <li>葡萄牙大赛经验：2016年欧洲杯冠军、2022世界杯第4，大赛经验丰富；但C罗年龄偏大，小组赛仅2球（含1点球）状态并非巅峰</li>
+        <li>淘汰赛加时+点球——若90分钟打平，葡萄牙门将迪奥戈·科斯塔（莱比锡）经验丰富，克罗地亚门将利瓦科维奇（贝西克塔斯）2022世界杯点球大战表现优异</li>
+        <li>场地：BMO Field（多伦多，加拿大），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (33%)</span>
+      </div>
+      <div class="upset-desc">冷门指数33%中等。葡萄牙和克罗地亚ELO仅差85分（全场最小差距之一），FIFA排名仅差6位，本质是五五开的对决。克罗地亚虽末轮爆冷负巴拿马，但面对英格兰逼平0-0展现了韧性，莫德里奇+科瓦契奇+布罗佐维奇的中场组合面对葡萄牙中场仍有相当竞争力。葡萄牙小组赛末轮1-1被刚果民主共和国逼平暴露了攻坚短板，面对克罗地亚2018冠军级别的中场控制力，进攻端能否打开局面存疑。33%冷门概率来自：两队实力极度接近+Elo差距全场最小+克罗地亚大赛经验丰富+葡萄牙攻坚短板+C罗年龄因素。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 瑞士 vs 阿尔及利亚（1/16决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">09:00</span>
+    <span class="match-teams">🇨🇭 瑞士 <span style="color:#8b949e;font-size:0.75em;">(FIFA #19)</span> vs 阿尔及利亚 <span style="color:#8b949e;font-size:0.75em;">(FIFA #28)</span> 🇩🇿</span>
+    <span class="match-venue">BC Place（温哥华）</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇨🇭 瑞士胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:52%"></div></div>
+        <span class="prob-pct">52%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:25%"></div></div>
+        <span class="prob-pct">25%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇩🇿 阿尔及利亚胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:23%"></div></div>
+        <span class="prob-pct">23%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:90%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:68%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:60%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:48%"></div></div><span class="score-pct">7%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/16决赛 · 单场淘汰制 · BC Place（温哥华）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 瑞士小组赛2胜1平0负积7分（进7球失3球，净胜球+4）以B组第1出线——2-1加拿大、0-0波黑、5-1卡塔尔。瑞士ELO 1914 vs 阿尔及利亚1785，差距129分，FIFA排名差9位（#19 vs #28）。阿尔及利亚小组赛1胜1平1负积4分（进5球失7球，净胜球-2）以J组第3（最佳第3名）晋级——1-0约旦、3-3奥地利、0-1阿根廷。阿尔及利亚本届最大黑马，热身赛1-0客胜荷兰展现超强竞争力。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：瑞士1914 vs 阿尔及利亚1785，差距129分——瑞士占优但非碾压级</li>
+        <li>FIFA排名：瑞士#19 vs 阿尔及利亚#28，差距9位，瑞士占优但两队同属二流强队范畴</li>
+        <li>瑞士小组赛：2-1加拿大、0-0波黑、5-1卡塔尔——3场进7球失3球，攻防均衡；末轮5-1大胜卡塔尔激活锋线</li>
+        <li>瑞士进攻端：Freuler（多特蒙德）+Xhaka（阿森纳）中场+Zakuani（法兰克福）+Ruuf（伯恩利）锋线，小组赛7球场均2.3，进攻端爆发力强</li>
+        <li>瑞士防守端：3场失3球场均1.0，Schär（莱比锡）+Akanji（多特蒙德）后防线稳固，面对阿尔及利亚场均1.7球的进攻有一定优势</li>
+        <li>阿尔及利亚小组赛：1-0约旦、3-3奥地利、0-1阿根廷——热身赛1-0客胜荷兰（本届最大冷门）展现超强竞争力</li>
+        <li>阿尔及利亚进攻端：Gouiri（里尔）、Zerrouki（摩纳哥）、Bounedjah领衔，小组赛5球场均1.7，面对奥地利3球爆发展现进攻端上限</li>
+        <li>阿尔及利亚防守端：3场失7球场均2.3，面对瑞士场均2.3球的进攻线，防线压力巨大；但热身赛1-0荷兰证明其防守端能限制顶级进攻</li>
+        <li>阿尔及利亚vs奥地利3-3：3球落后连追3球展现超强韧性，但同时也暴露了面对强队进攻时的防守脆弱性</li>
+        <li>阿尔及利亚vs阿根廷0-1：面对夺冠热门仅失1球展现防守韧性，但进攻端面对梅西级别的组织无力</li>
+        <li>阿尔及利亚历史：2014年世界杯16强后12年来首次重返淘汰赛，经验不足但本届热身赛1-0荷兰证明心态已完全不同</li>
+        <li>瑞士vs波黑0-0：面对有Džeko的进攻线仅0-0，但瑞士面对阿尔及利亚的非洲技术流进攻体系战术不同</li>
+        <li>淘汰赛加时+点球——若90分钟打平，瑞士门将Sommer（多特蒙德）经验极其丰富，阿尔及利亚门将M'Boli（里尔）经验不足但本届状态不错</li>
+        <li>场地：BC Place（温哥华，加拿大），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (24%)</span>
+      </div>
+      <div class="upset-desc">冷门指数24%中等偏低。瑞士ELO领先129分、FIFA排名领先9位，小组赛以小组第1出线攻防数据均衡。但阿尔及利亚本届表现远超预期——热身赛1-0客胜荷兰（本届最大冷门）、小组赛面对奥地利3球落后连追3球展现超强韧性。阿尔及利亚以J组第3（最佳第3名）晋级，12年来首次重返淘汰赛，"必须赢球"的心态+非洲球队的斗志完全有能力制造麻烦。若阿尔及利亚采用铁桶阵+反击战术，利用Gouiri和Zerrouki的速度冲击瑞士右路，完全有能力逼平甚至逆转。但综合来看，瑞士小组赛零负+面对波黑0-0的防守稳定性仍是优势。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">预测基于FIFA排名、Elo评分、小组赛战绩和淘汰赛赛制分析 · 模型v5（Elo→贝叶斯→战术修正→蒙特卡洛10万次） · 淘汰赛平局概率上调+5% · 仅供研究参考</div>
 </div>
 </body>
 </html>
