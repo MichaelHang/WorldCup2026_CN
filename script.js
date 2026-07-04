@@ -24,7 +24,7 @@ var STAGES = [
     {key:'32', title:'Round of 32（1/16决赛）', cls:'stage-32',
      dates:['0629','0630','0701','0702','0703','0704']},
     {key:'16', title:'Round of 16（1/8决赛）', cls:'stage-16',
-     dates:['0705','0706']},
+     dates:['0705','0706','0707','0708']},
     {key:'quarter', title:'Quarter-finals（1/4决赛）', cls:'stage-quarter',
      dates:['0715']},
     {key:'semi', title:'Semi-finals（半决赛）', cls:'stage-semi',

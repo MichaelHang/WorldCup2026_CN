@@ -5,43 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026世界杯 7月6日 预测</title>
 <style>
-  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --accent: #58a6ff; --gold: #FFD700; --green: #3fb950; --red: #f85149; }
+  :root { --bg: #0d1117; --card: #161b22; -border: #30363d; --accent: #58a6ff; --gold: #FFD700; --green: #3fb950; --red: #f85149; }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
   .container { max-width:780px; margin:0 auto; }
-  
   .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
   .back-link:hover { color:var(--gold); }
-  
   header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
   header h1 { font-size:1.5em; color:#fff; }
   header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
-  
   .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
   .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
   .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
   .nav-current { color:#fff; font-weight:700; font-size:1em; }
-  
-  /* Match cards */
   .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
   .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
   .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
   .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
   .match-venue { color:#8b949e; font-size:0.8em; }
-  
   .match-body { padding:20px; }
-  
-  /* Placeholder */
-  .placeholder-card .match-body { text-align:center; padding:30px 20px; }
-  .ph-icon { font-size:2em; margin-bottom:8px; }
-  .placeholder-card .match-body p { color:#8b949e; font-size:0.95em; }
-  
-  /* Predicted card sections */
-  .prob-section, .score-section, .factor-section, .script-section { margin-bottom:16px; }
-  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .script-section:last-child { margin-bottom:0; }
-  
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
   .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
-  
   .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
   .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
   .prob-label.win { color:var(--green); }
@@ -53,24 +38,23 @@
   .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
   .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
   .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
-  
   .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
   .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
   .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
   .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
-  
   .factor-section ul { list-style:none; padding:0; }
   .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
   .factor-section li::before { content:"▸ "; color:var(--accent); }
   .factor-section li:last-child { border-bottom:none; }
-  
-  .script-item { margin-bottom:8px; display:flex; gap:8px; align-items:baseline; }
-  .script-label { font-weight:700; color:var(--accent); font-size:0.85em; min-width:48px; }
-  .script-desc { font-size:0.9em; line-height:1.5; }
-  
+  .upset-section { background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:0.9em; }
+  .upset-label { color:#8b949e; min-width:80px; }
+  .upset-value { color:#fff; font-weight:700; }
+  .upset-desc { color:#c9d1d9; font-size:0.85em; line-height:1.5; margin-top:6px; }
+  .knockout-section { background:rgba(255,215,0,0.05); border-left:3px solid var(--gold); border-radius:6px; padding:12px 16px; }
+  .knockout-section p { font-size:0.88em; line-height:1.6; margin-bottom:4px; }
   .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
-  
   @media (max-width:700px) {
     .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
     .prob-label { min-width:70px; font-size:0.82em; }
@@ -82,54 +66,136 @@
   <a href="../index.html" class="back-link">&larr; 返回赛程</a>
   <header>
     <h1>7月6日 · 预测</h1>
-    <p class="sub">4场比赛 · 0场已预测</p>
+    <p class="sub">2场比赛 · 1/8决赛（16强） · 巴西 vs 挪威 · 墨西哥 vs 英格兰</p>
   </header>
-  <div class="day-nav"><a href="0705.html" class="nav-btn">← 前一天</a><span class="nav-current">7月6日</span><a href="0715.html" class="nav-btn">后一天 →</a></div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">03:00</span>
-        <span class="match-teams">W83 vs W84</span>
-        <span class="match-venue">达拉斯体育场</span>
+  <div class="day-nav"><a href="0705.html" class="nav-btn">← 前一天</a><span class="nav-current">7月6日</span><a href="0707.html" class="nav-btn">后一天 →</a></div>
+
+<!-- 巴西 vs 挪威（1/8决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">04:00</span>
+    <span class="match-teams">🇧🇷 巴西 <span style="color:#8b949e;font-size:0.75em;">(FIFA #6)</span> vs 挪威 <span style="color:#8b949e;font-size:0.75em;">(FIFA #31)</span> 🇳🇴</span>
+    <span class="match-venue">MetLife体育场（东卢瑟福）</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇧🇷 巴西胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:48%"></div></div>
+        <span class="prob-pct">48%</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:32%"></div></div>
+        <span class="prob-pct">32%</span>
       </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">08:00</span>
-        <span class="match-teams">W81 vs W82</span>
-        <span class="match-venue">西雅图体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
-      </div>
-    </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">00:00</span>
-        <span class="match-teams">W86 vs W88</span>
-        <span class="match-venue">亚特兰大体育场</span>
-      </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="prob-row">
+        <span class="prob-label lose">🇳🇴 挪威胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:20%"></div></div>
+        <span class="prob-pct">20%</span>
       </div>
     </div>
-    <div class="match-card placeholder-card">
-      <div class="match-header">
-        <span class="match-time">04:00</span>
-        <span class="match-teams">W85 vs W87</span>
-        <span class="match-venue">BC Place温哥华</span>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:100%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:85%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/8决赛 · 单场淘汰制 · MetLife体育场（东卢瑟福）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 巴西小组赛2胜1负0平积6分（进6球失3球，净胜球+3）以H组第1出线——3-0海地、2-1日本、1-2葡萄牙（末轮惜败）。挪威小组赛2胜0平1负积6分（进5球失3球，净胜球+2）以I组第2出线——3-1伊拉克、3-0塞内加尔、1-1法国（末轮逼平）。巴西Elo 2031 vs 挪威1934，差距97分（全场最小ELO差距之一），FIFA排名差25位（#6 vs #31）。两队实力接近但巴西拥有Vini Jr.、Rodrygo等世界级攻击手，进攻火力更胜一筹。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：巴西2031 vs 挪威1934，差距97分——本届对阵中最小ELO差距，两队实力几乎完全持平</li>
+        <li>FIFA排名：巴西#6 vs 挪威#31，差距25位，巴西为传统足球强国</li>
+        <li>巴西1/16决赛：2-1日本——险胜晋级，Vini Jr.（皇马）状态出色，但2-1的比分暴露了面对亚洲技术流球队时的防守隐患</li>
+        <li>挪威1/16决赛：2-1科特迪瓦——险胜晋级，Haaland（曼城）状态火热；但2-1的比分也暴露了防守隐患</li>
+        <li>挪威进攻端：Haaland（曼城/28岁）本届预选赛16球，小组赛2球状态不错；但挪威整体进攻依赖Haaland个人能力，若被限制则进攻乏力</li>
+        <li>巴西进攻端：Vini Jr.（皇马）+Rodrygo（皇马）+Estêvão（切尔西）锋线世界级，本届3场6球场均2球</li>
+        <li>场地：MetLife体育场（东卢瑟福，美国），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (43%)</span>
       </div>
-      <div class="match-body">
-        <div class="ph-icon">🔮</div>
-        <p>预测尚未发布</p>
+      <div class="upset-desc">冷门指数43%中等。巴西和挪威ELO差距仅97分（全场最小级别之一），两队实力接近。挪威拥有Haaland这一世界级中锋，本届预选赛16球火力强劲。巴西虽FIFA排名高但小组赛末轮1-2负葡萄牙、1/16决赛2-1险胜日本，攻防两端均暴露不稳定因素。43%冷门概率来自：Elo差距全场最小+Haaland世界级中锋+巴西末轮负葡萄牙暴露防守隐患。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 墨西哥 vs 英格兰（1/8决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">08:00</span>
+    <span class="match-teams">🇲🇽 墨西哥 <span style="color:#8b949e;font-size:0.75em;">(FIFA #14)</span> vs 英格兰 <span style="color:#8b949e;font-size:0.75em;">(FIFA #4)</span> 🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+    <span class="match-venue">Estadio Azteca（墨西哥城）</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇲🇽 墨西哥胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:24%"></div></div>
+        <span class="prob-pct">24%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:31%"></div></div>
+        <span class="prob-pct">31%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:45%"></div></div>
+        <span class="prob-pct">45%</span>
       </div>
     </div>
-  
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:100%"></div></div><span class="score-pct">12%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:85%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">8%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/8决赛 · 单场淘汰制 · Estadio Azteca（墨西哥城）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 墨西哥小组赛2胜1平0负积7分（进5球失2球，净胜球+3）以A组第1出线——3-0捷克、1-1南非、2-0韩国。英格兰小组赛2胜1平0负积7分（进6球失2球，净胜球+4）以L组第1出线——2-0巴拿马、1-1加纳、3-1克罗地亚。墨西哥Elo 1943 vs 英格兰2046，差距103分，FIFA排名差10位（#14 vs #4）。英格兰纸面实力占优但墨西哥在Estadio Azteca（墨西哥城）主场作战，本届东道主之一享有主场优势，加之墨西哥2-0厄瓜多尔展现的攻防均衡能力，本场胜负难料。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：墨西哥1943 vs 英格兰2046，差距103分——本届对阵中较小ELO差距，英格兰略占优</li>
+        <li>FIFA排名：墨西哥#14 vs 英格兰#4，差距10位，英格兰为传统足球强国</li>
+        <li>墨西哥1/16决赛：2-0厄瓜多尔——完胜晋级展现攻防两端碾压优势，门将González表现出色</li>
+        <li>英格兰1/16决赛：2-1刚果民主共和国——险胜晋级，Bellingham（皇马）、Palmer（切尔西）状态不错，但2-1的比分暴露了面对快速反击时的防守隐患</li>
+        <li>墨西哥进攻端：Higuain（那不勒斯）+Pineda（莱斯特城）锋线冲击力不错</li>
+        <li>英格兰进攻端：Bellingham（皇马）+Saka（阿森纳）+Palmer（切尔西）锋线世界级；本届3场6球场均2球，进攻火力全场前列</li>
+        <li>墨西哥主场优势：Estadio Azteca（墨西哥城）是墨西哥的"魔鬼主场"，本届东道主之一享有真正主场加成，墨西哥球迷氛围将是最大优势</li>
+        <li>场地：Estadio Azteca（墨西哥城，墨西哥），东道主主场——墨西哥享有真正主场加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (41%)</span>
+      </div>
+      <div class="upset-desc">冷门指数41%中等。墨西哥ELO仅落后英格兰103分、FIFA排名仅差10位，两队实力接近。墨西哥主场作战（Estadio Azteca，东道主之一享有真正主场加成）+小组赛3场仅失2球防守稳健+1/16决赛2-0完胜厄瓜多尔展现攻防碾压能力。41%冷门概率来自：Elo差距全场最小+Elo接近+墨西哥主场加成+墨西哥小组赛防守稳健+英格兰末轮负克罗地亚暴露防守隐患。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">预测基于FIFA排名、Elo评分、小组赛战绩和淘汰赛赛制分析 · 模型v5（Elo→贝叶斯→战术修正→蒙特卡洛10万次） · 淘汰赛平局概率上调+5% · 仅供研究参考</div>
 </div>
 </body>
 </html>
