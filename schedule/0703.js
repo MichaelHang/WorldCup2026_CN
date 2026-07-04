@@ -7,8 +7,8 @@ SCHEDULE_DATA['0703'] = `
                     <span class="match-group">1/16决赛</span>
                     <span class="match-team">葡萄牙</span>
                     <span class="match-team">克罗地亚</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">2</span>
+                    <span class="match-score">1</span>
                     <a href="predictions/0703.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
@@ -16,8 +16,8 @@ SCHEDULE_DATA['0703'] = `
                     <span class="match-group">1/16决赛</span>
                     <span class="match-team">西班牙</span>
                     <span class="match-team">奥地利</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">3</span>
+                    <span class="match-score">0</span>
                     <a href="predictions/0703.html" class="pred-link">📊</a>
                 </div>
                 <div class="match-row">
@@ -25,8 +25,8 @@ SCHEDULE_DATA['0703'] = `
                     <span class="match-group">1/16决赛</span>
                     <span class="match-team">瑞士</span>
                     <span class="match-team">阿尔及利亚</span>
-                    <span class="match-score">—</span>
-                    <span class="match-score">—</span>
+                    <span class="match-score">2</span>
+                    <span class="match-score">0</span>
                     <a href="predictions/0703.html" class="pred-link">📊</a>
                 </div>
             </div>
