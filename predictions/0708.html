@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026世界杯 7月8日 预测</title>
+<style>
+  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --accent: #58a6ff; --gold: #FFD700; --green: #3fb950; --red: #f85149; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI','Microsoft YaHei',sans-serif; background:var(--bg); color:#c9d1d9; min-height:100vh; padding:20px; }
+  .container { max-width:780px; margin:0 auto; }
+  .back-link { display:inline-block; color:var(--accent); text-decoration:none; font-size:0.95em; margin-bottom:12px; transition:color 0.2s; }
+  .back-link:hover { color:var(--gold); }
+  header { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-bottom:20px; }
+  header h1 { font-size:1.5em; color:#fff; }
+  header .sub { color:#8b949e; font-size:0.9em; margin-top:4px; }
+  .day-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; gap:12px; }
+  .nav-btn { color:var(--accent); text-decoration:none; font-size:0.9em; padding:8px 16px; border:1px solid var(--border); border-radius:8px; background:var(--card); transition:all 0.2s; }
+  .nav-btn:hover { border-color:var(--accent); color:var(--gold); }
+  .nav-current { color:#fff; font-weight:700; font-size:1em; }
+  .match-card { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
+  .match-header { display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+  .match-time { color:var(--gold); font-weight:700; font-size:0.95em; min-width:50px; }
+  .match-teams { color:#fff; font-weight:700; font-size:1.05em; flex:1; }
+  .match-venue { color:#8b949e; font-size:0.8em; }
+  .match-body { padding:20px; }
+  .prob-section, .score-section, .factor-section, .upset-section, .knockout-section { margin-bottom:16px; }
+  .prob-section:last-child, .score-section:last-child, .factor-section:last-child, .upset-section:last-child, .knockout-section:last-child { margin-bottom:0; }
+  .match-body h3 { font-size:0.95em; color:var(--gold); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
+  .prob-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .prob-label { min-width:85px; font-weight:600; font-size:0.88em; }
+  .prob-label.win { color:var(--green); }
+  .prob-label.draw { color:#8b949e; }
+  .prob-label.lose { color:var(--red); }
+  .prob-bar-bg { flex:1; height:20px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden; }
+  .prob-bar { height:100%; border-radius:10px; }
+  .prob-bar.win { background:linear-gradient(90deg,#238636,#3fb950); }
+  .prob-bar.draw { background:linear-gradient(90deg,#484f58,#6e7681); }
+  .prob-bar.lose { background:linear-gradient(90deg,#b62324,#f85149); }
+  .prob-pct { min-width:45px; text-align:right; font-weight:700; font-size:0.95em; color:#fff; }
+  .score-item { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .score-label { min-width:35px; font-weight:700; color:#fff; font-size:0.9em; }
+  .score-bar-bg { flex:1; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; }
+  .score-bar { height:100%; background:linear-gradient(90deg,rgba(88,166,255,0.6),rgba(88,166,255,0.2)); border-radius:7px; }
+  .score-pct { min-width:35px; text-align:right; color:#8b949e; font-size:0.85em; }
+  .factor-section ul { list-style:none; padding:0; }
+  .factor-section li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9em; line-height:1.5; }
+  .factor-section li::before { content:"▸ "; color:var(--accent); }
+  .factor-section li:last-child { border-bottom:none; }
+  .upset-section { background:rgba(255,255,255,0.02); border-radius:8px; padding:12px 16px; }
+  .upset-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:0.9em; }
+  .upset-label { color:#8b949e; min-width:80px; }
+  .upset-value { color:#fff; font-weight:700; }
+  .upset-desc { color:#c9d1d9; font-size:0.85em; line-height:1.5; margin-top:6px; }
+  .knockout-section { background:rgba(255,215,0,0.05); border-left:3px solid var(--gold); border-radius:6px; padding:12px 16px; }
+  .knockout-section p { font-size:0.88em; line-height:1.6; margin-bottom:4px; }
+  .footer-note { text-align:center; color:#484f58; font-size:0.78em; margin-top:24px; padding:12px; }
+  @media (max-width:700px) {
+    .match-header { flex-direction:column; align-items:flex-start; gap:4px; }
+    .prob-label { min-width:70px; font-size:0.82em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back-link">&larr; 返回赛程</a>
+  <header>
+    <h1>7月8日 · 预测</h1>
+    <p class="sub">2场比赛 · 1/8决赛（16强） · 阿根廷 vs 埃及 · 瑞士 vs 哥伦比亚</p>
+  </header>
+  <div class="day-nav"><a href="0707.html" class="nav-btn">← 前一天</a><span class="nav-current">7月8日</span><a href="0709.html" class="nav-btn" style="opacity:0.5;pointer-events:none;">后一天 →</a></div>
+
+<!-- 阿根廷 vs 埃及（1/8决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">00:00</span>
+    <span class="match-teams">🇦🇷 阿根廷 <span style="color:#8b949e;font-size:0.75em;">(FIFA #1)</span> vs 埃及 <span style="color:#8b949e;font-size:0.75em;">(FIFA #29)</span> 🇪🇬</span>
+    <span class="match-venue">Mercedes-Benz体育场（亚特兰大）</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇦🇷 阿根廷胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:63%"></div></div>
+        <span class="prob-pct">63%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:24%"></div></div>
+        <span class="prob-pct">24%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇪🇬 埃及胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:13%"></div></div>
+        <span class="prob-pct">13%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">2-0</span><div class="score-bar-bg"><div class="score-bar" style="width:100%"></div></div><span class="score-pct">11%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:85%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">2-1</span><div class="score-bar-bg"><div class="score-bar" style="width:75%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:65%"></div></div><span class="score-pct">7%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:55%"></div></div><span class="score-pct">6%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/8决赛 · 单场淘汰制 · Mercedes-Benz体育场（亚特兰大）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 阿根廷小组赛4胜0平0负积9分（进8球失1球，净胜球+7）以J组第1完美出线——3-0阿尔及利亚、2-0奥地利、3-1约旦。埃及小组赛1胜2平1负积5分（进5球失3球，净胜球+2）以G组第2出线——3-1新西兰、1-1比利时、1-1伊朗。阿根廷Elo 2151 vs 埃及1747，差距404分（本届最大ELO差距之一），FIFA排名差28位（#1 vs #29）。阿根廷1/16决赛3-2佛得角惊险晋级（Messi梅开二度），埃及1/16决赛1-1战平澳大利亚后点球晋级，Salah首秀即贡献关键进攻。本届淘汰赛已产生3大冷门——挪威2-1巴西、英格兰3-2墨西哥、比利时4-1美国。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：阿根廷2151 vs 埃及1747，差距404分——本届对阵中最大ELO差距，阿根廷纸面实力碾压</li>
+        <li>FIFA排名：阿根廷#1 vs 埃及#29，差距28位，阿根廷为卫冕冠军，世界排名第一</li>
+        <li>梅西状态：本届已进7球（小组赛+R32），R32对阵佛得角帽子戏法级表现，39岁仍状态巅峰，每场均直接参与进攻组织</li>
+        <li>阿根廷攻防：小组赛8球进1球失（场均失球0.25），E. Martinez（阿斯顿维拉）门将世界顶级，后防线Romero+L. Martinez（曼联）身体对抗碾压级</li>
+        <li>阿根廷中场：Mac Allister（利物浦）+Fernandez（曼联）+De Paul（马竞）铁三角控球率全场前3，场均控球65%+</li>
+        <li>埃及防守：Hossam Hassan打造的5后卫体系本届表现坚韧——小组赛4场场均仅失0.75球，R32对阵澳大利亚0-0逼平90分钟</li>
+        <li>埃及进攻：Salah（切尔西/35岁）本届1球+关键进攻参与，Marmoush（曼城）反击速度极快，两人连线是埃及唯一破局武器</li>
+        <li>埃及历史：从未在世界杯淘汰赛阶段晋级过，本届已是历史最佳战绩；面对阿根廷世界杯历史1胜1平1负，从未赢过阿根廷</li>
+        <li>场地：Mercedes-Benz体育场（亚特兰大，美国），中立场地，无东道主加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B6D11;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟢 低 (11%)</span>
+      </div>
+      <div class="upset-desc">冷门指数11%极低。阿根廷ELO领先404分（本届最大差距）、FIFA排名领先28位、小组赛9分完美战绩+R32梅西梅开二度，综合实力完全碾压。梅西本届7球已超越C罗世界杯单届纪录，阿根廷攻防两端（8球进1球失）均为全场顶级。埃及虽防守坚韧但进攻仅靠Salah一人，R32点球晋级已耗尽运气。11%冷门概率仅来自：Salah个人爆冷能力+埃及大赛韧性+本届淘汰赛已出3大冷门的不确定性氛围。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 瑞士 vs 哥伦比亚（1/8决赛） -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-time">04:00</span>
+    <span class="match-teams">🇨🇭 瑞士 <span style="color:#8b949e;font-size:0.75em;">(FIFA #19)</span> vs 哥伦比亚 <span style="color:#8b949e;font-size:0.75em;">(FIFA #13)</span> 🇨🇴</span>
+    <span class="match-venue">BC Place（温哥华）</span>
+  </div>
+  <div class="match-body">
+    <div class="prob-section">
+      <h3>预测概率</h3>
+      <div class="prob-row">
+        <span class="prob-label win">🇨🇭 瑞士胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar win" style="width:24%"></div></div>
+        <span class="prob-pct">24%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label draw">平局</span>
+        <div class="prob-bar-bg"><div class="prob-bar draw" style="width:34%"></div></div>
+        <span class="prob-pct">34%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label lose">🇨🇴 哥伦比亚胜</span>
+        <div class="prob-bar-bg"><div class="prob-bar lose" style="width:42%"></div></div>
+        <span class="prob-pct">42%</span>
+      </div>
+    </div>
+    <div class="score-section">
+      <h3>最可能比分</h3>
+      <div class="score-item"><span class="score-label">1-2</span><div class="score-bar-bg"><div class="score-bar" style="width:100%"></div></div><span class="score-pct">10%</span></div>
+      <div class="score-item"><span class="score-label">1-1</span><div class="score-bar-bg"><div class="score-bar" style="width:92%"></div></div><span class="score-pct">9%</span></div>
+      <div class="score-item"><span class="score-label">0-1</span><div class="score-bar-bg"><div class="score-bar" style="width:80%"></div></div><span class="score-pct">8%</span></div>
+      <div class="score-item"><span class="score-label">1-0</span><div class="score-bar-bg"><div class="score-bar" style="width:70%"></div></div><span class="score-pct">7%</span></div>
+      <div class="score-item"><span class="score-label">0-0</span><div class="score-bar-bg"><div class="score-bar" style="width:62%"></div></div><span class="score-pct">6%</span></div>
+    </div>
+    <div class="knockout-section">
+      <h3>🏆 淘汰赛阶段</h3>
+      <p style="color:#8b949e;font-size:0.85em;margin-bottom:8px;">1/8决赛 · 单场淘汰制 · BC Place（温哥华）</p>
+      <p style="color:#3fb950;font-size:0.88em;">⚡ 瑞士小组赛3胜1平0负积7分（进7球失2球，净胜球+5）以B组第1出线——4-1波黑、2-1加拿大、2-0阿尔及利亚。哥伦比亚小组赛3胜1平0负积7分（进4球失1球，净胜球+3）以K组第1出线——3-1乌兹别克斯坦、1-0刚果民主共和国、0-0葡萄牙。瑞士Elo 1943 vs 哥伦比亚2004，差距61分（本届最小ELO差距之一），FIFA排名差6位（#19 vs #13）。两队纸面实力几乎完全持平。瑞士1/16决赛2-0完胜阿尔及利亚展现攻防两端碾压，哥伦比亚1/16决赛1-0加纳零封晋级。本届淘汰赛已产生3大冷门（挪威胜巴西、英格兰胜墨西哥、比利时胜美国），瑞士作为近年每次止步R16的老将，哥伦比亚2024美洲杯亚军重返世界杯，双方均渴望突破历史。</p>
+    </div>
+    <div class="factor-section">
+      <h3>关键因素</h3>
+      <ul>
+        <li>ELO基线：瑞士1943 vs 哥伦比亚2004，差距仅61分——本届对阵中最小ELO差距之一，两队实力完全持平</li>
+        <li>FIFA排名：瑞士#19 vs 哥伦比亚#13，差距仅6位，南美vs欧洲的传统对阵</li>
+        <li>瑞士防守：小组赛4场仅失2球（场均0.5），Akanji（国际米兰）+Elvedi（多特蒙德）后防线本届大赛场均失球全场最低之一，Kobel（多特蒙德）门将状态极佳</li>
+        <li>瑞士中场：Xhaka（146场）+Freuler铁腰组合位置感极强，Manzambi（中场）本届3球是最大惊喜</li>
+        <li>哥伦比亚进攻：Diaz（拜仁）+Jhon Arias+Luis Diaz（AC米兰）锋线冲击力本届前5，Rios+Lerma中场控制力强</li>
+        <li>哥伦比亚防守：小组赛4场仅失1球（场均0.25），Davinson Sanchez（国际米兰）+Lucumi后防本届大赛场均失球全场最低</li>
+        <li>哥伦比亚队长James Rodriguez（34岁）：2014世界杯金靴，本届小组赛+R32发挥稳健，定位球威胁全场前3</li>
+        <li>历史交锋：两队仅4次正面对决，哥伦比亚2胜1平1负略占优，1994世界杯哥伦比亚2-0瑞士为本届最重要参考</li>
+        <li>瑞士近2届世界杯均止步R16（2018负瑞典、2022负荷兰），本届能否突破？哥伦比亚2018世界杯止步小组赛，2024美洲杯亚军重返世界杯士气正旺</li>
+        <li>场地：BC Place（温哥华，加拿大），中立场地——但温哥华有大量南美球迷聚集，哥伦比亚球迷氛围可能略有加成</li>
+      </ul>
+    </div>
+    <div class="upset-section">
+      <h3>冷门指数</h3>
+      <div class="upset-row">
+        <span class="upset-label"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;"></span>冷门等级</span>
+        <span class="upset-value">🟡 中 (35%)</span>
+      </div>
+      <div class="upset-desc">冷门指数35%中等。瑞士和哥伦比亚Elo差距仅61分（本届最小级别），两队纸面实力完全持平。哥伦比亚虽然FIFA排名略高（#13 vs #19）但瑞士防守端（4场失2球）同样出色。哥伦比亚拥有Diaz世界级攻击手+James定位球威胁，瑞士有Manzambi中场爆发+Xhaka大赛经验。35%冷门概率来自：Elo差距全场最小+两队防守数据均顶级+哥伦比亚Diaz进攻爆发力+瑞士每次止步R16的宿命压力+本届淘汰赛已出3大冷门的氛围。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">预测基于FIFA排名、Elo评分、小组赛战绩和淘汰赛赛制分析 · 模型v5（Elo→贝叶斯→战术修正→蒙特卡洛10万次） · 淘汰赛平局概率上调+5% · 仅供研究参考</div>
+</div>
+</body>
+</html>
