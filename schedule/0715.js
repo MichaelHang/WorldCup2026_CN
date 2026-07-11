@@ -11,6 +11,11 @@ SCHEDULE_DATA['0715'] = `
                     <span class="match-score">0</span>
                     <a href="predictions/0715.html" class="pred-link">📊</a>
                 </div>
+            </div>
+        </div>
+<div class="date-group">
+            <div class="date-header">7月11日</div>
+            <div class="date-matches">
                 <div class="match-row">
                     <span class="match-time">03:00</span>
                     <span class="match-group">Quarter-final</span>
